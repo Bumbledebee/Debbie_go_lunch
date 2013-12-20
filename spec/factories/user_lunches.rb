@@ -4,6 +4,9 @@ FactoryGirl.define do
   factory :user_lunch do
     user_id 1
     lunch_id 1
+
+    lunch
+    user
   end
 end
 

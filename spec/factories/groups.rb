@@ -3,7 +3,8 @@
 FactoryGirl.define do
   factory :group do
     name "awesome_group"
-    sequence(:lunch_id) { |n| "Lunch#{n}" }
+    sequence(:lunch_id) { |n| "Lunch NR#{n}" }
 
+    lunch
   end
 end

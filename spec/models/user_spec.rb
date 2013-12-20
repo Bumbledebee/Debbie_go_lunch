@@ -12,5 +12,8 @@ describe User do
 
   it { should have_valid(:name).when(User.new) }
 
+  it { should have_many :lunches }
+  it { should have_many :groups }
+
 
 end

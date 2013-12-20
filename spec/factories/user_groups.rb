@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :user_group do
-    user_id 1
-    group_id 1
+    sequence(:user_id) { |n| "User Nr #{n}" }
+    sequence(:group_id) { |n| "Group Nr #{n}"}
 
     group
-    lunch
+    user
   end
 end
+
