@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    email "MyString"
-    department "MyString"
-    lunchgroupleader "MyString"
-    optional "MyString"
-    admin false
+    name "Max"
+    email "max@company.com"
+    department "Sales"
+    lunchgroupleader "yes"
+    optional "vegetarian"
+    admin true
   end
 end
