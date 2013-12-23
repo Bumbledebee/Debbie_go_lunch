@@ -1,7 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+datafile = Rails.root + 'db/data/users.csv'
+seed_users(datafile) unless User.all > 5
+
+def seed_users(datafile)
+  CSV.foreach(datafile, headers: true) do |row|
+    User.find_or_initialize_by(email: row['email']) do |user|
+      user.name = row['name']
+      user.email = row['email']
+      user.department = row['department']
+      user.lunchgroupleader = row['lunchgroupleader']
+      user.optional = row['optional']
+      user.save!
+      puts "User with name #{user.name} processed"
+    end
+  end
+end
+
