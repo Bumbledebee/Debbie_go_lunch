@@ -2,6 +2,9 @@
 
 FactoryGirl.define do
   factory :lunch do
-    sequence(:name) { |n| "Lunch#{n}" }
+    name "string"
   end
+
+
+
 end

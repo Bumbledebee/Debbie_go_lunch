@@ -1,6 +1,6 @@
 class UserGroup < ActiveRecord::Base
-  validates_numericality_of :user_id, :only_integer => true
-  validates_numericality_of :group_id, :only_integer => true
+  validates_presence_of :group
+  validates_presence_of :user
 
   belongs_to :group
   belongs_to :user
