@@ -1,0 +1,43 @@
+
+</br>
+<input type="text" class='loved' name="input" value="Type here">
+<div class='colin'>
+__
+</div>
+
+<script>
+$('.loved').keypress(function(){
+    $.post('', {loved: $('.loved').val()}, function(data){
+      $('.colin').html('<h1>The result ' + data.names + '</h1>');
+    });
+});
+</script>
+
+<%= link_to 'back', users_path %>
+
+<% @users.each do |user| %>
+  <ul> <%= form_for(user) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :department %>
+    <%= f.select :department, ['IT', 'HR', 'Finance', 'Sales']  %>
+
+    <%= f.label :lunchgroupleader %>
+    <%= f.select :lunchgroupleader, ['yes', 'maybe', 'no']  %>
+
+    <%= f.label :optional %>
+    <%= f.text_field :optional %>
+
+    <%= f.label :admin %>
+    <%= f.select :admin, {'yes'=>true, 'no'=>false} %>
+
+    <%= f.submit %>
+
+<% end%> </br>
+  </ul>
+<% end%>
+
+
+

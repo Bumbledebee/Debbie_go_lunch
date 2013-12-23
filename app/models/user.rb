@@ -7,8 +7,13 @@ class User < ActiveRecord::Base
   has_many :user_lunches
   has_many :lunches,
     :through => :user_lunches
+
+  has_many :user_groups
   has_many :groups,
     :through => :user_groups
-  has_many :user_groups
+
+  def self.get_names(search)
+    User.all.map{|x| x.name if x.name.include?(search)}.compact
+  end
 
 end
