@@ -1,3 +1,6 @@
+
+<%= link_to 'Make Lunch Groups', users_path, class: 'button'%>
+
 <table>
   <thead>
     <tr>
@@ -20,8 +23,8 @@
       <td>
       <% hidden_field_tag "user[lunch_ids][]", nil %>
       <% Lunch.all.each do |lunch| %>
-      <%= check_box_tag "user[lunch_ids][]", lunch.id, user.lunch_ids.include?(lunch.id), id: dom_id(lunch) %>
-      <%= label_tag dom_id(lunch), lunch.name %>
+      <%= check_box_tag "user[lunch_ids][]", lunch.id, user.lunch_ids.include?(lunch.id), id: dom_id(user) %>
+      <%= label_tag dom_id(user), lunch.name %>
       <%end%></td>
     </tr>
     <%end%>
