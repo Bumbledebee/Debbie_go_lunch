@@ -1,1 +1,29 @@
-index.html.erb
+<table>
+  <thead>
+    <tr>
+      <th width="200">Name</th>
+      <th width="150">Department</th>
+      <th width="150">Lunchgroupleader</th>
+      <th width="150">Note</th>
+      <th width="50">Admin</th>
+      <th widht="100">Lunch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %> </td>
+      <td><%= user.department %></td>
+      <td><%= user.lunchgroupleader %></td>
+      <td><%= user.optional %></td>
+      <td><%= user.admin %></td>
+      <td>
+      <% hidden_field_tag "user[lunch_ids][]", nil %>
+      <% Lunch.all.each do |lunch| %>
+      <%= check_box_tag "user[lunch_ids][]", lunch.id, user.lunch_ids.include?(lunch.id), id: dom_id(lunch) %>
+      <%= label_tag dom_id(lunch), lunch.name %>
+      <%end%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
