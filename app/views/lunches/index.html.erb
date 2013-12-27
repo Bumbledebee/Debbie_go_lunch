@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th width="200">LUNCH</th>
+      <th width="200">ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lunches.each do |lunch| %>
+    <tr>
+      <td><%= lunch.name %></td>
+      <td><%= link_to "Organise this lunch", lunch_path(lunch) %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+
+

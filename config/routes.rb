@@ -4,7 +4,8 @@ Toy::Application.routes.draw do
 
   resources :lunches do
     member do
-      get 'match'
+      put 'match'
+      put 'update_status'
     end
   end
 

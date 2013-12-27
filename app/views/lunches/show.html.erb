@@ -1,5 +1,6 @@
+<a href="#" class="button">Make Groups</a>
 
-
+<h1> Add users to <%= "#{@lunch.name} " %> </h1>
 
 <table>
   <thead>
@@ -9,10 +10,11 @@
       <th width="150">Lunchgroupleader</th>
       <th width="150">Note</th>
       <th width="50">Admin</th>
-      <th widht="100">Lunch</th>
+      <th widht="100">Participating</th>
     </tr>
   </thead>
   <tbody>
+    <%= form_tag update_status_lunch_path(@lunch), method: :put do %>
     <% @users.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
@@ -21,8 +23,11 @@
       <td><%= user.optional %></td>
       <td><%= user.admin %></td>
       <td>
-
+      <%= check_box_tag "lunch[users][]", user.id %>
+      <%= label_tag "lunch[users][]", @lunch.name%> </td>
     </tr>
     <%end%>
+    <%= submit_tag 'Update changes', class: 'button'%>
+    <% end %>
   </tbody>
 </table>
