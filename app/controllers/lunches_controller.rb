@@ -20,6 +20,9 @@ class LunchesController < ApplicationController
     redirect_to @lunch
   end
 
+  def take_down
+  end
+
   private
 
   def lunch_params

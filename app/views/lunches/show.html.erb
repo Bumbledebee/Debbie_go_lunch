@@ -35,7 +35,7 @@ MIDDLE PART
 
   </thead>
   <tbody>
-    <%= form_tag update_status_lunch_path(@lunch), method: :put do %>
+    <%= form_tag take_down_lunch_path(@lunch), method: :put do %>
 
     <% @users_not =  User.all.map {|x| x unless @lunch.users.include?(x) } %>
     <% @users_not.compact.each do |user| %>
