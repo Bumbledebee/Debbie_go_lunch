@@ -11,6 +11,13 @@ class LunchesController < ApplicationController
 
   def match
     @lunch = Lunch.find(params[:id])
+
+    # groups = []
+    # users = []
+    # x = @lunch.users / 5
+    # groups << x.times Group.new(:lunch_id => @lunch.id)
+    # users <<
+
   end
 
   def update_status
@@ -21,6 +28,10 @@ class LunchesController < ApplicationController
   end
 
   def take_down
+    @lunch = Lunch.find(params[:id])
+    @lunch.users -= params[:lunch][:users].map{|x| User.find(x.to_i)}
+    @lunch.save!
+    redirect_to @lunch
   end
 
   private

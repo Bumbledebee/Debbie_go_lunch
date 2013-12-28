@@ -6,6 +6,7 @@ Toy::Application.routes.draw do
     member do
       put 'take_down'
       put 'update_status'
+      put 'match'
     end
   end
 

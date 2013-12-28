@@ -1,23 +1,27 @@
-<a href="#" class="button">Make Groups</a>
+<%= link_to 'Make Groups with participants', match_lunch_path(@lunch), class: 'button' %>
 
-<h1> Change participant status for the <%= "#{@lunch.name} " %> </h1>
+<h1> Change participant status for the <strong><%= "#{@lunch.name} " %></strong></h1>
 
 <div class="edit">
 <table>
   <thead>
     <tr>
-      <th width="200">Name</th>
+      <th width="200">Participant</th>
+      <th width="50">Change</th>
 
   </thead>
   <tbody>
-    <%= form_tag update_status_lunch_path(@lunch), method: :put do %>
+    <%= form_tag take_down_lunch_path(@lunch), method: :put do %>
     <% @lunch.users.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
+      <td>
+      <%= check_box_tag "lunch[users][]", user.id %>
+      <%= label_tag "lunch[users][]", ""%> </td>
 
     </tr>
     <%end%>
-    <%= submit_tag 'Update changes', class: 'button'%>
+    <%= submit_tag 'TAKE DOWN', class: 'button'%>
     <% end %>
   </tbody>
 </table>
@@ -31,22 +35,26 @@ MIDDLE PART
 <table>
   <thead>
     <tr>
-      <th width="200">Name</th>
-
+      <th width="200">Not coming</th>
+      <th widht='50'>Change</th>
   </thead>
   <tbody>
-    <%= form_tag take_down_lunch_path(@lunch), method: :put do %>
+    <%= form_tag update_status_lunch_path(@lunch), method: :put do %>
 
     <% @users_not =  User.all.map {|x| x unless @lunch.users.include?(x) } %>
     <% @users_not.compact.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
+      <td>
+      <%= check_box_tag "lunch[users][]", user.id %>
+      <%= label_tag "lunch[users][]", ""%> </td>
     </tr>
     <%end%>
-    <%= submit_tag 'Update changes', class: 'button'%>
+    <%= submit_tag 'ADD TO LUNCH', class: 'button'%>
     <% end %>
   </tbody>
 </table>
 </div>
+
 
 

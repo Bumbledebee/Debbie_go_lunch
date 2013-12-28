@@ -6,12 +6,4 @@ class Lunch < ActiveRecord::Base
     :through => :user_lunches
   has_many :user_lunches
 
-
-  # def make_groups
-  #   groups = []
-  #   users = []
-  #   x = User.all.where(lunch_id = @lunch.id) / 5
-  #   groups << x.times Group.new(:lunch_id => @lunch.id)
-  #   users <<
-  # end
 end
