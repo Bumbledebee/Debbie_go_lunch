@@ -9,18 +9,18 @@
       <th width="150">Lunchgroupleader</th>
       <th width="150">Note</th>
       <th width="50">Admin</th>
-      <th widht="100">Lunch</th>
+      <th widht="100">Change Profile</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
-      <td><%= user.department %></td>
+      <td><%= user.department.name %></td>
       <td><%= user.lunchgroupleader %></td>
       <td><%= user.optional %></td>
       <td><%= user.admin %></td>
-      <td>
+      <td><%= link_to 'edit', edit_user_path %>
 
     </tr>
     <%end%>

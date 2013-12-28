@@ -1,6 +1,6 @@
 Toy::Application.routes.draw do
   resources :users
-  root :to => "users#index"
+  root :to => "welcome#index"
 
   resources :lunches do
     member do
