@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <table>
+    <thead>
+      <tr>
+      <th width="200">group</th>
+      <th width="50">id</th>
+      <th width="100">size</th>
+      <th width="150">lunch</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groupies = [] %>
+      <% @lunch.users.each do |user| %>
+      <% @groupies << user.groups.last.name %>
+      <%end%>
+      <% @groupies.each do |group| %>
+      <tr>
+        <td> <%= group.name %></td>
+        <td> <%= group.id %></td>
+        <td> <%= User.first.groups.name %></td>
+       <!--  #need to find out how to display the users per group -->
+        <td> xx</td>
+        <!-- #need to find out how to display the name of the lunch -->
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+
