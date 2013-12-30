@@ -1,27 +1,39 @@
 <div class="wrapper">
-  <table>
-    <thead>
-      <tr>
-      <th width="200">group</th>
-      <th width="50">id</th>
-      <th width="100">size</th>
-      <th width="150">participants</th>
-      </tr>
+  <% group_num = (@lunch.users.count/5)+1 %>
+  <% @users = @lunch.users %>
+  <% groupes = @lunch.groups[0...group_num] %>
+  <% groupes.each do |group| %>
+    <table>
+      <thead>
+        <tr>
+          <th>group.name</th>
+          <th>group.id</th>
+          <th>lunchgroupleader</th>
+          <th>name</th>
+          <th>name</th>
+          <th>name</th>
+          <th>name</th>
+          <th>name</th
+          <th>name</th>
+        </tr>
     </thead>
     <tbody>
-      <% group_num = (@lunch.users.count/5)+1 %>
-      <% users = @lunch.users %>
-      <% groupes = @lunch.groups[0...group_num] %>
-      <% groupes.each do |group| %>
       <tr>
-      <td><%= group.name %></td>
-      <td><%= group.id %></td>
-      <td>Size of the lunch</td>
-      <% group.users.each do |user|%>
-      <td><%=user.name%></td>
-        </tr>
-      <%end%>
-      <%end%>
+        <td><%= group.name %></td>
+        <td><%= group.id %></td>
+        <% @group = group %>
+        <td>
+          <!-- #this needs refactoring -->
+          <% simple_form_for @users do |f| %>
+          <%= f.input :user, collection: @users%>
+          <%end%>
+          <!-- #end -->
+        </td>
+          <% group.users.each do |user|%>
+        <td><%=user.name%></td>
+        <%end%>
+      </tr>
     </tbody>
   </table>
+  <%end%>
 </div>
