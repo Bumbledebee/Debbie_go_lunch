@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <table>
+    <thead>
+      <tr>
+      <th width="200">group</th>
+      <th width="50">id</th>
+      <th width="100">size</th>
+      <th width="150">participants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% group_num = (@lunch.users.count/5)+1 %>
+      <% users = @lunch.users %>
+      <% groupes = @lunch.groups[0...group_num] %>
+      <% groupes.each do |group| %>
+      <tr>
+      <td><%= group.name %></td>
+      <td><%= group.id %></td>
+      <td>Size of the lunch</td>
+      <td>All users that participate in the lunch (group.users does not work)</td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+

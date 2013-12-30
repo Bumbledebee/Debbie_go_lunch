@@ -1,0 +1,10 @@
+<div class="wrapper">
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.association :department %>
+  <%= f.input :lunchgroupleader %>
+  <%= f.input :optional %>
+  <%= f.input :admin, as: :boolean %>
+  <%= f.button :submit %>
+<%end%>
+</div>
