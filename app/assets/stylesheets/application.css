@@ -13,19 +13,5 @@
 
  *= require_tree .
  */
-.wrapper {
-  max-width: 850px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.top {
-  text-align: center;
-  background-color: #8affbf;
-  padding: 30px;
-  border-bottom: 15px solid  #7ce5a6;
-}
 
-.button {
-  margin-left: auto;
-  margin-right: auto;
-}
+@import 'style;

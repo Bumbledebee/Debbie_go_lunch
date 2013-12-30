@@ -5,6 +5,4 @@ FactoryGirl.define do
     name "string"
   end
 
-
-
 end

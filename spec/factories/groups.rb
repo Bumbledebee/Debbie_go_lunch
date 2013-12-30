@@ -5,4 +5,5 @@ FactoryGirl.define do
     name "awesome_group"
     lunch
   end
+
 end

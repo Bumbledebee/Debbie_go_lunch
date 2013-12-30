@@ -9,4 +9,10 @@ FactoryGirl.define do
     optional "vegetarian"
     admin true
   end
+
+  trait :with_users
+    after :create do |lunch|
+     FactoryGirl.create_list :user, 16, :lunch => lunch
+    end
+
 end

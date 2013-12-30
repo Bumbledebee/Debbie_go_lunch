@@ -1,8 +1,8 @@
 class Group < ActiveRecord::Base
-  belongs_to :lunch,
-    inverse_of: :groups
+  belongs_to :lunch
+  has_many :user_groups
   has_many :users,
-    inverse_of: :groups
+    :through => :user_groups
 
   validates_presence_of :name
 end
