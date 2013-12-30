@@ -1,0 +1,12 @@
+<div class="top"
+<div class="wrapper">
+
+  <h1>
+    NEXT LUNCH: <%= Lunch.last.name%>
+  </h1>
+</div>
+</div>
+<div class="wrapper">
+<%= link_to 'Join the lunch', edit_user_path(User.where(:id=>1)), class: 'button' %>
+</div>
+
