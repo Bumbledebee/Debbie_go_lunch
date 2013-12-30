@@ -8,6 +8,7 @@ Toy::Application.routes.draw do
       put 'take_down'
       put 'update_status'
       put 'match'
+      get 'match'
       put 'groups'
       get 'groups'
     end

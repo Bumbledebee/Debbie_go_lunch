@@ -16,7 +16,7 @@ class LunchesController < ApplicationController
 
   def match
     @lunch = Lunch.find(params[:id])
-    group_num = @lunch.users.count/5
+    group_num = (@lunch.users.count/5)+1
     groups = []
     group_num.times { groups << Group.create!(:lunch_id => @lunch.id, :name => @lunch.name+'group')}
     users = @lunch.users.sort { |a,b| a.department_id <=> b.department_id}
@@ -24,11 +24,10 @@ class LunchesController < ApplicationController
       group_put = index % group_num
       user.groups << groups[group_put]
     end
-
+    redirect_to groups_lunch_path(@lunch)
   end
 
   def update_status
-    binding.pry
     @lunch = Lunch.find(params[:id])
     @lunch.users += params[:lunch][:users].map{|x| User.find(x.to_i)}
     @lunch.save!
@@ -47,5 +46,4 @@ class LunchesController < ApplicationController
   def lunch_params
     params.require(:lunch).permit(:name)
   end
-
 end
