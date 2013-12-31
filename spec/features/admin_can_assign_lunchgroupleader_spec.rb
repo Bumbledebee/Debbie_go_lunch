@@ -1,6 +1,6 @@
 require 'spec_helper'
 before :each do
-  FactoryGirl.create(:lunch :with_users)
+  FactoryGirl.create(:lunch, :with_users)
 end
 
 feature 'admin can assign lunchgroupleader' do

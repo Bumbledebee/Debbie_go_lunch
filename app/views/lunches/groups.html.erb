@@ -1,8 +1,9 @@
-<div class="wrapper">
+<div class='large-6 columns'>
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
   <% groupes.each do |group| %>
+
     <table>
       <thead>
         <tr>
@@ -21,14 +22,7 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
-        <% @group = group %>
-        <td>
-          <!-- #this needs refactoring -->
-          <% simple_form_for @users do |f| %>
-          <%= f.input :user, collection: @users%>
-          <%end%>
-          <!-- #end -->
-        </td>
+        <td><%= group.lunchgroupleader %></td>
           <% group.users.each do |user|%>
         <td><%=user.name%></td>
         <%end%>
