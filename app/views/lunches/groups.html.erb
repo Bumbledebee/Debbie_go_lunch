@@ -13,24 +13,28 @@
           <th>name</th>
           <th>name</th>
           <th>name</th>
-          <th>name</th
+          <th>name</th>
           <th>name</th>
         </tr>
     </thead>
     <tbody>
+
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
         <% @group = group %>
         <td>
           <!-- #this needs refactoring -->
-          <% simple_form_for @users do |f| %>
-          <%= f.input :user, collection: @users%>
-          <%end%>
           <!-- #end -->
         </td>
-          <% group.users.each do |user|%>
-        <td><%=user.name%></td>
+        <% group.users.each do |user|%>
+        <td>  <%=user.name%>
+          <%= form_tag change_groups_lunch_path(@group), method: :put do %>
+          <%= check_box_tag "group[users][]", user.id %>
+          <%= label_tag "group[users][]", ""%>
+          <%end%>
+        </td>
+        <%= submit_tag 'Add to Group#{@group.id}', class: 'button'%>
         <%end%>
       </tr>
     </tbody>
