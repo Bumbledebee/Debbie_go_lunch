@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <%= form_tag take_down_lunch_path(@lunch), method: :put do %>
-    <% @lunch.users.each do |user| %>
+    <% @users.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
       <td>
@@ -42,8 +42,7 @@ MIDDLE PART
   <tbody>
     <%= form_tag update_status_lunch_path(@lunch), method: :put do %>
 
-    <% @users_not =  User.all.map {|x| x unless @lunch.users.include?(x) } %>
-    <% @users_not.compact.each do |user| %>
+    <% @users_not_going.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
       <td>
@@ -56,8 +55,4 @@ MIDDLE PART
   </tbody>
 </table>
 </div>
-
 </div>
-
-
-

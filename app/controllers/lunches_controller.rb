@@ -5,25 +5,24 @@ class LunchesController < ApplicationController
   end
 
   def groups
-    @groups = Group.all
     @lunch = Lunch.find(params[:id])
+    group_num = (@lunch.users.count/5)+1
+    @users = @lunch.users
+    @groups = @lunch.groups[0...group_num]
   end
 
   def show
     @lunch = Lunch.find(params[:id])
-    @users = User.all
+    @users = @lunch.users
+    @users_not_going =  User.all.map {|x| x unless @lunch.users.include?(x) }
+    @users_not_going = @users_not_going.compact
   end
 
   def match
     @lunch = Lunch.find(params[:id])
-    group_num = (@lunch.users.count/5)+1
-    groups = []
-    group_num.times { groups << Group.create!(:lunch_id => @lunch.id, :name => @lunch.name+'group')}
-    users = @lunch.users.sort { |a,b| a.department_id <=> b.department_id}
-    users.each_with_index do |user, index|
-      group_put = index % group_num
-      user.groups << groups[group_put]
-    end
+    #undefined method `make_groups' for #<LunchesController:0x007ffb2455ff38> why?
+    #I defined it in the model
+    make_groups(@lunch)
     redirect_to groups_lunch_path(@lunch)
   end
 
@@ -44,12 +43,10 @@ class LunchesController < ApplicationController
   def change_group
     @user = User.find(params[:id])
     @old_group = @user.groups.last
-    @old_group.users -= params[:group][:users].map{|x| User.find(x.to_i)}
-    @old_group.save!
     @group = Group.find(params[:id])
-    @group.users += params[:group][:users].map{|x| User.find(x.to_i)}
-    @group.save!
-    redirect_to groups_lunch_path
+    #undefined method `make_groups' for #<LunchesController:0x007ffb2459fca0> why ?
+    #I defined it in the model
+    change_groups(@user, @old_group, @group)
   end
 
   private
