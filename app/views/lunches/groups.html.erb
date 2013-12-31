@@ -19,13 +19,13 @@
         </tr>
     </thead>
     <tbody>
-
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
         <td><%= group.lunchgroupleader %></td>
           <% group.users.each do |user|%>
         <td><%=user.name%></td>
+
       </tr>
     </tbody>
   </table>
