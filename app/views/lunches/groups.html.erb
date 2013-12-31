@@ -9,10 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% group_num = (@lunch.users.count/5)+1 %>
-      <% users = @lunch.users %>
-      <% groupes = @lunch.groups[0...group_num] %>
-      <% groupes.each do |group| %>
+      <% @groups.each do |group| %>
       <tr>
       <td><%= group.name %></td>
       <td><%= group.id %></td>
