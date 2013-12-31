@@ -8,14 +8,10 @@ feature 'admin can assign lunchgroupleader' do
     visit '/lunches/'
     click_button 'Make lunch groups'
     visit '/lunches/1/groups'
-
+    # selects someone as lunchgroupleader from a dropbox
 
   end
 
-  it "admin unassigns someone not to be lunchgroupleader anymore" do
-    visit '/lunches/1'
-    expect(page).to have_content "All The Events"
-  end
 
 end
 
