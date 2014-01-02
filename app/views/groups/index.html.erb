@@ -1,9 +1,14 @@
-<div class='large-6 columns'>
+<div class="wrapper">
+<%= link_to "Edit groups", '/lunches/1/groups/show', class:'button'%>
+<!-- checking rake routes I could not find the path
+ -->
+<%= link_to "Download CSV", '/lunches/1/groups/csv', class:'button'%>
+<%= link_to "Email groups", '/lunches/1/groups/email', class:'button'%>
+
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
   <% groupes.each do |group| %>
-
     <table>
       <thead>
         <tr>
@@ -22,12 +27,15 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
-        <td><%= group.lunchgroupleader %></td>
+        <% @group = group %>
           <% group.users.each do |user|%>
-        <td><%=user.name%></td>
-
+            <td><%=user.name%>
+          <%end%>
+          </td>
       </tr>
     </tbody>
   </table>
   <%end%>
 </div>
+
+

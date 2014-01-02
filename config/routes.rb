@@ -7,8 +7,13 @@ Toy::Application.routes.draw do
       put 'take_down'
       put 'update_status'
       get 'match'
-      get 'groups'
       put 'change_groups'
+    end
+    resources :groups
+    collection do
+      put 'show'
+      put 'csv'
+      put 'email'
     end
   end
 

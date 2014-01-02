@@ -9,9 +9,9 @@ class Lunch < ActiveRecord::Base
   def make_groups
     group_num = (users.count/5)+1
     groups = []
-    group_num.times { groups << Group.new(:lunch_id => id, :name => name+'group')}
-    if groups.save
-      users = users.sort { |a,b| a.department_id <=> b.department_id}
+    group_num.times { groups << Group.new(:lunch_id => self.id, :name => self.name+'#{Group.all.count}')}
+    if groups.each {|c| c.save}
+      users = self.users.sort { |a,b| a.department_id <=> b.department_id}
       users.each_with_index do |user, index|
         group_put = index % group_num
         user.groups << groups[group_put]

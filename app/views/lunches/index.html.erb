@@ -11,8 +11,8 @@
     <% @lunches.reverse.each do |lunch| %>
     <tr>
       <td><%= lunch.name %></td>
-      <td><%= link_to "Organise participants", lunch_path(lunch) %></td>
-      <td> <%= link_to "Look at the groups", groups_lunch_path(lunch)%> </td>
+      <td><%= link_to "Organise participants", lunch_path(lunch), class:'button' %></td>
+      <td> <%= link_to "Look at the groups", groups_lunch_path(lunch), class:'button'%> </td>
       <td> <%= link_to "Make lunch groups", match_lunch_path(lunch), class:'button'%> </td>
     </tr>
     <%end%>

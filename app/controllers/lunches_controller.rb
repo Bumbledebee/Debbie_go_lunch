@@ -4,13 +4,6 @@ class LunchesController < ApplicationController
     @lunches = Lunch.all
   end
 
-  def groups
-    @lunch = Lunch.find(params[:id])
-    group_num = (@lunch.users.count/5)+1
-    @users = @lunch.users
-    @groups = @lunch.groups[0...group_num]
-  end
-
   def show
     @lunch = Lunch.find(params[:id])
     @users = @lunch.users
