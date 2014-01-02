@@ -15,8 +15,8 @@ feature 'user can signs up', %Q{
     click_link 'Sign Up'
     fill_in 'Name', with: "John Doe"
     fill_in 'Email', with: 'user@example.com'
-    fill_in "Password", with: 'password'
-    fill_in "Password Confirmation", with: 'password'
+    fill_in "Password", with: "passwordtest", :match => :prefer_exact
+    fill_in "Password Confirmation", with: "passwordtest", :match => :prefer_exact
     select "sure, no prob", from:"Lunchgroupleader"
     select "IT", from: "Department"
     fill_in "Optional", with: "Veggie"
@@ -33,3 +33,4 @@ feature 'user can signs up', %Q{
   end
 
 end
+
