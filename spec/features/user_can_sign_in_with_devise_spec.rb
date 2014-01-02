@@ -10,15 +10,19 @@ feature 'user can signs up', %Q{
   #* I must specify a valid email address and two matching passwords
 
   scenario 'specifying valid and required information' do
+    FactoryGirl.create(:department)
     visit root_path
     click_link 'Sign Up'
     fill_in 'Name', with: "John Doe"
     fill_in 'Email', with: 'user@example.com'
     fill_in "Password", with: 'password'
     fill_in "Password Confirmation", with: 'password'
-    clikc_button 'Sign Up'
+    select "sure, no prob", from:"Lunchgroupleader"
+    select "IT", from: "Department"
+    fill_in "Optional", with: "Veggie"
+    click_button 'Sign Up'
 
-    expect(page).to have_content "Yo're in!"
+    expect(page).to have_content "You're in!"
     expect(page).to have_content "Sign Out"
   end
 

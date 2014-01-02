@@ -2,7 +2,7 @@
 <div class="wrapper">
 
   <h1>
-    NEXT LUNCH: <%= Lunch.last.name%>
+    NEXT LUNCH: <%= Lunch.last.name if Lunch.any?%>
   </h1>
 </div>
 </div>
