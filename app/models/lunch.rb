@@ -16,12 +16,14 @@ class Lunch < ActiveRecord::Base
         group_put = index % group_num
         user.groups << groups[group_put]
       end
+      self.groups.map {|group| group.set_group_leader}
     else
       raise "Sorry try again"
     end
   end
 
   def change_groups(user, old_group, group)
+    #wrong, will need to refactor
     @old_group.users -= params[:group][:users].map{|x| User.find(x.to_i)}
     @group.users += params[:group][:users].map{|x| User.find(x.to_i)}
     if @old_group.save! && @group.save!

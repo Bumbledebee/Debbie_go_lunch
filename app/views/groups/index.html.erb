@@ -27,7 +27,8 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
-        <% @group = group %>
+        <% user = User.where(id: group.lunchgroupleader)%>
+        <td><%=user.name%></td>
           <% group.users.each do |user|%>
             <td><%=user.name%>
           <%end%>
