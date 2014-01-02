@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name << :department_id <<:lunchgroupleader <<:optional
+    devise_parameter_sanitizer.for(:sign_up) << :name << :department_id << :lunchgroupleader << :optional
   end
+
+  def after_sign_in_path_for(resource)
+    user_path(@user)
+  end
+
+
 end

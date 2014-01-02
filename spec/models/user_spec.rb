@@ -15,13 +15,5 @@ describe User do
   it { should have_many :lunches }
   it { should have_many :groups }
 
-  it 'has matching password confirmation' do
-    user = User.new
-    user.password = 'password'
-    user.password_confirmation = 'anotherpassword'
-
-    expect(user).to_not be_valid
-    expect(user.errors[:password_confirmation]).to_not be_blank
-  end
 
 end
