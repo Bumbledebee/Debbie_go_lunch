@@ -6,12 +6,12 @@ class Lunch < ActiveRecord::Base
   has_many :users,
     :through => :user_lunches
 
-  def make_groups(lunch)
-    group_num = (@lunch.users.count/5)+1
+  def make_groups
+    group_num = (users.count/5)+1
     groups = []
-    group_num.times { groups << Group.create(:lunch_id => @lunch.id, :name => @lunch.name+'group')}
+    group_num.times { groups << Group.new(:lunch_id => id, :name => name+'group')}
     if groups.save
-      users = @lunch.users.sort { |a,b| a.department_id <=> b.department_id}
+      users = users.sort { |a,b| a.department_id <=> b.department_id}
       users.each_with_index do |user, index|
         group_put = index % group_num
         user.groups << groups[group_put]

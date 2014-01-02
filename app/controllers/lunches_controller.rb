@@ -20,9 +20,7 @@ class LunchesController < ApplicationController
 
   def match
     @lunch = Lunch.find(params[:id])
-    #undefined method `make_groups' for #<LunchesController:0x007ffb2455ff38> why?
-    #I defined it in the model
-    make_groups(@lunch)
+    @lunch.make_groups
     redirect_to groups_lunch_path(@lunch)
   end
 
@@ -44,8 +42,6 @@ class LunchesController < ApplicationController
     @user = User.find(params[:id])
     @old_group = @user.groups.last
     @group = Group.find(params[:id])
-    #undefined method `make_groups' for #<LunchesController:0x007ffb2459fca0> why ?
-    #I defined it in the model
     change_groups(@user, @old_group, @group)
   end
 
