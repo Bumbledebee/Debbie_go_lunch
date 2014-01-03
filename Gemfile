@@ -35,6 +35,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :staging, :production do
+  gem 'rails_12factor'
+end
+
+
 group :development, :test do
   gem 'pry-rails'
   gem 'factory_girl_rails'
