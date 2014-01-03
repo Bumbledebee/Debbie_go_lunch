@@ -19,3 +19,9 @@ production:
   database: toy_production
   pool: 5
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: toy_staging
+  pool: 5
+
