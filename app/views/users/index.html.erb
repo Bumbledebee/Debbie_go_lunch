@@ -16,8 +16,8 @@
     <% @users.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
-      <td><%= Department.where(id:user.department_id).name%></td>
-      <td><%= user.lunchgroupleader_id %></td>
+      <td><%= user.department.name%></td>
+      <td><%= user.lunchgroupleader.name%></td>
       <td><%= user.optional %></td>
       <td><%= user.admin %></td>
       <td><%= link_to 'edit', edit_user_path(user) %>

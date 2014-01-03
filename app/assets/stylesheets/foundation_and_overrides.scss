@@ -50,10 +50,10 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
+$primary-color: yellow;
+$secondary-color: yellow;
+$alert-color: yellow;
+$success-color: yellow;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -990,11 +990,12 @@
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
-@import 'foundation';
+
 .wrapper {
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 

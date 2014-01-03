@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Toy</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -22,7 +22,7 @@
       <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {confirm: "Are you sure"}%></li>
         <%if current_user.admin? %>
      <li class="has-dropdown">
-          <%= link_to 'Manage Participants', '/lunches/1' %>
+          <a href="#">Manage</a>
           <ul class="dropdown">
             <li><%= link_to 'Manage Groups', '/lunches/1/groups/show' %></li>
             <li><%= link_to 'Manage Lunches', '/lunches' %></li>
@@ -32,9 +32,9 @@
       <%else%>
       <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
       <li class="has-dropdown">
-        <%= link_to 'Sign Up with Mail', new_user_registration_path %>
+        <a href="#">Manage</a>
         <ul class="dropdown">
-          <li><a href="#">Sign up with Gmail</a></li>
+          <li><%= link_to 'Sign Up with Mail', new_user_registration_path %></li>
           <li><a href="#">Blablaplaceholder</a></li>
           <li><a href="#">Another placeholder</a></li>
         </ul>
@@ -48,8 +48,12 @@
     </ul>
   </section>
 </nav>
-  <p class="notice"><%= flash[:notice] %></p>
+
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
 <%= yield %>
+<%= javascript_include_tag "application"%>
 </body>
 </html>
 

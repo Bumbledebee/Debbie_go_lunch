@@ -1,9 +1,11 @@
 class GroupsController < ApplicationController
 
   def index
+    # needs to be improved
     @lunch = Lunch.find(params[:lunch_id])
+    group_num = (@lunch.users.count/5)+1
     @users = @lunch.users
-    @groups = @lunch.groups
+    @groups = @lunch.groups[0...group_num]
   end
 
   def show
