@@ -10,6 +10,7 @@ gem 'foundation-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -25,6 +26,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -41,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'quiet_assets'
+  gem 'launchy'
 end
 
 
