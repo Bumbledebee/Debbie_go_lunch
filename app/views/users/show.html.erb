@@ -1,2 +1,9 @@
-
-<h1> need to do this page<h1>
+ <div class="wrapper">
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.association :department %>
+  <%= f.input :lunchgroupleader %>
+  <%= f.input :optional %>
+  <%= f.button :submit %>
+<%end%>
+</div>
