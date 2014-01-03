@@ -9,11 +9,11 @@ class Group < ActiveRecord::Base
 
   # private
   def set_group_leader
-    if users.where(lunchgroupleader: "sure, no prob").any?
-      self.lunchgroupleader = users.where(lunchgroupleader: "sure, no prob").last.id
+    if users.where(lunchgroupleader_id:1).any?
+      self.lunchgroupleader = users.where(lunchgroupleader_id:1).last.id
       save
-    elsif users.where(lunchgroupleader: "only if needed").any?
-      self.lunchgroupleader = users.where(lunchgroupleader: "only if needed").first.id
+    elsif users.where(lunchgroupleader_id:2).any?
+      self.lunchgroupleader = users.where(lunchgroupleader_id:2).first.id
       save
     else
       self.lunchgroupleader = users.last.id

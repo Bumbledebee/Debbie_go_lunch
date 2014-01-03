@@ -34,7 +34,9 @@
       <li class="has-dropdown">
         <%= link_to 'Sign Up with Mail', new_user_registration_path %>
         <ul class="dropdown">
-          <li><a href="#">Sign up with Mail</a></li>
+          <li><a href="#">Sign up with Gmail</a></li>
+          <li><a href="#">Blablaplaceholder</a></li>
+          <li><a href="#">Another placeholder</a></li>
         </ul>
       </li>
       <%end%>
@@ -42,15 +44,12 @@
 
     <!-- Left Nav Section -->
     <ul class="left">
-      <li><% link_to 'View Groups', '/lunches/1/groups/' %></li>
-<!--   WHY will this not work    lunch_groups_path  GET   /lunches/:lunch_id/groups(.:format)   groups#index -->
+      <li><% link_to 'View Groups', lunch_groups_path(Lunch.last) %></li>
     </ul>
   </section>
 </nav>
   <p class="notice"><%= flash[:notice] %></p>
-<!-- I HAD TO TAKE ROW OUT IN ORDER FOR THE GREEN LINE TO WORK<div class="row"> -->
 <%= yield %>
-<!-- </div> -->
 </body>
 </html>
 

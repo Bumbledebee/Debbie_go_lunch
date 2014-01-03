@@ -22,15 +22,5 @@ class Lunch < ActiveRecord::Base
     end
   end
 
-  def change_groups(user, old_group, group)
-    #wrong, will need to refactor
-    @old_group.users -= params[:group][:users].map{|x| User.find(x.to_i)}
-    @group.users += params[:group][:users].map{|x| User.find(x.to_i)}
-    if @old_group.save! && @group.save!
-      redirect_to groups_lunch_path
-    else
-      raise "Sorry, try again"
-    end
-  end
 
 end

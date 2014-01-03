@@ -2,7 +2,7 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :name %>
   <%= f.association :department %>
-  <%= f.input :lunchgroupleader %>
+  <%= f.association :lunchgroupleader %>
   <%= f.input :optional %>
   <%= f.button :submit %>
 <%end%>

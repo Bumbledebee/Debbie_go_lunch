@@ -4,23 +4,23 @@ FactoryGirl.define do
   factory :user do
     name "Max"
     sequence(:email) {|n|"m#{n}ax@company.com"}
-    department
+    department_id 1
     password 'password'
     password_confirmation 'password'
-    lunchgroupleader "yes"
+    lunchgroupleader_id 1
     optional "vegetarian"
-    admin true
+    admin false
 
     trait :willing_to_be_leader do
-      lunchgroupleader "sure, no prob"
+      lunchgroupleader 1
     end
 
     trait :kind_of_willing_to_be_leader do
-      lunchgroupleader "only if needed"
+      lunchgroupleader 2
     end
 
     trait :not_willing_to_be_leader do
-      lunchgroupleader "not this time"
+      lunchgroupleader 3
     end
 
     trait :with_users do

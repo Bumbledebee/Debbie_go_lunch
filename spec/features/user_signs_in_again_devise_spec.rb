@@ -5,6 +5,13 @@ feature 'user signs ins', %Q{
   I want to sign in
   so I can use the functionalitites provided
 } do
+  before :each do
+    Lunchgroupleader.create(name:"sure, no prob")
+    Lunchgroupleader.create(name:"only if neeed")
+    Lunchgroupleader.create(name:"not this time")
+    Department.create(name:"Finance")
+    Lunch.create(name:"Chinese Dumplings")
+  end
   # Acceptance Criteria
   #*if I specify a valid and previously registered email and password
   # I am authenticated and I gain access to the system
@@ -30,7 +37,7 @@ feature 'user signs ins', %Q{
     fill_in "Password", with: 'password'
     click_button 'Sign In'
     # save_and_open_page
-    # expect(page).to have_content "Invalid email or password"
+    expect(page).to have_content "Invalid email or password"
     #problem here: the message does not show
     expect(page).to_not have_content("Welcome Back!")
     expect(page).to_not have_content("Sign Out")
@@ -44,7 +51,7 @@ feature 'user signs ins', %Q{
     fill_in "Password", with: "incorrect"
     click_button 'Sign In'
     # save_and_open_page
-    # expect(page).to have_content('Invalid email or password')
+    expect(page).to have_content('Invalid email or password')
     expect(page).to_not have_content('Sign Out')
   end
 

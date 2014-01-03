@@ -16,10 +16,12 @@ class GroupsController < ApplicationController
   end
 
   def csv
+    @lunch = Lunch.find(params[:lunch_id])
     #method for getting a csv of @lunch.users sorted by lunchgroup
   end
 
   def email
+    @lunch = Lunch.find(params[:lunch_id])
   end
 
 

@@ -5,10 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :name
-  # validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  # validates_uniqueness_of :email
   validates_presence_of :department_id
-  validates_presence_of :lunchgroupleader
+  validates_presence_of :lunchgroupleader_id
 
   has_many :user_lunches
   has_many :lunches,
@@ -17,4 +15,5 @@ class User < ActiveRecord::Base
     :through => :user_groups
   has_many :user_groups
   belongs_to :department
+  belongs_to :lunchgroupleader
 end

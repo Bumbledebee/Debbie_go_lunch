@@ -21,6 +21,7 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
+        <td><%= group.lunchgroupleader%></td>
         <% @group = group %>
         <%= form_tag change_groups_lunch_path(@group), method: :put do %>
           <% group.users.each do |user|%>

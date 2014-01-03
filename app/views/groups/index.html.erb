@@ -1,9 +1,7 @@
 <div class="wrapper">
-<%= link_to "Edit groups", '/lunches/1/groups/show', class:'button'%>
-<!-- checking rake routes I could not find the path
- -->
-<%= link_to "Download CSV", '/lunches/1/groups/csv', class:'button'%>
-<%= link_to "Email groups", '/lunches/1/groups/email', class:'button'%>
+<%= link_to "Edit groups", lunch_groups_path, class:'button'%>
+<%= link_to "Download CSV", csv_lunch_groups_path, class:'button'%>
+<%= link_to "Email groups", email_lunch_groups_path, class:'button'%>
 
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>

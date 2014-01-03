@@ -9,8 +9,9 @@ module Seeders
         User.find_or_initialize_by(email: row['email']) do |user|
           user.name = row['name']
           user.email = row['email']
+          user.lunchgroupleader_id = row['lunchgroupleader_id']
+          user.password = row['password']
           user.department_id = row['department_id']
-          user.lunchgroupleader = row['lunchgroupleader']
           user.optional = row['optional']
           user.save!
           puts "User with name #{user.name} processed"

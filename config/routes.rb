@@ -10,11 +10,12 @@ Toy::Application.routes.draw do
       get 'match'
       put 'change_groups'
     end
-    resources :groups
-    collection do
-      put 'show'
-      put 'csv'
-      put 'email'
+    resources :groups do
+      collection do
+        put 'show'
+        put 'csv'
+        put 'email'
+      end
     end
   end
 

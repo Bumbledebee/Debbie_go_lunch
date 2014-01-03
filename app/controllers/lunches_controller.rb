@@ -14,7 +14,7 @@ class LunchesController < ApplicationController
   def match
     @lunch = Lunch.find(params[:id])
     @lunch.make_groups
-    redirect_to groups_lunch_path(@lunch)
+    redirect_to lunch_groups_path(@lunch)
   end
 
   def update_status
@@ -29,13 +29,6 @@ class LunchesController < ApplicationController
     @lunch.users -= params[:lunch][:users].map{|x| User.find(x.to_i)}
     @lunch.save!
     redirect_to @lunch
-  end
-
-  def change_group
-    @user = User.find(params[:id])
-    @old_group = @user.groups.last
-    @group = Group.find(params[:id])
-    change_groups(@user, @old_group, @group)
   end
 
   private
