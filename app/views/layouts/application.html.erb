@@ -7,19 +7,51 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= flash[:notice] %></p>
-  <nav>
-    <ul>
+  <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Go Lunch</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
       <% if user_signed_in? %>
-      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {confirm: "Are you sure"}%></li>
+      <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {confirm: "Are you sure"}%></li>
+        <%if current_user.admin? %>
+     <li class="has-dropdown">
+          <%= link_to 'Manage Participants', '/lunches/1' %>
+          <ul class="dropdown">
+            <li><%= link_to 'Manage Groups', '/lunches/1/groups/show' %></li>
+            <li><%= link_to 'Manage Lunches', '/lunches' %></li>
+          </ul>
+        <%end%>
+      </li>
       <%else%>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
+      <li class="has-dropdown">
+        <%= link_to 'Sign Up with Mail', new_user_registration_path %>
+        <ul class="dropdown">
+          <li><a href="#">Sign up with Mail</a></li>
+        </ul>
+      </li>
       <%end%>
     </ul>
-  </nav>
-<div class="row">
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><% link_to 'View Groups', '/lunches/1/groups/' %></li>
+<!--   WHY will this not work    lunch_groups_path  GET   /lunches/:lunch_id/groups(.:format)   groups#index -->
+    </ul>
+  </section>
+</nav>
+  <p class="notice"><%= flash[:notice] %></p>
+<!-- I HAD TO TAKE ROW OUT IN ORDER FOR THE GREEN LINE TO WORK<div class="row"> -->
 <%= yield %>
-</div>
+<!-- </div> -->
 </body>
 </html>
+
+

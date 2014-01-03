@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :department_id, null: false
       t.string :lunchgroupleader, null: false
       t.string :optional
-      t.boolean :admin, default: true
+      t.boolean :admin, default: false
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
