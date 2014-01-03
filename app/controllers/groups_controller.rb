@@ -2,9 +2,8 @@ class GroupsController < ApplicationController
 
   def index
     @lunch = Lunch.find(params[:lunch_id])
-    group_num = (@lunch.users.count/5)+1
     @users = @lunch.users
-    @groups = @lunch.groups[0...group_num]
+    @groups = @lunch.groups
   end
 
   def show
@@ -17,7 +16,8 @@ class GroupsController < ApplicationController
 
   def csv
     @lunch = Lunch.find(params[:lunch_id])
-    #method for getting a csv of @lunch.users sorted by lunchgroup
+    @users = @lunch.users
+    @groups = @lunch.groups
   end
 
   def email
