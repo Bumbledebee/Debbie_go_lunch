@@ -1,6 +1,15 @@
 Toy::Application.routes.draw do
   devise_for :users
-  resources :users
+
+  resources :users do
+    member do
+      get 'add_me'
+      get 'not_me'
+    end
+  end
+
+  resources :departments
+  resources :lunchgroupleaders
   root :to => "welcome#index"
 
   resources :lunches do
@@ -8,11 +17,12 @@ Toy::Application.routes.draw do
       put 'take_down'
       put 'update_status'
       get 'match'
-      put 'change_groups'
     end
     resources :groups do
       collection do
         put 'show'
+        get 'change_groups'
+        put 'change'
         put 'csv'
         put 'email'
       end

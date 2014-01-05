@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    user_path(@user)
+    if current_user.admin?
+      lunches_path
+    else
+     user_path(@user)
+    end
   end
-
 
 end

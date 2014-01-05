@@ -1,8 +1,4 @@
 <div class="wrapper">
-<%= link_to "Edit groups", lunch_groups_path, class:'button'%>
-<%= link_to "Download CSV", csv_lunch_groups_path, class:'button'%>
-<%= link_to "Email groups", email_lunch_groups_path, class:'button'%>
-
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
@@ -25,16 +21,19 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
-        <% user = User.find(group.lunchgroupleader)%>
-        <td><%=user.name%></td>
+        <td><%= group.lunchgroupleader%></td>
+        <% @group = group %>
+        <%= form_tag change_lunch_groups_path(@lunch), method: :put do %>
           <% group.users.each do |user|%>
             <td><%=user.name%>
+            <%= check_box_tag "group[users][]", user.id %>
+            <%= label_tag "group[users][]", ""%>
           <%end%>
           </td>
+          <%= submit_tag "Add to group #{@group.name}", class: 'button'%>
+        <%end%>
       </tr>
     </tbody>
   </table>
   <%end%>
 </div>
-
-

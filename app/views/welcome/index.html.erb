@@ -4,7 +4,15 @@
   <h1>
     NEXT LUNCH: <%= Lunch.last.name if Lunch.any?%>
   </h1>
+  <% lunch = Lunch.first %>
+  <% user = User.first %>
+  <% groups = Lunch.first.groups %>
 </div>
+</div>
+<a href="https://github.com/Bumbledebee/Debbie_go_lunch"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
+
+<div class="fotter">
+  To try out this app, <strong><%= link_to 'sign in', new_user_session_path %> </strong> with <strong>admin@company.com</strong> and <strong>bigsecret</strong>
 </div>
 
 

@@ -1,9 +1,29 @@
- <div class="row">
-<%= simple_form_for @user do |f| %>
-  <div class="small-4 large-6 columns"><%= f.input :name %></div></br>
-  <div class="small-4 large-6 columns"><%= f.association :department %></div></br>
-  <div class="small-4 large-6 columns"><%= f.association :lunchgroupleader %></div></br>
-  <div class="small-4 large-6 columns"><%= f.input :optional %></div></br>
-  <div class="small-4 large-6 columns"><%= f.button :submit %></div></br>
+<!-- #user can edit himself -->
+<% possible_lunches = Lunch.all.map {|c| c unless c.groups.count != 0} %>
+<% if possible_lunches.compact.count > 0 %>
+<div class="row"></br></br>
+  <div class="large-6 large-offset-3 columns"><p><strong>Make a decision down here for future events</strong></p></div>
+  <% possible_lunches.compact.each do |l| %>
+    <div class="large-6 large-offset-3 columns"><%= l.name %><span class="green"><%= link_to 'PARTICIPATE', 'add_me_user'%></span>
+    <span class="red"><%= link_to 'Uhh, cannot come anymore', 'not_me_user'%></span></div></br>
+  <%end%>
 <%end%>
 </div>
+</div></br></br>
+<div class="row">
+
+<%= simple_form_for @user do |f| %>
+  <div class="large-6 large-offset-3 columns"><%= f.input :name %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.association :department %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.association :lunchgroupleader %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.input :optional %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.button :submit %></div></br>
+<%end%>
+
+<div class="row">
+<div class="large-6 large-offset-3 columns"><p><strong>Your lunch participation list</strong></p></div>
+<% current_user.lunches.each do |ll| %>
+  <div class="large-6 large-offset-3 columns"><%= ll.name %></div></br>
+<%end%>
+</div>
+

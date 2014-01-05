@@ -1,8 +1,8 @@
 <div class="wrapper">
 
-
 <h1> Change participant status for the <strong><%= "#{@lunch.name} " %></strong></h1>
-
+<p> You can edit the name of the lunch at the bottom</p>
+<p>Ready ? <%= link_to "Go Back to Lunches", lunches_path%> in order to make groups </p>
 <div class="edit">
 <table>
   <thead>
@@ -28,7 +28,7 @@
 </table>
 </div>
 
-<div class="edit">
+<div class="edit middle">
 MIDDLE PART
 </div>
 
@@ -55,4 +55,11 @@ MIDDLE PART
   </tbody>
 </table>
 </div>
+</div>
+
+<div class="wrapper">
+  <%= simple_form_for @lunch do |f| %>
+  <div class="large-6 large-offset-3 columns"><%= f.input :name %>
+  <%= f.submit %>
+  <%end%>
 </div>
