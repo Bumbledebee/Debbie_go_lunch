@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :authenticate_user!
+  before_action :authorize_user, except: [:show]
 
   def show
     # needs to be improved
@@ -27,5 +28,12 @@ class GroupsController < ApplicationController
     @lunch = Lunch.find(params[:lunch_id])
   end
 
+  protected
+
+  def authorize_user
+    unless user_signed_in? && current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
 
 end

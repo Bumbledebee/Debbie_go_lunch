@@ -1,5 +1,6 @@
 class LunchesController < ApplicationController
   before_filter :authenticate_user!
+  before_action :authorize_user
 
   def index
     @lunches = Lunch.all
@@ -54,9 +55,19 @@ class LunchesController < ApplicationController
     redirect_to lunches_path
   end
 
+  protected
+
+  def authorize_user
+    unless user_signed_in? && current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
+
   private
 
   def lunch_params
     params.require(:lunch).permit(:name)
   end
+
+
 end

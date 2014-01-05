@@ -34,11 +34,12 @@ module Seeders
     Lunch.create!(name:"Chinese Dumplings")
     Lunch.create!(name:"Picnic Boston Common")
     # create participants
-    User.all[0..43].lunch = Lunch.first
+    User.all[0..43].map {|x| x.lunches += Lunch.first }
     # create lunchgroups
     Lunch.first.make_groups
   end
   class Users
     User.create!(name:"Admin_Example", email:"admin@company.com", password:"bigsecret",department_id:1,optional:'love food',admin:true,lunchgroupleader_id:1)
+     User.create!(name:"Not_An_Admin", email:"not_admin@company.com", password:"donottell",department_id:2,optional:'hate pizza',admin:false,lunchgroupleader_id:2)
   end
 end

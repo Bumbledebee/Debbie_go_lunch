@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  # before_filter :authorize_user, except: [:index, :show]
-  # before_filter :is_owner, only: [:show]
+  before_action :authorize_user, except: [:show, :update, :destroy]
+  before_action :is_owner, only: [:show, :update, :destroy]
 
   def index
     @users = User.all
@@ -49,11 +49,24 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  protected
+
+  def authorize_user
+    unless user_signed_in? && current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
+
+  def is_owner
+    unless current_user == User.find(params[:id]) || current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :department_id, :lunchgroupleader_id, :optional, :admin)
   end
-
 
 end

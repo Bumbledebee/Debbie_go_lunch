@@ -1,4 +1,5 @@
 class LunchgroupleadersController < ApplicationController
+  before_action :authorize_user
 
   def new
     @lunchgroupleader = Lunchgroupleader.new
@@ -24,6 +25,14 @@ class LunchgroupleadersController < ApplicationController
       redirect_to lunches_path, notice: "successfully updated the lunchgroupleader options"
     else
       render :new, notice: "Please try again"
+    end
+  end
+
+  protected
+
+  def authorize_user
+    unless user_signed_in? && current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
     end
   end
 
