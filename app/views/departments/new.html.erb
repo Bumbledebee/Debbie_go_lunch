@@ -1,0 +1,16 @@
+<div class="row">
+  <%= simple_form_for @department do |f| %>
+    <div class="large-6 large-offset-3 columns"><%= f.input :name %></div></br>
+    <div class="large-6 large-offset-3 columns"><%= f.button :submit %></div></br>
+  <%end%>
+</div>
+
+<div class="row">
+<% @departments.each do |x|%>
+  <%= simple_form_for x do |f| %>
+    <div class="large-6 large-offset-3 columns"><%= f.input :name %></div></br>
+    <div class="large-6 large-offset-3 columns"><%= f.button :submit %></div></br>
+  <%end%>
+<%end%>
+</div>
+

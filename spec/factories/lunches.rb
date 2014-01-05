@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :lunch do
-    name "string"
+    name "Picnic in the park"
   end
 
 end

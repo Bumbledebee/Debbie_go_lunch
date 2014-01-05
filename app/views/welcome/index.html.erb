@@ -4,6 +4,9 @@
   <h1>
     NEXT LUNCH: <%= Lunch.last.name if Lunch.any?%>
   </h1>
+  <% lunch = Lunch.first %>
+  <% user = User.first %>
+  <% groups = Lunch.first.groups %>
 </div>
 </div>
 
