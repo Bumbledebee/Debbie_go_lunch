@@ -27,7 +27,6 @@
      <li class="has-dropdown">
           <a href="#">Manage</a>
           <ul class="dropdown">
-            <li><%= link_to 'Manage Groups', lunch_groups_path(Lunch.last)  %></li>
             <li><%= link_to 'Manage Lunches', lunches_path %></li>
             <li><%= link_to "Manage Departments", new_department_path %></li>
             <li><%= link_to "Manage Lunchgroupleaderoptions", new_lunchgroupleader_path %></li>
@@ -55,6 +54,7 @@
   </section>
 </nav>
 
+<!-- I want to make the background of flashmessages green. How to call them ? -->
 <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>

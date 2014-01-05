@@ -17,9 +17,6 @@ class GroupsController < ApplicationController
     @groups = @lunch.groups[0...group_num]
   end
 
-  def change
-  end
-
   def csv
     @lunch = Lunch.find(params[:lunch_id])
     @users = @lunch.users

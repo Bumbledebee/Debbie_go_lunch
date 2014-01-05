@@ -38,14 +38,20 @@ class LunchesController < ApplicationController
     @lunch = Lunch.find(params[:id])
     @lunch.users += params[:lunch][:users].map{|x| User.find(x.to_i)}
     @lunch.save!
-    redirect_to @lunch
+    redirect_to edit_lunch_path(@lunch)
   end
 
   def take_down
     @lunch = Lunch.find(params[:id])
     @lunch.users -= params[:lunch][:users].map{|x| User.find(x.to_i)}
     @lunch.save!
-    redirect_to @lunch
+    redirect_to edit_lunch_path(@lunch)
+  end
+
+  def destroy
+    @lunch = Lunch.find(params[:id])
+    @lunch.destroy
+    redirect_to lunches_path
   end
 
   private

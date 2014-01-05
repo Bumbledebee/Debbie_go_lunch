@@ -28,6 +28,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def add_me
+    #this is not working yet :(
+    binding.pry
+    @user = User.find(params[:id])
+    Lunch.last.users += @user
+    Lunch.last.save
+  end
+
+  def not_me
+    #this also needs a hand
+    @user = User.find(params[:id])
+    Lunch.last.users -= @user
+    Lunch.last.save
+  end
 
   def destroy
     @user = User.find(params[:id])
@@ -41,15 +55,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :department_id, :lunchgroupleader_id, :optional, :admin)
   end
 
-  # def authorize_user
-  #   unless user_signed_in? and current_user.admin?
-  #     raise ActionController::RoutingError.new('Not Found')
-  #   end
-  # end
 
-  # def is_owner
-  #   if current_user && current_user != User.find(params[:id]).user
-  #     redirect_to root_path, notice: "You can only edit your own profile"
-  #   end
-  # end
 end

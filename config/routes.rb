@@ -1,6 +1,13 @@
 Toy::Application.routes.draw do
   devise_for :users
-  resources :users
+
+  resources :users do
+    member do
+      get 'add_me'
+      get 'not_me'
+    end
+  end
+
   resources :departments
   resources :lunchgroupleaders
   root :to => "welcome#index"
