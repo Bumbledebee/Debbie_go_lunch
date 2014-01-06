@@ -1,0 +1,31 @@
+<!-- #admin can view, edit and add new lunches; change departments and lunchgroupleader options; add participants and make groups; view groups from previous lunches -->
+
+
+<div class="wrapper">
+<table>
+  <thead>
+    <tr>
+      <th width="200">Name</th>
+      <th width="150">Department</th>
+      <th width="150">Lunchgroupleader</th>
+      <th width="150">Note</th>
+      <th width="50">Admin</th>
+      <th widht="100">Change Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %> </td>
+      <td><%= user.department.name%></td>
+      <td><%= user.lunchgroupleader.name%></td>
+      <td><%= user.optional %></td>
+      <td><%= user.admin %></td>
+      <td><%= link_to 'edit', edit_user_path(user) %>
+      <td><%= link_to 'delete', user, :method => :delete, :confirm => 'Are you sure?' %>
+
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,39 @@
+<div class="row">
+<table>
+  <thead>
+    <tr>
+      <th>LUNCH</th>
+      <th>ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lunches.reverse.each do |lunch| %>
+    <tr>
+      <td><%= lunch.name %></td>
+      <% if  lunch.groups.count >1 %>
+        <td class="look"> <%= link_to "Look at the groups", lunch_groups_path(lunch), class:'button'%> </td>
+      <%else%>
+        <td class="make"> <%= link_to "Invite to Lunch", '#', class:'button'%> </td>
+        <td class="make"><%= link_to "Arrange participants", edit_lunch_path(lunch), class:'button' %></td>
+        <td class="make"> <%= link_to "Make lunch groups", match_lunch_path(lunch), class:'button'%> </td>
+      <%end%>
+      <td class="make"> <%= link_to "Delete", lunch, method: :delete, data: {confirm: "Are you sure?"}%> </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<p> You can only invite to lunch, arrange participants and make groups for one lunch at a time.</p>
+<%= simple_form_for @lunch do |f| %>
+  <div class="large-6 large-offset-0 columns"><%= f.input :name%></div></br>
+  <div class="large-6 large-offset-0 columns"><%= f.button :submit %></div></br>
+<%end%>
+
+
+</div>
+
+
+
+
+
+

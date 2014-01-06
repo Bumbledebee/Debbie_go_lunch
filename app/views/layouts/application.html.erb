@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toy</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <%if user_signed_in?%>
+      <h1><a href="#">Go Lunch <%= current_user.name %>!</a>
+      </h1>
+      <%end%>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if user_signed_in? %>
+      <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {confirm: "Are you sure"}%></li>
+        <%if current_user.admin? %>
+     <li class="has-dropdown">
+          <a href="#">Manage</a>
+          <ul class="dropdown">
+            <li><%= link_to 'Manage Lunches', lunches_path %></li>
+            <li><%= link_to "Manage Departments", new_department_path %></li>
+            <li><%= link_to "Manage Lunchgroupleaderoptions", new_lunchgroupleader_path %></li>
+            <li><%= link_to "Manage Users", users_path %></li>
+          </ul>
+        <%end%>
+      </li>
+      <%else%>
+      <li class="has-dropdown">
+        <a href="#">Join</a>
+        <ul class="dropdown">
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><a href="#">Sign Up with Gmail</a></li>
+          <li><a href="#">Sign In with Gmail</a></li>
+        </ul>
+      </li>
+      <%end%>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><% link_to 'View Groups', lunch_groups_path(Lunch.last) %></li>
+    </ul>
+  </section>
+</nav>
+
+<!-- I want to make the background of flashmessages green. How to call them ? -->
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+<%= yield %>
+<%= javascript_include_tag "application"%>
+</body>
+</html>
+
+

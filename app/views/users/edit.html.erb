@@ -1,0 +1,12 @@
+<!-- #admin can edit users -->
+
+<div class="row">
+<%= simple_form_for @user do |f| %>
+  <div class="large-6 large-offset-3 columns"><%= f.input :name %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.association :department %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.association :lunchgroupleader %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.input :optional %></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.input :admin, as: :boolean%></div></br>
+  <div class="large-6 large-offset-3 columns"><%= f.button :submit %></div></br>
+<%end%>
+</div>

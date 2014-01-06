@@ -1,0 +1,15 @@
+== README
+
+How to use the app:
+
+1.Create a Lunch
+
+2. Add participants manually or let them sign up
+
+3. Click on "Make groups"
+
+4. Send people an email with their group
+
+
+
+<tt>rake doc:app</tt>.

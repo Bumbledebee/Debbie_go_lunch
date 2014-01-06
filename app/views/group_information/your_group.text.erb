@@ -1,0 +1,14 @@
+<%= @user.groups.last = @group %>
+<p>Your Lunchgroup is <%= @user.groups.last.name%></p>
+
+<p>All participants in this group:
+<% @group.users.each do |u| %>
+<ul><%= u.name %></ul>
+<%end%></p>
+
+<p>Your Lunchgroupleader is <%= User.find(@group.Lunchgroupleader).name%><p/>
+
+
+<p>Have fun lunching</p>
+
+
