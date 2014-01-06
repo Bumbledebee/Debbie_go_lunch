@@ -1,4 +1,4 @@
-//
+// 
 // FOUNDATION SETTINGS
 //
 
@@ -35,8 +35,8 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-$body-bg: yellow;
-$body-font-color: yellow;
+// $body-bg: #fff;
+// $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -50,10 +50,10 @@ $body-font-color: yellow;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: yellow;
-$secondary-color: yellow;
-$alert-color: yellow;
-$success-color: yellow;
+// $primary-color: #008CBA;
+// $secondary-color: #e7e7e7;
+// $alert-color: #f04124;
+// $success-color: #43AC6A;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -61,8 +61,8 @@ $success-color: yellow;
 
 // We use these to control inset shadow shiny edges and depressions.
 // $shiny-edge-size: 0 1px 0;
-$shiny-edge-color: rgba(yellow, .5);
-$shiny-edge-active-color: rgba(yellow, .2);
+// $shiny-edge-color: rgba(#fff, .5);
+// $shiny-edge-active-color: rgba(#000, .2);
 
 // Media Query Ranges
 // $small-range: (0em, 40em);
@@ -108,15 +108,15 @@ $shiny-edge-active-color: rgba(yellow, .2);
 // $include-html-accordion-classes: $include-html-classes;
 
 // $accordion-navigation-padding: rem-calc(16);
-$accordion-navigation-bg-color: yellow  ;
-$accordion-navigation-hover-bg-color: darken($accordion-navigation-bg-color, 5%);
+// $accordion-navigation-bg-color: #efefef  ;
+// $accordion-navigation-hover-bg-color: darken($accordion-navigation-bg-color, 5%);
 // $accordion-navigation-active-bg-color: darken($accordion-navigation-bg-color, 3%);
-$accordion-navigation-font-color: yellow;
+// $accordion-navigation-font-color: #222;
 // $accordion-navigation-font-size: rem-calc(16);
 // $accordion-navigation-font-family: $body-font-family;
 
 // $accordion-content-padding: $column-gutter/2;
-$accordion-content-active-bg-color: yellow;
+// $accordion-content-active-bg-color: #fff;
 
 // Alert Boxes
 
@@ -131,8 +131,8 @@ $accordion-content-active-bg-color: yellow;
 // We use these to control text style.
 // $alert-font-weight: normal;
 // $alert-font-size: rem-calc(13);
-$alert-font-color: yellow;
-$alert-font-color-alt: darken($secondary-color, 60%);
+// $alert-font-color: #fff;
+// $alert-font-color-alt: darken($secondary-color, 60%);
 
 // We use this for close hover effect.
 // $alert-function-factor: 5%;
@@ -144,7 +144,7 @@ $alert-font-color-alt: darken($secondary-color, 60%);
 // $alert-bottom-margin: rem-calc(20);
 
 // We use these to style the close buttons
-$alert-close-color: yellow;
+// $alert-close-color: #333;
 // $alert-close-position: rem-calc(5);
 // $alert-close-font-size: rem-calc(22);
 // $alert-close-opacity: 0.3;
@@ -186,13 +186,13 @@ $alert-close-color: yellow;
 // We use these to set various text styles for breadcrumbs.
 // $crumb-font-size: rem-calc(11);
 // $crumb-font-color: $primary-color;
-$crumb-font-color-current: yellow;
-$crumb-font-color-unavailable: yellow;
+// $crumb-font-color-current: #333;
+// $crumb-font-color-unavailable: #999;
 // $crumb-font-transform: uppercase;
 // $crumb-link-decor: underline;
 
 // We use these to control the slash between breadcrumbs
-$crumb-slash-color: yellow;
+// $crumb-slash-color: #aaa;
 // $crumb-slash: "/";
 
 // Button Groups
@@ -214,15 +214,15 @@ $crumb-slash-color: yellow;
 // $clearing-img-bg: $clearing-bg;
 
 // We use these to style the close button
-$clearing-close-color: #ccc;
+// $clearing-close-color: #ccc;
 // $clearing-close-size: 30px;
 
 // We use these to style the arrows
 // $clearing-arrow-size: 12px;
-$clearing-arrow-color: $clearing-close-color;
+// $clearing-arrow-color: $clearing-close-color;
 
 // We use these to style captions
-$clearing-caption-font-color: #ccc;
+// $clearing-caption-font-color: #ccc;
 // $clearing-caption-font-size: 0.875em;
 // $clearing-caption-padding: 10px 30px 20px;
 
@@ -243,21 +243,21 @@ $clearing-caption-font-color: #ccc;
 // $f-dropdown-margin-top: 2px;
 
 // We use this to control the background color
-$f-dropdown-bg: #fff;
+// $f-dropdown-bg: #fff;
 
 // We use this to set the border styles for dropdowns.
 // $f-dropdown-border-style: solid;
 // $f-dropdown-border-width: 1px;
-$f-dropdown-border-color: darken(#fff, 20%);
+// $f-dropdown-border-color: darken(#fff, 20%);
 
 // We use these to style the triangle pip.
 // $f-dropdown-triangle-size: 6px;
-$f-dropdown-triangle-color: #fff;
+// $f-dropdown-triangle-color: #fff;
 // $f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
-$f-dropdown-font-color: #555;
+// $f-dropdown-font-color: #555;
 // $f-dropdown-font-size: rem-calc(14);
 // $f-dropdown-list-padding: rem-calc(5, 10);
 // $f-dropdown-line-height: rem-calc(18);
@@ -272,8 +272,8 @@ $f-dropdown-font-color: #555;
 // $include-html-button-classes: $include-html-classes;
 
 // We use these to set the color of the pip in dropdown buttons
-$dropdown-button-pip-color: #fff;
-$dropdown-button-pip-color-alt: #333;
+// $dropdown-button-pip-color: #fff;
+// $dropdown-button-pip-color-alt: #333;
 
 // $button-pip-tny: rem-calc(6);
 // $button-pip-sml: rem-calc(7);
@@ -332,10 +332,10 @@ $dropdown-button-pip-color-alt: #333;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: rem-calc(14);
-$input-bg-color: #fff;
-$input-focus-bg-color: darken(#fff, 2%);
-$input-border-color: darken(#fff, 20%);
-$input-focus-border-color: darken(#fff, 40%);
+// $input-bg-color: #fff;
+// $input-focus-bg-color: darken(#fff, 2%);
+// $input-border-color: darken(#fff, 20%);
+// $input-focus-border-color: darken(#fff, 40%);
 // $input-border-style: solid;
 // $input-border-width: 1px;
 // $input-disabled-bg: #ddd;
@@ -345,7 +345,7 @@ $input-focus-border-color: darken(#fff, 40%);
 // We use these to style the fieldset border and spacing.
 // $fieldset-border-style: solid;
 // $fieldset-border-width: 1px;
-$fieldset-border-color: #ddd;
+// $fieldset-border-color: #ddd;
 // $fieldset-padding: rem-calc(20);
 // $fieldset-margin: rem-calc(18 0);
 
@@ -356,12 +356,12 @@ $fieldset-border-color: #ddd;
 
 // We use these to style the prefix and postfix input elements
 // $input-prefix-bg: darken(#fff, 5%);
-$input-prefix-border-color: darken(#fff, 20%);
+// $input-prefix-border-color: darken(#fff, 20%);
 // $input-prefix-border-size: 1px;
 // $input-prefix-border-type: solid;
 // $input-prefix-overflow: hidden;
-$input-prefix-font-color: #333;
-$input-prefix-font-color-alt: #fff;
+// $input-prefix-font-color: #333;
+// $input-prefix-font-color-alt: #fff;
 
 // We use these to style the error states for inputs and labels
 // $input-error-message-padding: rem-calc(6 9 9);
@@ -369,15 +369,15 @@ $input-prefix-font-color-alt: #fff;
 // $input-error-message-font-size: rem-calc(12);
 // $input-error-message-font-weight: normal;
 // $input-error-message-font-style: italic;
-$input-error-message-font-color: #fff;
-$input-error-message-font-color-alt: #333;
+// $input-error-message-font-color: #fff;
+// $input-error-message-font-color-alt: #333;
 
 // We use this to style the glowing effect of inputs when focused
 // $glowing-effect-fade-time: 0.45s;
 // $glowing-effect-color: $input-focus-border-color;
 
 // Select variables
-$select-bg-color: #fafafa  ;
+// $select-bg-color: #fafafa  ;
 
 // Inline Lists
 
@@ -405,7 +405,7 @@ $select-bg-color: #fafafa  ;
 // $include-html-joyride-classes: $include-html-classes;
 
 // Controlling default Joyride styles
-$joyride-tip-bg: #333;
+// $joyride-tip-bg: #333;
 // $joyride-tip-default-width: 300px;
 // $joyride-tip-padding: rem-calc(18 20 24);
 // $joyride-tip-border: solid 1px #555;
@@ -413,7 +413,7 @@ $joyride-tip-bg: #333;
 // $joyride-tip-position-offset: 22px;
 
 // Here, we're setting the tip dont styles
-$joyride-tip-font-color: #fff;
+// $joyride-tip-font-color: #fff;
 // $joyride-tip-font-size: rem-calc(14);
 // $joyride-tip-header-weight: bold;
 
@@ -423,10 +423,10 @@ $joyride-tip-font-color: #fff;
 // This adjusts the styles for the timer when its enabled
 // $joyride-tip-timer-width: 50px;
 // $joyride-tip-timer-height: 3px;
-$joyride-tip-timer-color: #666;
+// $joyride-tip-timer-color: #666;
 
 // This changes up the styles for the close button
-$joyride-tip-close-color: #777;
+// $joyride-tip-close-color: #777;
 // $joyride-tip-close-size: 24px;
 // $joyride-tip-close-weight: normal;
 
@@ -440,8 +440,8 @@ $joyride-tip-close-color: #777;
 // We use these to control text styles.
 // $keystroke-font: "Consolas", "Menlo", "Courier", monospace;
 // $keystroke-font-size: rem-calc(14);
-$keystroke-font-color: #222;
-$keystroke-font-color-alt: #fff;
+// $keystroke-font-color: #222;
+// $keystroke-font-color-alt: #fff;
 // $keystroke-function-factor: 7%;
 
 // We use this to control keystroke padding.
@@ -465,7 +465,7 @@ $keystroke-font-color-alt: #fff;
 // We use these to style the label text
 // $label-font-sizing: rem-calc(11);
 // $label-font-weight: normal;
-$label-font-color: #333;
+// $label-font-color: #333;
 // $label-font-color-alt: #fff;
 // $label-font-family: $body-font-family;
 
@@ -481,7 +481,7 @@ $label-font-color: #333;
 // $tabbar-bg: #333;
 // $tabbar-height: rem-calc(45);
 // $tabbar-line-height: $tabbar-height;
-$tabbar-color: #FFF;
+// $tabbar-color: #FFF;
 // $tabbar-middle-padding: 0 rem-calc(10);
 
 // Off Canvas Divider Styles
@@ -489,7 +489,7 @@ $tabbar-color: #FFF;
 // $tabbar-left-section-border: solid 1px darken($tabbar-bg, 10%);
 
 // Off Canvas Tab Bar Headers
-$tabbar-header-color: #FFF;
+// $tabbar-header-color: #FFF;
 // $tabbar-header-weight: bold;
 // $tabbar-header-line-height: $tabbar-height;
 // $tabbar-header-margin: 0;
@@ -500,7 +500,7 @@ $tabbar-header-color: #FFF;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
-$off-canvas-label-color: #999;
+// $off-canvas-label-color: #999;
 // $off-canvas-label-text-transform: uppercase;
 // $off-canvas-label-font-weight: bold;
 // $off-canvas-label-bg: #444;
@@ -508,11 +508,11 @@ $off-canvas-label-color: #999;
 // $off-canvas-label-border-bottom: none;
 // $off-canvas-label-margin:0;
 // $off-canvas-link-padding: rem-calc(10, 15);
- $off-canvas-link-color: rgba(#FFF, 0.7);
+// $off-canvas-link-color: rgba(#FFF, 0.7);
 // $off-canvas-link-border-bottom: 1px solid darken($off-canvas-bg, 5%);
 
 // Off Canvas Menu Icon Variables
-$tabbar-menu-icon-color: #FFF;
+// $tabbar-menu-icon-color: #FFF;
 // $tabbar-menu-icon-hover: darken($tabbar-menu-icon-color, 30%);
 
 // $tabbar-menu-icon-text-indent: rem-calc(35);
@@ -542,7 +542,7 @@ $tabbar-menu-icon-color: #FFF;
 // We use these to control the caption styles
 // $orbit-container-bg: none;
 // $orbit-caption-bg: rgba(51,51,51, 0.8);
-$orbit-caption-font-color: #fff;
+// $orbit-caption-font-color: #fff;
 // $orbit-caption-font-size: rem-calc(14);
 // $orbit-caption-position: "bottom"; // Supported values: "bottom", "under"
 // $orbit-caption-padding: rem-calc(10,14);
@@ -551,21 +551,21 @@ $orbit-caption-font-color: #fff;
 // We use these to control the left/right nav styles
 // $orbit-nav-bg: none;
 // $orbit-nav-bg-hover: rgba(0,0,0,0.3);
-$orbit-nav-arrow-color: #fff;
-$orbit-nav-arrow-color-hover: #fff;
+// $orbit-nav-arrow-color: #fff;
+// $orbit-nav-arrow-color-hover: #fff;
 
 // We use these to control the timer styles
 // $orbit-timer-bg: rgba(255,255,255,0.3);
 // $orbit-timer-show-progress-bar: true;
 
 // We use these to control the bullet nav styles
-$orbit-bullet-nav-color: #ccc;
-$orbit-bullet-nav-color-active: #999;
+// $orbit-bullet-nav-color: #ccc;
+// $orbit-bullet-nav-color-active: #999;
 // $orbit-bullet-radius: rem-calc(9);
 
 // We use these to controls the style of slide numbers
 // $orbit-slide-number-bg: rgba(0,0,0,0);
-$orbit-slide-number-font-color: #fff;
+// $orbit-slide-number-font-color: #fff;
 // $orbit-slide-number-padding: rem-calc(5);
 
 // Graceful Loading Wrapper and preloader
@@ -589,17 +589,17 @@ $orbit-slide-number-font-color: #fff;
 
 // We use these for the pagination anchor links
 // $pagination-link-pad: rem-calc(1 10 1);
-$pagination-link-font-color: #999;
+// $pagination-link-font-color: #999;
 // $pagination-link-active-bg: darken(#fff, 10%);
 
 // We use these for disabled anchor links
 // $pagination-link-unavailable-cursor: default;
-$pagination-link-unavailable-font-color: #999;
+// $pagination-link-unavailable-font-color: #999;
 // $pagination-link-unavailable-bg-active: transparent;
 
 // We use these for currently selected anchor links
 // $pagination-link-current-background: $primary-color;
-$pagination-link-current-font-color: #fff;
+// $pagination-link-current-font-color: #fff;
 // $pagination-link-current-font-weight: bold;
 // $pagination-link-current-cursor: default;
 // $pagination-link-current-active-bg: $primary-color;
@@ -622,8 +622,8 @@ $pagination-link-current-font-color: #fff;
 // $panel-padding: rem-calc(20);
 
 // We use these to set default font colors
-$panel-font-color: #333;
-$panel-font-color-alt: #fff;
+// $panel-font-color: #333;
+// $panel-font-color-alt: #fff;
 
 // $panel-header-adjust: true;
 // $callout-panel-link-color: $primary-color;
@@ -639,26 +639,26 @@ $panel-font-color-alt: #fff;
 // $price-table-margin-bottom: rem-calc(20);
 
 // We use these to control the title styles
-$price-title-bg: #333;
+// $price-title-bg: #333;
 // $price-title-padding: rem-calc(15 20);
 // $price-title-align: center;
-$price-title-color: #eee;
+// $price-title-color: #eee;
 // $price-title-weight: normal;
 // $price-title-size: rem-calc(16);
 // $price-title-font-family: $body-font-family;
 
 // We use these to control the price styles
-$price-money-bg: #f6f6f6  ;
+// $price-money-bg: #f6f6f6  ;
 // $price-money-padding: rem-calc(15 20);
 // $price-money-align: center;
-$price-money-color: #333;
+// $price-money-color: #333;
 // $price-money-weight: normal;
 // $price-money-size: rem-calc(32);
 // $price-money-font-family: $body-font-family;
 
 
 // We use these to control the description styles
-$price-bg: #fff;
+// $price-bg: #fff;
 // $price-desc-color: #777;
 // $price-desc-padding: rem-calc(15);
 // $price-desc-align: center;
@@ -668,7 +668,7 @@ $price-bg: #fff;
 // $price-desc-bottom-border: dotted 1px #ddd;
 
 // We use these to control the list item styles
-$price-item-color: #333;
+// $price-item-color: #333;
 // $price-item-padding: rem-calc(15);
 // $price-item-align: center;
 // $price-item-font-size: rem-calc(14);
@@ -990,12 +990,4 @@ $price-item-color: #333;
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
-
-.wrapper {
-  max-width: 850px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
+@import 'foundation';
