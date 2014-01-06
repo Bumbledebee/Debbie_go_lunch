@@ -41,6 +41,6 @@ module Seeders
   # end
   # class Users
   #   User.create!(name:"Admin_Example", email:"admin@company.com", password:"bigsecret",department_id:1,optional:'love food',admin:true,lunchgroupleader_id:1)
-  #    User.create!(name:"Not_An_Admin", email:"not_admin@company.com", password:"donottell",department_id:2,optional:'hate pizza',admin:false,lunchgroupleader_id:2)
+  #   User.create!(name:"Not_An_Admin", email:"not_admin@company.com", password:"donottell",department_id:2,optional:'hate pizza',admin:false,lunchgroupleader_id:2)
   # end
 end
