@@ -8,6 +8,8 @@ Toy::Application.routes.draw do
     end
   end
 
+  resources :messages
+
   resources :departments
   resources :lunchgroupleaders
   root :to => "welcome#index"
