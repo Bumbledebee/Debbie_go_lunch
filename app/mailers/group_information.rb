@@ -6,10 +6,10 @@ class GroupInformation < ActionMailer::Base
   #
   #   en.group_information.your_group.subject
   #
-  def your_group(group_information)
+  def your_group(info)
     @info = info
 
-    mail to: group_information.email,
+    mail to: @users
       subject: "Your Lunchgroup for #{Lunch.last}"
   end
 end

@@ -18,7 +18,6 @@ class Lunch < ActiveRecord::Base
         user.groups << groups[group_put]
       end
       self.groups.map {|group| group.set_group_leader}
-      GroupInformation.your_group(self).deliver
     else
       raise "Sorry try again"
     end

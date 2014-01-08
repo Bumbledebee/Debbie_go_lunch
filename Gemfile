@@ -51,7 +51,6 @@ group :development, :test do
   gem 'launchy'
   gem 'email_spec'
   gem 'mailcatcher'
-  gem 'rails_12factor'
   gem 'dotenv'
   gem 'dotenv-rails'
 end
