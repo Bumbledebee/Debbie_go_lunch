@@ -17,30 +17,30 @@ module Seeders
       end
     end
   end
-  # class Lunchgroupleaders
-  #   Lunchgroupleader.create!(name:"sure, no prob")
-  #   Lunchgroupleader.create!(name:"Only if needed")
-  #   Lunchgroupleader.create!(name:"not this time")
-  # end
-  # class Departments
-  #   Department.create!(name:"IT")
-  #   Department.create!(name:"Finance")
-  #   Department.create!(name:"Sales")
-  #   Department.create!(name:"HR")
-  #   Department.create!(name:"Design")
-  #   Department.create!(name:"Accounting")
-  # end
-  # class Lunches
-  #   #create two Lunches
-  #   Lunch.create!(name:"Chinese Dumplings")
-  #   Lunch.create!(name:"Picnic Boston Common")
-  #   # create participants
-  #   User.all[0..43].map {|x| x.lunches += Lunch.first }
-  #   # create lunchgroups
-  #   Lunch.first.make_groups
-  # end
-  # class Users
-  #   User.create!(name:"Admin_Example", email:"admin@company.com", password:"bigsecret",department_id:1,optional:'love food',admin:true,lunchgroupleader_id:1)
-  #   User.create!(name:"Not_An_Admin", email:"not_admin@company.com", password:"donottell",department_id:2,optional:'hate pizza',admin:false,lunchgroupleader_id:2)
-  # end
+  class Lunchgroupleaders
+    Lunchgroupleader.create!(name:"sure, no prob")
+    Lunchgroupleader.create!(name:"Only if needed")
+    Lunchgroupleader.create!(name:"not this time")
+  end
+  class Departments
+    Department.create!(name:"IT")
+    Department.create!(name:"Finance")
+    Department.create!(name:"Sales")
+    Department.create!(name:"HR")
+    Department.create!(name:"Design")
+    Department.create!(name:"Accounting")
+  end
+  class Lunches
+    #create two Lunches
+    Lunch.create!(name:"Chinese Dumplings")
+    Lunch.create!(name:"Picnic Boston Common")
+    # create participants
+    User.all[0..43].map {|x| x.lunches += Lunch.first }
+    # create lunchgroups
+    Lunch.first.make_groups
+  end
+  class Users
+    User.create!(name:"Admin_Example", email:"admin@company.com", password:"bigsecret",department_id:1,optional:'love food',admin:true,lunchgroupleader_id:1)
+    User.create!(name:"Not_An_Admin", email:"not_admin@company.com", password:"donottell",department_id:2,optional:'hate pizza',admin:false,lunchgroupleader_id:2)
+  end
 end
