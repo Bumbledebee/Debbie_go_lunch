@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def add_me
-    #this is not working yet :(
     binding.pry
     @user = User.find(params[:id])
     Lunch.last.users += @user
@@ -37,7 +36,6 @@ class UsersController < ApplicationController
   end
 
   def not_me
-    #this also needs a hand
     @user = User.find(params[:id])
     Lunch.last.users -= @user
     Lunch.last.save

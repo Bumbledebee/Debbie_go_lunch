@@ -6,9 +6,9 @@
   <div class="large-6 large-offset-3 columns "><%= f.button :submit %></div></br>
 <%end%>
 <% if Lunch.last.groups.size == 0 %>
-    <div class="large-6 large-offset-3 columns"><span class="button participating"><%= link_to add_me_user_path %> YES </span>
+    <div class="large-6 large-offset-3 columns"><span class="button sparticipating"><%= link_to add_me_user_path(@user) %> YES </span>
     </div></br>
-    <div class="large-6 large-offset-3 columns"><span class="button notParticipating" ><%= link_to not_me_user_path %>NO</span>
+    <div class="large-6 large-offset-3 columns"><span class="button notParticipating" ><%= link_to not_me_user_path(@user) %>NO</span>
 <%end%>
 </div>
 <span class="textParticipating"><p></p></span>
@@ -22,12 +22,3 @@
 <%end%>
 </div>
 
-
-<!-- ///////// -->
-// <script type="text/javascript" src='jquery-2.0.3.min.js'>
-// </script>
-// <script>
-// $('.participating').click(function(){
-//  $('.textParticipating').toggle();
-// });
-// </script>

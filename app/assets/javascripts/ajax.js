@@ -18,6 +18,9 @@ $( document ).ready(function() {
   $('#noticemessage').fadeOut(2000, removeNotice);
   clickOnYes();
   clickOnNo();
+  // $('.participating').click(function(){
+  // $('.textParticipating').toggle();
+});
 });
 
 

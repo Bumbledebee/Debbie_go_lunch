@@ -3,8 +3,8 @@ Toy::Application.routes.draw do
 
   resources :users do
     member do
-      get 'add_me'
-      get 'not_me'
+      put 'add_me'
+      put 'not_me'
     end
   end
 
