@@ -1,10 +1,17 @@
 <!-- #user can edit himself -->
 
 <div class="row"></br></br>
-<div class="large-6 large-offset-3 columns"><a href="#" class="button">Default Button  <div>
-</div></br></br>
-
-
+<% simple_form_for @user do |f| %>
+  <div class="large-6 large-offset-3 columns "><%= f.input :name %></div></br>
+  <div class="large-6 large-offset-3 columns "><%= f.button :submit %></div></br>
+<%end%>
+<% if Lunch.last.groups.size == 0 %>
+    <div class="large-6 large-offset-3 columns"><span class="button participating"><%= link_to add_me_user_path %> YES </span>
+    </div></br>
+    <div class="large-6 large-offset-3 columns"><span class="button notParticipating" ><%= link_to not_me_user_path %>NO</span>
+<%end%>
+</div>
+<span class="textParticipating"><p></p></span>
 <div class="row">
 <%= simple_form_for @user do |f| %>
   <div class="large-6 large-offset-3 columns"><%= f.input :name %></div></br>
@@ -13,4 +20,14 @@
   <div class="large-6 large-offset-3 columns"><%= f.input :optional %></div></br>
   <div class="large-6 large-offset-3 columns"><%= f.button :submit %></div></br>
 <%end%>
+</div>
 
+
+<!-- ///////// -->
+// <script type="text/javascript" src='jquery-2.0.3.min.js'>
+// </script>
+// <script>
+// $('.participating').click(function(){
+//  $('.textParticipating').toggle();
+// });
+// </script>
