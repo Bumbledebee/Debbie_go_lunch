@@ -56,7 +56,7 @@
 </nav>
 
 <!-- I want to make the background of flashmessages green. How to call them ? -->
-<span id="notice"
+<span id="noticemessage">
 <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>

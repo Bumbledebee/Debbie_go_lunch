@@ -52,8 +52,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name, null: false
       t.string :email, null: false
-      t.integer :department_id, null: false
-      t.string :lunchgroupleader, null: false
+      t.integer :department_id 
+      t.string :lunchgroupleader 
       t.string :optional
       t.boolean :admin, default: true
 

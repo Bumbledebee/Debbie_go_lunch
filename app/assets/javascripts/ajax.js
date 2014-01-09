@@ -1,9 +1,9 @@
 var removeNotice = function(){
-  $('#notice').remove();
+  $('#noticemessage').remove();
 };
 
 
 
 $( document ).ready(function() {
-  $('#notice').fadeOut(2000, removeNotice);
+  $('#noticemessage').fadeOut(2000, removeNotice);
 });

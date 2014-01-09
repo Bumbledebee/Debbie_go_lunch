@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @userlunch = @user.lunches.last
   end
 
   def edit
