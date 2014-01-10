@@ -29,16 +29,19 @@ class UsersController < ApplicationController
   end
 
   def add_me
-    binding.pry
+    @lunch = Lunch.last
     @user = User.find(params[:id])
-    Lunch.last.users += @user
-    Lunch.last.save
+    @lunch.users += [@user]
+    @lunch.save
+    redirect_to user_path(@user)
   end
 
   def not_me
+    @lunch = Lunch.last
     @user = User.find(params[:id])
-    Lunch.last.users -= @user
-    Lunch.last.save
+    @lunch.users -= [@user]
+    @lunch.save
+    redirect_to user_path(@user)
   end
 
   def destroy

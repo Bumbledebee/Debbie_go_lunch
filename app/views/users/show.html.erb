@@ -1,14 +1,13 @@
 <!-- #user can edit himself -->
 
 <div class="row"></br></br>
-<% simple_form_for @user do |f| %>
-  <div class="large-6 large-offset-3 columns "><%= f.input :name %></div></br>
-  <div class="large-6 large-offset-3 columns "><%= f.button :submit %></div></br>
-<%end%>
 <% if Lunch.last.groups.size == 0 %>
-    <div class="large-6 large-offset-3 columns"><span class="button sparticipating"><%= link_to add_me_user_path(@user) %> YES </span>
+    <% unless Lunch.last.users.include?(@user)%>
+    <div class="large-6 large-offset-3 columns"><h1 class="red"><strong>Current status: Not Participating</strong></h1></br></br><%= link_to "Change response to 'Yes'", add_me_user_path(@user), class: 'button participating' %>  
     </div></br>
-    <div class="large-6 large-offset-3 columns"><span class="button notParticipating" ><%= link_to not_me_user_path(@user) %>NO</span>
+    <%else%>
+    <div class="large-6 large-offset-3 columns"><h1 class="green"><strong>Current status: Participating</strong></h1></br><h2>Thanks for participating</h2><h3>We are looking forward to lunching with you</h3></br></br><%= link_to "Change responste to 'No'", not_me_user_path(@user), class: "button notParticipating" %>
+   <%end%>   
 <%end%>
 </div>
 <span class="textParticipating"><p></p></span>
