@@ -56,8 +56,9 @@
 
 <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: "name noticemessage" %>
-<% end -%>  
+<% end -%>
 <%= yield %>
+<%= yield :extra_footer %>
 <%= javascript_include_tag "application"%>
 </body>
 </html>

@@ -2,15 +2,14 @@
 
 <div class="row"></br></br>
 <% if Lunch.last.groups.size == 0 %>
-    <% unless Lunch.last.users.include?(@user)%>
-    <div class="large-6 large-offset-3 columns"><h1 class="red"><strong>Current status: Not Participating</strong></h1></br></br><%= link_to "Change response to 'Yes'", add_me_user_path(@user), class: 'button participating' %>  
+<% attending = Lunch.last.users.include?(@user) %>
+    <div class="large-6 large-offset-3 columns yes <%= 'show' if attending %>"><h1 class="red"><strong>Current status: Not Participating</strong></h1></br></br><button class='button participating'>Change response to 'Yes'</button>
     </div></br>
-    <%else%>
-    <div class="large-6 large-offset-3 columns"><h1 class="green"><strong>Current status: Participating</strong></h1></br><h2>Thanks for participating</h2><h3>We are looking forward to lunching with you</h3></br></br><%= link_to "Change responste to 'No'", not_me_user_path(@user), class: "button notParticipating" %>
-   <%end%>   
+    <div class="large-6 large-offset-3 columns no <%= 'show' if !attending %>"><h1 class="green"><strong>Current status: Participating</strong></h1></br><h2>Thanks for participating</h2><h3>We are looking forward to lunching with you</h3></br></br><button class='button notParticipating'>Change response to 'No'</button>
+    </div></br>
 <%end%>
 </div>
-<span class="textParticipating"><p></p></span>
+<div class="textParticipating"></div>
 <div class="row">
 <%= simple_form_for @user do |f| %>
   <div class="large-6 large-offset-3 columns"><%= f.input :name %></div></br>
@@ -21,3 +20,30 @@
 <%end%>
 </div>
 
+<% content_for :extra_footer do %>
+<script>
+  window.onload=function(){
+    clickYes();
+    clickNo();
+  }
+  var clickYes = function(){
+
+    $('.yes').click(function(e){
+      e.preventDefault();
+      $.get('<%= @user.id %>' + '/add_me', function(response){
+        $('.yes').toggle();
+        $('.no').toggle();
+      });
+    })
+  }
+    var clickNo = function(){
+    $('.no').click(function(e){
+      e.preventDefault();
+      $.get('<%= @user.id %>' + '/not_me', function(response){
+        $('.no').toggle();
+        $('.yes').toggle();
+      });
+    })
+    }
+</script>
+<% end %>

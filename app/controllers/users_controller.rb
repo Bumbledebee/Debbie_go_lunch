@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @lunch.users += [@user]
     @lunch.save
-    redirect_to user_path(@user)
+    render success: true, json: {data: 'Hello'}
   end
 
   def not_me
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @lunch.users -= [@user]
     @lunch.save
-    redirect_to user_path(@user)
+    render success: true, json: {data: 'Hello'}
   end
 
   def destroy
