@@ -1,15 +1,20 @@
 require 'spec_helper'
-# before :each do
-#   FactoryGirl.create(:lunch, :with_users)
-#   FactoryGirl.create(:lunch, name:"Chinese Dumplings")
-#   FactoryGirl.create_list(:departments, 4)
-#   FactoryGirl.create_list(:lunchgroupleader, 3)
-#   visit lunches_path
-#   click_on 'Make groups'
-# end
 
 feature 'admin features' do
+  before :each do
+  user = FactoryGirl.create(:user)
+  user.confirmed_at = Time.now
+  user.save
+  admin = FactoryGirl.create(:user, admin: true)
+  admin.confirmed_at = Time.now
+  admin.save
+  login_as(admin, :scope => :user)
+  FactoryGirl.create(:lunch, name:"Chinese Dumplings")
+  FactoryGirl.create_list(:departments, 4)
+  FactoryGirl.create_list(:lunchgroupleader, 3)
+  end
   it "admin can edit all users" do
+    current_user = User.last
     visit users_path
     click_on 'edit'
 
@@ -44,7 +49,7 @@ feature 'admin features' do
     expect(page).to have_content "Make Groups"
   end
 
-
+Warden.test_reset!
 end
 
 
@@ -63,5 +68,6 @@ feature 'user features' do
   it "user cannot see, edit and add new lunches" do
     visit '/lunches/'
   end
+ Warden.test_reset!
 end
 

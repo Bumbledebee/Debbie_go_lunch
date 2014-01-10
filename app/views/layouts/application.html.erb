@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Toy</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -10,7 +10,7 @@
   <ul class="title-area">
     <li class="name">
       <%if user_signed_in?%>
-      <h1><%= link_to "Go Lunch", user_path(current_user.name) %>!</a>
+      <h1><%= link_to "Go Lunch", user_path(current_user)%></a>
       </h1>
       <%end%>
     </li>
