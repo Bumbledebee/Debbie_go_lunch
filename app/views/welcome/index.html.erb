@@ -15,5 +15,23 @@
   To try out this app, <strong><%= link_to 'sign in', new_user_session_path %> </strong> with <strong>admin@company.com</strong> and <strong>bigsecret</strong>
 </div>
 
+<canvas id="myCanvas" width="400" height="200">
+  Your web browser does not support canvas!
+</canvas>
 
+<script>
+  window.onload = function() {
+
+  // Get the canvas element.
+  var canvas = document.getElementById('myCanvas');
+
+  // Check to see if the browser supports the Canvas API.
+  if (canvas.getContext) {
+
+    // Initialize a 2d drawing context.
+    var ctx = canvas.getContext('2d');
+  }
+}
+
+</script>
 
