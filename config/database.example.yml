@@ -1,0 +1,25 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: toy_development
+  pool: 5
+
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: toy_test
+  pool: 5
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: toy_production
+  pool: 5
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: toy_staging
+  pool: 5
