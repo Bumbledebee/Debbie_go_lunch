@@ -44,4 +44,5 @@ FactoryGirl.define do
     optional "pizza"
     admin true
   end
+
 end

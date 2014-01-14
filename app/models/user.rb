@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :password
 
+
   has_many :user_lunches
   has_many :lunches,
     :through => :user_lunches

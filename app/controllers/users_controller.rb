@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_filter :authenticate_user!
   before_action :authorize_user, except: [:show, :update, :destroy]
   before_action :is_owner, only: [:show, :update, :destroy]
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+
       redirect_to user_path
     else
       render :edit
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
 
   def add_me
     @lunch = Lunch.last
@@ -43,6 +46,7 @@ class UsersController < ApplicationController
     @lunch.save
     render success: true, json: {data: 'Hello'}
   end
+
 
   def destroy
     @user = User.find(params[:id])
@@ -69,5 +73,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :department_id, :lunchgroupleader_id, :optional, :admin)
   end
-
 end

@@ -1,4 +1,5 @@
 class LunchesController < ApplicationController
+
   before_filter :authenticate_user!
   before_action :authorize_user
 
@@ -27,7 +28,7 @@ class LunchesController < ApplicationController
     end
   end
 
-  def edit
+  def show
     @lunch = Lunch.find(params[:id])
     @users = @lunch.users
     @users_not_going =  User.all.map {|x| x unless @lunch.users.include?(x) }
@@ -73,6 +74,4 @@ class LunchesController < ApplicationController
   def lunch_params
     params.require(:lunch).permit(:name)
   end
-
-
 end

@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108041908) do
+
+ActiveRecord::Schema.define(version: 20140103153052) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "departments", force: true do |t|
+<<<<<<< HEAD
     t.string   "name",       null: false
+=======
+    t.string   "name"
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,11 +46,14 @@ ActiveRecord::Schema.define(version: 20140108041908) do
     t.string "name"
   end
 
+<<<<<<< HEAD
   create_table "messages", force: true do |t|
     t.string "email", null: false
     t.text   "body",  null: false
   end
 
+=======
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
   create_table "user_groups", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "group_id",   null: false
@@ -62,8 +71,13 @@ ActiveRecord::Schema.define(version: 20140108041908) do
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
+<<<<<<< HEAD
     t.string   "name"
     t.integer  "department_id"
+=======
+    t.string   "name",                                   null: false
+    t.integer  "department_id",                          null: false
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
     t.string   "optional"
     t.boolean  "admin",                  default: false
     t.string   "reset_password_token"

@@ -37,6 +37,7 @@ Toy::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
+
   config.assets.compile = true
 
   # Generate digests for assets URLs.
@@ -87,6 +88,4 @@ Toy::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
-
 end

@@ -12,6 +12,7 @@ Toy::Application.routes.draw do
 
   resources :departments
   resources :lunchgroupleaders
+
   root :to => "welcome#index"
 
   resources :lunches do
@@ -19,6 +20,7 @@ Toy::Application.routes.draw do
       put 'take_down'
       put 'update_status'
       get 'match'
+      put 'change_groups'
     end
     resources :groups do
       collection do

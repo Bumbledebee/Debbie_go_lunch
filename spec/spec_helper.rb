@@ -1,3 +1,4 @@
+
 require 'coveralls'
 Coveralls.wear!
 
@@ -43,7 +44,10 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+<<<<<<< HEAD
 
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+=======
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
 end

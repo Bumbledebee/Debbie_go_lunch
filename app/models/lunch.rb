@@ -10,6 +10,7 @@ class Lunch < ActiveRecord::Base
   def make_groups
     group_num = (users.count/5)+1
     groups = []
+
     group_num.times { groups << Group.new(:lunch_id => self.id, :name => self.name+"#{groups.count}")}
     if groups.each {|c| c.save}
       users = self.users.sort { |a,b| a.department_id <=> b.department_id}

@@ -2,18 +2,27 @@
 <html>
 <head>
   <title>Toy</title>
+<<<<<<< HEAD
   <%= stylesheet_link_tag "application", media: "all" %>
+=======
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
   <%= csrf_meta_tags %>
 </head>
 <body>
   <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
+<<<<<<< HEAD
       <%if user_signed_in?%>
         <h1><%= link_to "Go Lunch", user_path(current_user)%></a></h1>
       <% else %>
         <h1><%= link_to "Find on Github", "https://github.com/Bumbledebee/Debbie_go_lunch" %></a></h1>
       <%end%>
+=======
+      <h1><a href="#">Go Lunch</a></h1>
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
@@ -21,6 +30,7 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
+<<<<<<< HEAD
       <li><%= link_to 'Contact Me', new_message_path %></li>
       <% if user_signed_in? %>
       <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
@@ -32,10 +42,21 @@
             <li><%= link_to "Manage Departments", new_department_path %></li>
             <li><%= link_to "Manage Lunchgroupleaderoptions", new_lunchgroupleader_path %></li>
             <li><%= link_to "Manage Users", users_path %></li>
+=======
+      <% if user_signed_in? %>
+      <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: {confirm: "Are you sure"}%></li>
+        <%if current_user.admin? %>
+     <li class="has-dropdown">
+          <%= link_to 'Manage Participants', '/lunches/1' %>
+          <ul class="dropdown">
+            <li><%= link_to 'Manage Groups', '/lunches/1/groups/show' %></li>
+            <li><%= link_to 'Manage Lunches', '/lunches' %></li>
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
           </ul>
         <%end%>
       </li>
       <%else%>
+<<<<<<< HEAD
       <li class="has-dropdown">
         <a href="#">Join</a>
         <ul class="dropdown">
@@ -43,6 +64,15 @@
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><a href="#">Sign Up with Gmail</a></li>
           <li><a href="#">Sign In with Gmail</a></li>
+=======
+      <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
+      <li class="has-dropdown">
+        <%= link_to 'Sign Up with Mail', new_user_registration_path %>
+        <ul class="dropdown">
+          <li><a href="#">Sign up with Gmail</a></li>
+          <li><a href="#">Blablaplaceholder</a></li>
+          <li><a href="#">Another placeholder</a></li>
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
         </ul>
       </li>
       <%end%>
@@ -54,6 +84,7 @@
     </ul>
   </section>
 </nav>
+<<<<<<< HEAD
 
 <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: "name noticemessage" %>
@@ -63,3 +94,11 @@
 <%= javascript_include_tag "application"%>
 </body>
 </html>
+=======
+  <p class="notice"><%= flash[:notice] %></p>
+<%= yield %>
+</body>
+</html>
+
+
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee

@@ -1,4 +1,5 @@
 <div class="wrapper">
+<<<<<<< HEAD
 <%= link_to "Edit groups", change_groups_lunch_groups_path, class:'button'%>
 <%= link_to "Download CSV", csv_lunch_groups_path, class:'button'%>
 <%= link_to "Print groups", '#', class:'button'%>
@@ -7,6 +8,8 @@
 <%end%>
 
 
+=======
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
@@ -29,16 +32,33 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
+<<<<<<< HEAD
         <% user = User.find(group.lunchgroupleader)%>
         <td><%=user.name%></td>
           <% group.users.each do |user|%>
             <td><%=user.name%>
           <%end%>
           </td>
+=======
+        <td><%= group.lunchgroupleader%></td>
+        <% @group = group %>
+        <%= form_tag change_groups_lunch_path(@group), method: :put do %>
+          <% group.users.each do |user|%>
+            <td><%=user.name%>
+            <%= check_box_tag "group[users][]", user.id %>
+            <%= label_tag "group[users][]", ""%>
+          <%end%>
+          </td>
+          <%= submit_tag "Add to group #{@group.id}", class: 'button'%>
+        <%end%>
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
       </tr>
     </tbody>
   </table>
   <%end%>
 </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
