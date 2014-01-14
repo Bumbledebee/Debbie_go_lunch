@@ -13,17 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-<<<<<<< HEAD
 //= require_tree .
 
 $(document).foundation();
 
 // $(function(){ $(document).foundation(); });
 
-
-=======
-//= require turbolinks
-//= require_tree .
-
-$(function(){ $(document).foundation(); });
->>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee

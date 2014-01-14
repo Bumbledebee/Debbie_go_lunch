@@ -28,6 +28,13 @@ class LunchesController < ApplicationController
     end
   end
 
+  def edit
+    @lunch = Lunch.find(params[:id])
+    @users = @lunch.users
+    @users_not_going =  User.all.map {|x| x unless @lunch.users.include?(x) }
+    @users_not_going = @users_not_going.compact
+  end
+
   def show
     @lunch = Lunch.find(params[:id])
     @users = @lunch.users

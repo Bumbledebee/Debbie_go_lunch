@@ -9,21 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
-<<<<<<< HEAD
  //= require foundation_and_overrides
 
-=======
->>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
  *= require foundation_and_overrides
 
  *= require_tree .
  */
 
-<<<<<<< HEAD
 @import 'foundation';
 @import 'foundation_and_overrides';
 @import 'style';
-=======
-@import 'style';
-@import 'foundation_and_overrides';
->>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee

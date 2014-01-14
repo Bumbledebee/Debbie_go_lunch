@@ -1,25 +1,15 @@
 class GroupsController < ApplicationController
-<<<<<<< HEAD
   before_filter :authenticate_user!
   before_action :authorize_user, except: [:show]
 
   def show
-    # needs to be improved
-=======
-
-  def index
->>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
     @lunch = Lunch.find(params[:lunch_id])
     group_num = (@lunch.users.count/5)+1
     @users = @lunch.users
     @groups = @lunch.groups[0...group_num]
   end
 
-<<<<<<< HEAD
   def change_groups
-=======
-  def show
->>>>>>> 7b70463fecf771c5691c4d3a8b23a98cfb55d7ee
     # we edit and index show all groups at the same time
     @lunch = Lunch.find(params[:lunch_id])
     group_num = (@lunch.users.count/5)+1
