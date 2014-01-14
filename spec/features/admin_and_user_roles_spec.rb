@@ -43,7 +43,6 @@ feature 'admin features' do
     expect(page).to have_content "Make Groups"
   end
 
-Warden.test_reset!
 end
 
 
@@ -62,6 +61,4 @@ feature 'user features' do
   it "user cannot see, edit and add new lunches" do
     visit '/lunches/'
   end
- Warden.test_reset!
 end
-

@@ -24,4 +24,3 @@ staging:
   encoding: unicode
   database: toy_staging
   pool: 5
-

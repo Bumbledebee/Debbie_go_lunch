@@ -1,5 +1,4 @@
-module AdminTasks
-  Facto
+module UserHelper
 
   def perform_admin_tasks(admin)
     visit new_user_session_path
