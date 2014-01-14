@@ -1,3 +1,8 @@
+
+{<img src="https://coveralls.io/repos/Bumbledebee/Debbie_go_lunch/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/Bumbledebee/Debbie_go_lunch]
+
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the
