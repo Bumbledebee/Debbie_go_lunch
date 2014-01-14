@@ -33,4 +33,15 @@ FactoryGirl.define do
     factory :user_kind_of_willing_to_be_leader, traits: [:kind_of_willing_to_be_leader]
     factory :user_not_willing_to_be_leader, traits: [:kind_of_willing_to_be_leader]
    end
+
+  factory :admin do
+    name "Admin"
+    email "admin@company.com"
+    department_id 1
+    password 'secretsuper'
+    password_confirmation 'secretsuper'
+    lunchgroupleader_id 1
+    optional "pizza"
+    admin true
+  end
 end

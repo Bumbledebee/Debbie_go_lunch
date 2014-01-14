@@ -2,24 +2,17 @@ require 'spec_helper'
 
 feature 'admin features' do
   before :each do
-  user = FactoryGirl.create(:user)
-  user.confirmed_at = Time.now
-  user.save
-  admin = FactoryGirl.create(:user, admin: true)
-  admin.confirmed_at = Time.now
-  admin.save
-  login_as(admin, :scope => :user)
-  FactoryGirl.create(:lunch, name:"Chinese Dumplings")
-  FactoryGirl.create_list(:departments, 4)
-  FactoryGirl.create_list(:lunchgroupleader, 3)
+    let(:user) {FactoryGirl.build(:user)}
+    let(:admin) {FactoryGirl.build(:admin)}
+    sign_in_as(admin)
+    FactoryGirl.create(:lunch, name:"Chinese Dumplings")
+    FactoryGirl.create_list(:departments, 4)
+    FactoryGirl.create_list(:lunchgroupleader, 3)
   end
+
   it "admin can edit all users" do
-    current_user = User.last
     visit users_path
     click_on 'edit'
-
-    expect(page).to have_content "Name"
-    expect(page).to have_content "Department"
     expect(page).to have_content "Update User"
   end
 
@@ -30,6 +23,7 @@ feature 'admin features' do
 
   it "can see the edit page for lunchgroups" do
     visit change_groups_lunch_groups_path
+    expect(page).to have_content "Make "
   end
 
   it "admin can edit all departments" do

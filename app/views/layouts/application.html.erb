@@ -10,8 +10,9 @@
   <ul class="title-area">
     <li class="name">
       <%if user_signed_in?%>
-      <h1><%= link_to "Go Lunch", user_path(current_user)%></a>
-      </h1>
+        <h1><%= link_to "Go Lunch", user_path(current_user)%></a></h1>
+      <% else %>
+        <h1><%= link_to "Find on Github", "https://github.com/Bumbledebee/Debbie_go_lunch" %></a></h1>
       <%end%>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
