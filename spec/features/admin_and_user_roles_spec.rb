@@ -1,23 +1,26 @@
 require 'spec_helper'
 
 feature 'admin features' do
+  let(:user) {FactoryGirl.build(:user)}
+  let(:admin) {FactoryGirl.build(:user, admin: true)}
+
   before :each do
-    let(:user) {FactoryGirl.build(:user)}
-    let(:admin) {FactoryGirl.build(:admin)}
-    sign_in_as(admin)
+    user.save
+    admin.save
     FactoryGirl.create(:lunch, name:"Chinese Dumplings")
-    FactoryGirl.create_list(:departments, 4)
+    FactoryGirl.create_list(:department, 4)
     FactoryGirl.create_list(:lunchgroupleader, 3)
   end
 
   it "admin can edit all users" do
+    sign_in_as(admin)
     visit users_path
     click_on 'edit'
     expect(page).to have_content "Update User"
   end
 
   it "admin can add new lunches" do
-    visit new_lunches_path
+    visit new_lunch_path
     expect(page).to have_content "Create Lunch"
   end
 
@@ -27,7 +30,7 @@ feature 'admin features' do
   end
 
   it "admin can edit all departments" do
-    visit departments_path
+    visit new_department_path
   end
 
   it "admin can edit the lunchgroupleader options" do
@@ -35,7 +38,7 @@ feature 'admin features' do
   end
 
   it "admin can edit participants of a lunch" do
-    visit edit_lunch_path
+    visit edit_lunch_path(Lunch.first)
   end
 
   it "admin can make lunch groups for one specific lunch" do

@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="row">
 <%= link_to "Edit groups", change_groups_lunch_groups_path, class:'button'%>
 <%= link_to "Download CSV", csv_lunch_groups_path, class:'button'%>
 <%= link_to "Print groups", '#', class:'button'%>
@@ -6,9 +6,9 @@
   <%= link_to "Email groups", email_lunch_groups_path, class:'button'%>
 <%end%>
 
-  <% group_num = (@lunch.users.count/5)+1 %>
+  <% group_num = (@lunch.users.count/5)+1%>
   <% @users = @lunch.users %>
-  <% groupes = @lunch.groups[0...group_num] %>
+  <% groupes = @lunch.groups.map {|c| c.groups.users.count > 1} %>
   <% groupes.each do |group| %>
     <table>
       <thead>
@@ -28,8 +28,7 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
-        <% user = User.find(group.lunchgroupleader)%>
-        <td><%=user.name%></td>
+
           <% group.users.each do |user|%>
             <td><%=user.name%>
           <%end%>

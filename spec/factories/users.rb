@@ -5,8 +5,8 @@ FactoryGirl.define do
     name "Max"
     sequence(:email) {|n|"m#{n}ax@company.com"}
     department_id 1
-    password 'password'
-    password_confirmation 'password'
+    sequence(:password) {|n| "#{n}password"}
+    password_confirmation {|u| u.password}
     lunchgroupleader_id 1
     optional "vegetarian"
     admin false
