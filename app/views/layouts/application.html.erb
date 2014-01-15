@@ -36,16 +36,7 @@
         <%end%>
       </li>
       <%else%>
-      <li class="has-dropdown">
-        <a href="#">Join</a>
-        <ul class="dropdown">
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><a href="#">Sign Up with Gmail</a></li>
-          <li><a href="#">Sign In with Gmail</a></li>
-
-        </ul>
-      </li>
+      <li class="active"><%= link_to 'Join', new_user_session_path %></li>
       <%end%>
     </ul>
 

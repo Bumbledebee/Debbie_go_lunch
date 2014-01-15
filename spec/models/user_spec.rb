@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
   it { should have_valid(:name).when("Anja wer", "sadf asdf") }
   it { should_not have_valid(:name).when(nil, '') }
 
@@ -17,7 +16,7 @@ describe User do
 
   it { should have_many :lunches }
   it { should have_many :groups }
-
+end
 
 describe 'admin checks' do
   it "is not an admin when created" do
