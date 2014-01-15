@@ -2,13 +2,13 @@ class Lunch < ActiveRecord::Base
   validates_presence_of :name
 
   has_many :groups,
-    dependent: :nullify
+    dependent: :destroy
   has_many :user_lunches
   has_many :users,
     :through => :user_lunches
 
   def make_groups
-    group_num = (users.count/5)+1
+    group_num = (users.count/5)
     groups = []
 
     group_num.times { groups << Group.new(:lunch_id => self.id, :name => self.name+"#{groups.count}")}

@@ -8,29 +8,26 @@
 
   <% group_num = (@lunch.users.count/5)+1%>
   <% @users = @lunch.users %>
-  <% groupes = @lunch.groups.map {|c| c.groups.users.count > 1} %>
+  <% groupes = @lunch.groups %>
   <% groupes.each do |group| %>
     <table>
       <thead>
         <tr>
-          <th>group.name</th>
-          <th>group.id</th>
-          <th>lunchgroupleader</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
+          <th>Group</th>
+          <th>Lunchgroupleader</th>
+           <% group.users.each do |user|%>
+            <th><%=user.department.name %>
+          <%end%>
+          </th>
         </tr>
     </thead>
     <tbody>
       <tr>
         <td><%= group.name %></td>
-        <td><%= group.id %></td>
-
+          <% user = User.where(id: group.lunchgroupleader)%>
+        <td><%=user[0].name %></td>
           <% group.users.each do |user|%>
-            <td><%=user.name%>
+            <td><%=user.name %>
           <%end%>
           </td>
       </tr>
