@@ -1,12 +1,7 @@
 
 <div class="row">
+<div class="large-4 large-offset-5 columns">
 <table>
-  <thead>
-    <tr>
-      <th>LUNCH</th>
-      <th>ACTION</th>
-    </tr>
-  </thead>
   <tbody>
     <% @lunches.reverse.each do |lunch| %>
     <tr>
@@ -26,8 +21,8 @@
 
 <p> You can only invite to lunch, arrange participants and make groups for one lunch at a time.</p>
 <%= simple_form_for @lunch do |f| %>
-  <div class="large-6 large-offset-0 columns"><%= f.input :name%></div></br>
-  <div class="large-6 large-offset-0 columns"><%= f.button :submit %></div></br>
+  <div class="large-9 large-offset-0 columns"><%= f.input :name%></div></br>
+  <div class="large-9 large-offset-0 columns"><%= f.button :submit %></div></br>
 <%end%>
-
+</div>
 </div>

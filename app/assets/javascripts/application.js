@@ -13,9 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require backstretch.min
 //= require_tree .
 
 $(document).foundation();
+
+$(function(){
+  $.backstretch('https://dl.dropboxusercontent.com/u/59656384/orange.jpg');
+})
 
 // $(function(){ $(document).foundation(); });
 

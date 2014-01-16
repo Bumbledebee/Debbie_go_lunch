@@ -4,20 +4,20 @@
 <div class="row"></br></br>
 <% if Lunch.last.groups.size == 0 %>
 <% attending = Lunch.last.users.include?(@user) %>
-    <div class="large-6 large-offset-3 columns yes <%= 'show' if attending %>"><h1 class="red"><strong>Current status: Not Participating</strong></h1></br></br><button class='button'>Change response to 'Yes'</button>
-    </div></br>
-    <div class="large-6 large-offset-3 columns no <%= 'show' if !attending %>"><h1 class="green"><strong>Current status: Participating</strong></h1></br><h2>Thanks for participating</h2><h3>We are looking forward to lunching with you</h3></br></br><button class='button'>Change response to 'No'</button>
-    </div></br>
+    <div class="large-6 large-offset-6 columns yes <%= 'show' if attending %>"><h1 class="red"><strong>Current status:</br> Not Participating</strong></h1></br></br><button class='button'>Change response to 'Yes'</button>
+    </div>
+    <div class="large-6 large-offset-6 columns no <%= 'show' if !attending %>"><h1 class="green"><strong>Current status: Participating</strong></h1></br></br><button class='button'>Change response to 'No'</button>
+    </div>
 <%end%>
 </div>
 
 <div class="row"></br></br>
 <%= simple_form_for @user do |f| %>
-  <div class="large-6 large-offset-3 columns"><%= f.input :name %></div></br>
-  <div class="large-6 large-offset-3 columns"><%= f.association :department, include_blank:false %></div></br>
-  <div class="large-6 large-offset-3 columns"><%= f.association :lunchgroupleader, include_blank:false %></div></br>
-  <div class="large-6 large-offset-3 columns"><%= f.input :optional %></div></br>
-  <div class="large-6 large-offset-3 columns"><%= f.button :submit %></div></br>
+  <div class="large-6 large-offset-6 columns"><%= f.input :name %></div></br>
+  <div class="large-6 large-offset-6 columns"><%= f.association :department, include_blank:false %></div></br>
+  <div class="large-6 large-offset-6 columns"><%= f.association :lunchgroupleader, include_blank:false %></div></br>
+  <div class="large-6 large-offset-6 columns"><%= f.input :optional %></div></br>
+  <div class="large-6 large-offset-6 columns"><%= f.button :submit %></div></br>
 <%end%>
 </div>
 
