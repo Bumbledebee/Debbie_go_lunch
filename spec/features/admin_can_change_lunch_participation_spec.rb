@@ -14,17 +14,26 @@ feature 'admin can change lunch participants' do
 
   it "admin adds someone to a group" do
     visit edit_lunch_path(Lunch.last)
-    find_button("ADD TO LUNCH")
-    find(:css, "#user-checkboxes input:nth-child(1)").click
-    # find(:xpath, "//input[@value='1']").set(true)
-    # find(:css, "#lunch_users_[value='1']").set(true)
-    click_button "ADD TO LUNCH"
+    not_going = within('.not-going tbody') do
+      all('tr')
+    end
+    within(not_going[0]) do
+      find("input[type='checkbox']").click
+    end
+    click('ADD TO LUNCH')
     expect(Lunch.first.users.include?(User.first)).to eql true
   end
 
   it "admin takes someone down from a lunch" do
     visit edit_lunch_path(Lunch.last)
-    expect(page).to have_content "TAKE DOWN"
+    going = within('.going tbody') do
+      all('tr')
+    end
+    within(going[0]) do
+      find("input[type='checkbox']").click
+    end
+    click("TAKE DOWN")
+    expect(Lunch.first.users.include?(User.first)).to eql false
   end
 
 end

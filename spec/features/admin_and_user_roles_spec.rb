@@ -14,11 +14,8 @@ feature 'admin features' do
   end
 
   it "admin can edit all users" do
-    expect(page).to have_content "Manage"
-    binding.pry
-    # ////////////////////
     visit users_path
-    find_link('edit').visible?
+    expect(page).to have_content 'edit'
   end
 
   it "admin can add new lunches" do

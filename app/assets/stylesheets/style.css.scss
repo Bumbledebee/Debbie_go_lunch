@@ -38,3 +38,10 @@ body {
   font-weight: bold;
 }
 
+.backstretch {
+  img {
+   -webkit-filter: grayscale(60%);
+   filter: grayscale(60%);
+  }
+}
+

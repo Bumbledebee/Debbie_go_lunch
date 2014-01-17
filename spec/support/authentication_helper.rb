@@ -11,16 +11,3 @@ module AuthenticationHelper
     click_on 'Sign Out'
   end
 end
-
-
-
-  let(:admin) {FactoryGirl.build(:user, admin: true)}
-  let(:lunch) {FactoryGirl.build(:lunch, name:"Chinese Dumplings")}
-
-  before :each do
-    admin.save
-    lunch.save
-    FactoryGirl.create_list(:department, 4)
-    FactoryGirl.create_list(:lunchgroupleader, 3)
-    sign_in_as(admin)
-  end
