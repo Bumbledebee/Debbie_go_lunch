@@ -11,6 +11,7 @@ gem 'foundation-rails'
 gem 'pg'
 
 gem 'devise'
+gem "omniauth-google-oauth2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
