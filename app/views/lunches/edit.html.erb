@@ -13,17 +13,16 @@
       <th width="50">Change</th>
   </thead>
   <tbody>
-    <%= form_tag take_down_lunch_path(@lunch), method: :put do %>
+    <%= simple_form_for @lunch, url: take_down_lunch_path(@lunch), method: :put do |f| %>
     <% @users.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
       <td>
       <%= check_box_tag "lunch[users][]", user.id %>
       <%= label_tag "lunch[users][]", ""%> </td>
-
     </tr>
     <%end%>
-    <%= submit_tag 'TAKE DOWN', class: 'button'%>
+    <%= f.submit 'TAKE DOWN', class: 'button'%>
     <% end %>
   </tbody>
 </table>
@@ -37,17 +36,16 @@
       <th width='50'>Change</th>
   </thead>
   <tbody>
-    <%= form_tag update_status_lunch_path(@lunch), method: :put do %>
-
-    <% @users_not_going.each do |user| %>
-    <tr>
-      <td><%= user.name %> </td>
-      <td>
-      <%= check_box_tag "lunch[users][]", user.id %>
-      <%= label_tag "lunch[users][]", ""%> </td>
-    </tr>
-    <%end%>
-    <%= submit_tag 'ADD TO LUNCH', class: 'button'%>
+    <%= simple_form_for @lunch, url: update_status_lunch_path(@lunch), method: :put do |f| %>
+      <% @users_not_going.each do |user| %>
+      <tr>
+        <td><%= user.name %> </td>
+        <td>
+        <%= check_box_tag "lunch[users][]", user.id %>
+        <%= label_tag "lunch[users][]", ""%> </td>
+      </tr>
+      <%end%>
+    <%= f.submit 'ADD TO LUNCH', class: 'button'%>
     <% end %>
   </tbody>
 </table>

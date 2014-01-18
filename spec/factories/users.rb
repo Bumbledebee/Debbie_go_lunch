@@ -37,10 +37,10 @@ FactoryGirl.define do
   factory :admin do
     name "Admin"
     email "admin@company.com"
-    department_id 1
+    department
     password 'secretsuper'
     password_confirmation 'secretsuper'
-    lunchgroupleader_id 1
+    lunchgroupleader
     optional "pizza"
     admin true
   end

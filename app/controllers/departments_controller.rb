@@ -21,10 +21,10 @@ class DepartmentsController < ApplicationController
 
   def update
     @department = Department.find(params[:id])
-    if @department.save
+    if @department.update(params.require(:department).permit(:name))
       redirect_to lunches_path, notice: "successfully updated the departments"
     else
-      render :new, notice: "Please try again"
+      render :edit, notice: "Please try again"
     end
   end
 

@@ -4,9 +4,9 @@
 <div class="row"></br></br>
 <% if Lunch.last.groups.size == 0 %>
 <% attending = Lunch.last.users.include?(@user) %>
-    <div class="large-6 large-offset-6 columns yes <%= 'show' if attending %>"><h1 class="green"><strong>Current status:</br>Participating</strong></h1></br></br><button class='button'>Change response to 'Yes'</button>
+    <div class="large-6 large-offset-6 columns yes <%= 'show' if attending %>"><h1 class="green"><strong>Current status:</br>Participating</strong></h1></br></br><button class='button'>Change response to 'No'</button>
     </div>
-    <div class="large-6 large-offset-6 columns no <%= 'show' if !attending %>"><h1 class="red"><strong>Current status:</br> Not Participating</strong></h1></br></br><button class='button'>Change response to 'No'</button>
+    <div class="large-6 large-offset-6 columns no <%= 'show' if !attending %>"><h1 class="red"><strong>Current status:</br> Not Participating</strong></h1></br></br><button class='button'>Change response to 'Yes'</button>
     </div>
 <%end%>
 </div>

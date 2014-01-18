@@ -9,17 +9,19 @@ feature 'user can signs up', %Q{
   #ACCEPTANCE CRITERIA
   #* I must specify a valid email address and two matching passwords
 
+  before :each do
+    FactoryGirl.create(:lunch)
+    FactoryGirl.create_list(:lunchgroupleader, 3)
+  end
+
   scenario 'specifying valid and required information' do
     FactoryGirl.create(:department)
     visit root_path
-    click_link 'Sign Up'
-    fill_in 'Name', with: "John Doe"
+    click_link 'Join'
+    click_link 'Sign up'
     fill_in 'Email', with: 'user@example.com'
     fill_in "Password", with: "passwordtest", :match => :prefer_exact
     fill_in "Password Confirmation", with: "passwordtest", :match => :prefer_exact
-    select "sure, no prob", from:"Lunchgroupleader"
-    select "IT", from: "Department"
-    fill_in "Optional", with: "Veggie"
     click_button 'Sign Up'
 
     expect(page).to have_content "You're in!"
@@ -28,8 +30,8 @@ feature 'user can signs up', %Q{
 
   scenario "specifying invalid information" do
     visit root_path
-    click_link 'Sign Up'
-    click_button 'Sign Up'
+    click_link 'Join'
+    click_button 'Sign up'
 
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content("Sign Out")
@@ -37,7 +39,8 @@ feature 'user can signs up', %Q{
 
   scenario "passwords not matching" do
     visit root_path
-    click_link 'Sign Up'
+    click_link 'Join'
+    click_link 'Sign up'
 
     fill_in 'Password', with: "password", :match => :prefer_exact
     fill_in 'Password Confirmation', with: "somethingelse", :match => :prefer_exact

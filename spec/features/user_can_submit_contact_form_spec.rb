@@ -27,7 +27,7 @@ feature 'submit contact form', %Q(
     expect(ActionMailer::Base.deliveries.size).to eql(1)
     last_email = ActionMailer::Base.deliveries.last
     expect(last_email).to have_subject('Message from GoLunch Visitor')
-    expect(last_email).to deliver_to("debbieblass@web.de")
+    expect(last_email).to deliver_to("debbieblass@gmail.com")
     expect(last_email).to have_body_text("Nice Site!")
   end
 

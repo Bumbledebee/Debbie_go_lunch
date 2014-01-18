@@ -28,6 +28,15 @@ class LunchesController < ApplicationController
     end
   end
 
+  def update
+    @lunch = Lunch.find(params[:id])
+    if @lunch.update(lunch_params)
+      redirect_to lunches_path, notice: "successfully updated the name of the lunch"
+    else
+      render :edit, notice: "Please try again"
+    end
+  end
+
   def edit
     @lunch = Lunch.find(params[:id])
     @users = @lunch.users

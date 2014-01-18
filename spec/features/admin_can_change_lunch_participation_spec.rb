@@ -12,7 +12,7 @@ feature 'admin can change lunch participants' do
     sign_in_as(admin)
   end
 
-  it "admin adds someone to a group" do
+  it "admin adds someone to a group and takes him down again" do
     visit edit_lunch_path(Lunch.last)
     not_going = within('.not-going tbody') do
       all('tr')
@@ -20,19 +20,15 @@ feature 'admin can change lunch participants' do
     within(not_going[0]) do
       find("input[type='checkbox']").click
     end
-    click('ADD TO LUNCH')
+    click_on 'ADD TO LUNCH'
     expect(Lunch.first.users.include?(User.first)).to eql true
-  end
-
-  it "admin takes someone down from a lunch" do
-    visit edit_lunch_path(Lunch.last)
     going = within('.going tbody') do
       all('tr')
     end
     within(going[0]) do
       find("input[type='checkbox']").click
     end
-    click("TAKE DOWN")
+    click_on "TAKE DOWN"
     expect(Lunch.first.users.include?(User.first)).to eql false
   end
 
