@@ -25,9 +25,7 @@ class GroupsController < ApplicationController
 
   def email
     @lunch = Lunch.find(params[:lunch_id])
-    @lunch.users.each do |user|
-      GroupInfo.send_message(params["lunch_id"]).deliver
-    end
+    GroupInfo.send_message(params["lunch_id"]).deliver
     redirect_to lunches_path, notice:"Message sent successfully "
   end
 

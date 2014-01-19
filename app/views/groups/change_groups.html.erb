@@ -3,7 +3,7 @@
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
   <% groupes.each do |group| %>
-    <table>
+    <table data-lunch-id='<%@lunch.id%>'>
       <thead>
         <tr>
           <th>Group</th>
@@ -17,17 +17,13 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.lunchgroupleader%></td>
-        <% @group = group %>
-        <%= form_tag change_lunch_groups_path(@lunch), method: :put do %>
           <% group.users.each do |user|%>
-            <td><%=user.name%>
-            <%= check_box_tag "group[users][]", user.id %>
-            <%= label_tag "group[users][]", ""%>
+            <td data-user-id='<%=user.id%>' ><%=user.name%>
+            <input type="checkbox">
           <%end%>
           </td>
-          <div data-user-id='<%=user.id%>' class: "button addToGroup" onclick='addToGroup(event)'><%= submit_tag "Add to group #{@group.name}" %></div>
-          <%= submit_tag "Take down from #{@group.name}"%> class: "button" onclick='downToGroup(event)'
-        <%end%>
+          <div data-group-id='<%=group.id%>' class="addToGroup" onclick='addToGroup(event)'><button class='button green'>Add to group <%=group.name%></button></div>
+          <div data-group-id='<%=group.id%>' class="addToGroup" onclick='downToGroup(event)'><button class='button red'>Take down from <%=group.name%></button></div>
       </tr>
     </tbody>
   </table>
@@ -38,8 +34,10 @@
 <% content_for :extra_footer do %>
 <script>
   var addToGroup = function(e){
-    e.preventDefault();
-    var target
+      e.preventDefault();
+      var target = $(e.target);
+      $.get('lunches/' + target.data('lunch-id') + '/' + target.data('group-id') + '/' + target.data('user-id') + '/addToGroup', function(response){
+      });
   }
 
 </script>
