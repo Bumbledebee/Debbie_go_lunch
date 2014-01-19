@@ -22,22 +22,33 @@
             <input type="checkbox">
           <%end%>
           </td>
-          <div data-group-id='<%=group.id%>' class="addToGroup" onclick='addToGroup(event)'><button class='button green'>Add to group <%=group.name%></button></div>
-          <div data-group-id='<%=group.id%>' class="addToGroup" onclick='downToGroup(event)'><button class='button red'>Take down from <%=group.name%></button></div>
+          <div data-group-id='<%=group.id%>' class="addToGroup button" onclick='addToGroup(event)'>Add to group <%=group.name%></div>
+          <div data-group-id='<%=group.id%>' class="addToGroup button" onclick='downToGroup(event)'>Take down from <%=group.name%></div>
       </tr>
     </tbody>
   </table>
   <%end%>
 </div>
 
-
 <% content_for :extra_footer do %>
 <script>
   var addToGroup = function(e){
       e.preventDefault();
       var target = $(e.target);
-      $.get('lunches/' + target.data('lunch-id') + '/' + target.data('group-id') + '/' + target.data('user-id') + '/addToGroup', function(response){
+      $.get('lunches/' + target.data('lunch-id') + '/groups' + target.data('group-id') + '/users' + target.data('user-id') + '/add_to_group', function(response){
       });
+  }
+
+  var downToGroup = function(e) {
+    e.preventDefault();
+    var target = $(e.target);
+    $.get('lunches/'+target.data('lunch-id')+'/groups'+target.data('group-id')+'/users'+target.data('user-id')+'/down_from_group', function(response){
+    });
+  }
+
+  window.onload=function(){
+    downToGroup();
+    addToGroup();
   }
 
 </script>

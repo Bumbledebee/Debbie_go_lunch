@@ -22,5 +22,3 @@ $(function(){
   $.backstretch('https://dl.dropboxusercontent.com/u/59656384/orange.jpg');
 })
 
-// $(function(){ $(document).foundation(); });
-

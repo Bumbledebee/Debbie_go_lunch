@@ -20,7 +20,6 @@ Toy::Application.routes.draw do
       put 'take_down'
       put 'update_status'
       get 'match'
-      put 'change_groups'
     end
     resources :groups do
       collection do
@@ -29,6 +28,10 @@ Toy::Application.routes.draw do
         put 'change'
         put 'csv'
         get 'email'
+      end
+      resources :users do
+        get 'add_to_group'
+        get 'down_from_group'
       end
     end
   end

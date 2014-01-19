@@ -45,6 +45,19 @@ class UsersController < ApplicationController
     render success: true, json: {data: 'Hello'}
   end
 
+  def add_to_group
+    binding.pry
+    @lunch = Lunch.find(params[:id])
+    @groups = Group.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def down_from_group
+    @lunch = Lunch.find(params[:id])
+    @groups = Group.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
 
   def destroy
     @user = User.find(params[:id])
