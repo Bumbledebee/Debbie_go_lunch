@@ -1,55 +1,28 @@
-<div class="row">
+<div class="row" data-lunch-id='<%=@lunch.id%>'>
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
   <% groupes.each do |group| %>
-    <table data-lunch-id='<%@lunch.id%>'>
-      <thead>
-        <tr>
-          <th>Group</th>
-          <th>Lunchgroupleader</th>
-           <% group.users.each do |user|%>
-          <th><%=user.department.name %>
-          <%end%>
-        </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= group.lunchgroupleader%></td>
-          <% group.users.each do |user|%>
-            <td data-user-id='<%=user.id%>' ><%=user.name%>
-            <input type="checkbox">
-          <%end%>
-          </td>
-          <div data-group-id='<%=group.id%>' class="addToGroup button" onclick='addToGroup(event)'>Add to group <%=group.name%></div>
-          <div data-group-id='<%=group.id%>' class="addToGroup button" onclick='downToGroup(event)'>Take down from <%=group.name%></div>
-      </tr>
-    </tbody>
-  </table>
+    <ul data-group-id='<%=group.id%>'id="sortable" class="droptrue"><%=group.name%>
+      <% group.users.each do |user| %>
+        <li data-user-id='<%=user.id%>'><%=user.name %></li>
+      <%end%>
+    </ul>
   <%end%>
+
 </div>
 
 <% content_for :extra_footer do %>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script>
-  var addToGroup = function(e){
-      e.preventDefault();
-      var target = $(e.target);
-      $.get('lunches/' + target.data('lunch-id') + '/groups' + target.data('group-id') + '/users' + target.data('user-id') + '/add_to_group', function(response){
-      });
-  }
-
-  var downToGroup = function(e) {
-    e.preventDefault();
-    var target = $(e.target);
-    $.get('lunches/'+target.data('lunch-id')+'/groups'+target.data('group-id')+'/users'+target.data('user-id')+'/down_from_group', function(response){
+  $(function() {
+    $( "ul.droptrue" ).sortable({
+      connectWith: "ul"
     });
-  }
 
-  window.onload=function(){
-    downToGroup();
-    addToGroup();
-  }
+    $( "#sortable" ).disableSelection();
+  });
 
 </script>
 <% end %>
