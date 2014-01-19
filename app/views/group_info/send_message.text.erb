@@ -1,0 +1,15 @@
+<h3>Hello,</h3>
+
+<p>welcome to <%= @lunch.name %> .</p>
+
+<p>Groups are divided as follows:</p>
+<p>
+<% @lunch.groups.each do |group|%>
+<ul><%= group.name %></ul>
+<% group.users.each do |user| %>
+<li><%= user.name %> </li>
+<%end%>
+<%end%>
+</p>
+
+

@@ -28,7 +28,7 @@ Toy::Application.routes.draw do
         get 'change_groups'
         put 'change'
         put 'csv'
-        put 'email'
+        get 'email'
       end
     end
   end

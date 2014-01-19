@@ -1,7 +1,6 @@
 <div class="row">
 <%= link_to "Edit groups", lunch_groups_path, class:'button'%>
-<%= link_to "Download CSV", csv_lunch_groups_path, class:'button'%>
-<%= link_to "Email groups", email_lunch_groups_path, class:'button'%>
+<%= link_to "Email groups", email_lunch_groups_path(@lunch), class:'button'%>
 
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>

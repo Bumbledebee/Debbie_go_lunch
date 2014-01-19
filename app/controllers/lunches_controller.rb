@@ -77,6 +77,7 @@ class LunchesController < ApplicationController
     redirect_to lunches_path
   end
 
+
   protected
 
   def authorize_user
