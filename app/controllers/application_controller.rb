@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     if current_user.admin?
       lunches_path
     else
-      user_path(resource)
+      edit_user_path(resource)
     end
   end
 

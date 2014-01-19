@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!
-  before_action :authorize_user, except: [:show, :update, :destroy]
-  before_action :is_owner, only: [:show, :update, :destroy]
+  before_action :authorize_user, except: [:edit, :update, :destroy]
+  before_action :is_owner, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   def edit
@@ -19,7 +15,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path
+      if current_user.admin?
+        redirect_to users_path
+      else
+        redirect_to edit_user_path
+      end
     else
       render :edit
     end
@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
 
   def add_me
     @lunch = Lunch.last
@@ -49,8 +48,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
+    if @user.lunches.count >0
+      redirect_to users_path, notice: "Sorry you cannot delete this user, as he is part of a lunchgroup"
+    else
+      @user.destroy
+      redirect_to users_path
+    end
   end
 
   protected

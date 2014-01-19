@@ -6,21 +6,16 @@
     <table>
       <thead>
         <tr>
-          <th>group.name</th>
-          <th>group.id</th>
-          <th>lunchgroupleader</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
-          <th>name</th>
+          <th>Group</th>
+          <th>Lunchgroupleader</th>
+           <% group.users.each do |user|%>
+          <th><%=user.department.name %>
+          <%end%>
         </tr>
     </thead>
     <tbody>
       <tr>
         <td><%= group.name %></td>
-        <td><%= group.id %></td>
         <td><%= group.lunchgroupleader%></td>
         <% @group = group %>
         <%= form_tag change_lunch_groups_path(@lunch), method: :put do %>
@@ -30,10 +25,22 @@
             <%= label_tag "group[users][]", ""%>
           <%end%>
           </td>
-          <%= submit_tag "Add to group #{@group.name}", class: 'button'%>
+          <div data-user-id='<%=user.id%>' class: "button addToGroup" onclick='addToGroup(event)'><%= submit_tag "Add to group #{@group.name}" %></div>
+          <%= submit_tag "Take down from #{@group.name}"%> class: "button" onclick='downToGroup(event)'
         <%end%>
       </tr>
     </tbody>
   </table>
   <%end%>
 </div>
+
+
+<% content_for :extra_footer do %>
+<script>
+  var addToGroup = function(e){
+    e.preventDefault();
+    var target
+  }
+
+</script>
+<% end %>
