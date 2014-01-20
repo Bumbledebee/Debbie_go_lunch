@@ -46,17 +46,19 @@ class UsersController < ApplicationController
   end
 
   def add_to_group
-    binding.pry
     @lunch = Lunch.find(params[:id])
-    @groups = Group.find(params[:id])
+    @group = Group.find(params[:id])
     @user = User.find(params[:id])
+    old_group = Group.find(@user.groups.last.id)
+    old_group.users -= @user
+    @group.users += @user
   end
 
-  def down_from_group
-    @lunch = Lunch.find(params[:id])
-    @groups = Group.find(params[:id])
-    @user = User.find(params[:id])
-  end
+  # def down_from_group
+  #   @lunch = Lunch.find(params[:id])
+  #   @groups = Group.find(params[:id])
+  #   @user = User.find(params[:id])
+  # end
 
 
   def destroy

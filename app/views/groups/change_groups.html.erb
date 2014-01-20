@@ -19,10 +19,18 @@
   $(function() {
     $( "ul.droptrue" ).sortable({
       connectWith: "ul"
+      addToGroup
     });
 
     $( "#sortable" ).disableSelection();
   });
+
+  var addToGroup = function(e){
+      e.preventDefault();
+      var target = $(e.target);
+      $.get('lunches/' + target.data('lunch-id') + '/groups' + target.data('group-id') + '/users' + target.data('user-id') + '/add_to_group', function(response){
+      });
+  }
 
 </script>
 <% end %>
