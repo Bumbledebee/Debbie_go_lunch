@@ -1,15 +1,12 @@
-<div class="row">
+<div class="row"><div class="large-6 large-offset-3 columns"></br></br>
   <%= simple_form_for @lunchgroupleader do |f| %>
-    <div class="large-6 large-offset-6 columns"><%= f.input :name%></div></br>
-    <div class="large-6 large-offset-6 columns"><%= f.button :submit %></div></br>
+    <%= f.input :name%></br>
+    <%= f.button :submit %></br>
   <%end%>
-</div>
-
-<div class="row">
 <% @lunchgroupleaders.each do |x|%>
   <%= simple_form_for x do |f| %>
-    <div class="large-6 large-offset-6 columns"><%= f.input :name %></div></br>
-    <div class="large-6 large-offset-6 columns"><%= f.button :submit %></div></br>
+    <%= f.input :name %></br>
+    <%= f.button :submit %></br>
   <%end%>
 <%end%>
-</div>
+</div></div>

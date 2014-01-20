@@ -28,9 +28,8 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li><%= link_to 'Contact Me', new_message_path %></li>
-      <li><%= link_to 'Gmail', user_omniauth_authorize_path(:google_oauth2) %></li>
       <% if user_signed_in? %>
+      <li><%= link_to 'Contact Me', new_message_path %></li>
       <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%if current_user.admin? %>
      <li class="has-dropdown">
@@ -44,8 +43,14 @@
         <%end%>
       </li>
       <%else%>
-      <li class="active"><%= link_to 'Join', new_user_session_path %></li>
-      <%end%>
+      <li class="active"><%= link_to 'Contact Me', new_message_path %></li>
+      <li class="has-dropdown">
+          <a href="#">Log In</a>
+      <ul class="dropdown">
+        <li><%= link_to 'Login with Gmail', user_omniauth_authorize_path(:google_oauth2)%></li>
+        <li><%= link_to "Login with Email", new_user_session_path %></li>
+      </ul>
+        <%end%>
     </ul>
 
     <!-- Left Nav Section -->
@@ -63,4 +68,3 @@
 </div>
 </body>
 </html>
-
