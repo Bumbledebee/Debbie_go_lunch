@@ -1,33 +1,29 @@
-<div class="row" data-lunch-id='<%=@lunch.id%>'>
+<div class="row" >
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
   <% groupes.each do |group| %>
-    <ul data-group-id='<%=group.id%>'id="sortable" class="droptrue"><%=group.name%>
+    <ul data-lunch-id='<%=@lunch.id%>' data-group-id='<%=group.id%>' id="sortable" class="droptrue"><%=group.name%>
       <% group.users.each do |user| %>
-        <li data-user-id='<%=user.id%>'><%=user.name %></li>
+        <li class="user" data-user-id='<%=user.id%>' ><%=user.name %></li>
       <%end%>
     </ul>
   <%end%>
-
 </div>
 
-<% content_for :extra_footer do %>
-<script>
-  document.onload = function() {
-    addToGroup();
+  <script>
+
+  $(function() {
     $( "ul.droptrue" ).sortable({
       connectWith: "ul"
     });
-    $( "#sortable" ).disableSelection();
-  };
-
-  var addToGroup = function(e){
-      e.preventDefault();
-      var target = $(e.target);
-      $.get('lunches/' + target.data('lunch-id') + '/groups' + target.data('group-id') + '/users' + target.data('user-id') + '/add_to_group', function(response){
+    $( "#sortable" ).on("sortreceive", function(event, ui) {
+      event.preventDefault();
+      var target = $(event.target);
+      $.post('lunches/' + target.data('lunch-id') + '/groups/' + target.data('group-id') + '/users/' + target.data('user-id') + '/change_group', function(response){
       });
-  }
+      });
+  });
 
-</script>
-<% end %>
+  </script>
+

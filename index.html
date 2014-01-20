@@ -50,3 +50,22 @@
 
 </body>
 </html>
+
+<% content_for :extra_footer do %>
+<script>
+  document.onload = function() {
+    $( "ul.droptrue" ).sortable({
+      connectWith: "ul"
+    });
+    $( "#sortable" ).disableSelection();
+  };
+
+  var addToGroup = function(e){
+      e.preventDefault();
+      var target = $(e.target);
+      $.post('/lunches/' + target.data('lunch-id') + '/groups/' + target.data('group-id') + '/users/' + target.data('user-id') + '/change_group', function(response){
+      });
+  }
+
+</script>
+<% end %>

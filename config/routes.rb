@@ -30,8 +30,7 @@ Toy::Application.routes.draw do
         get 'email'
       end
       resources :users do
-        get 'add_to_group'
-        get 'down_from_group'
+        post 'change_group'
       end
     end
   end

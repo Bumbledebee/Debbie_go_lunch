@@ -3,6 +3,8 @@
 <head>
   <title>Toy</title>
   <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application"%>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
@@ -59,8 +61,6 @@
 <%= yield %>
 <%= yield :extra_footer %>
 </div>
-<%= javascript_include_tag "application"%>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </body>
 </html>
 
