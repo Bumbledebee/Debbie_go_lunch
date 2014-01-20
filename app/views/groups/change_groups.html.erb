@@ -13,17 +13,14 @@
 </div>
 
 <% content_for :extra_footer do %>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script>
-  $(function() {
+  document.onload = function() {
+    addToGroup();
     $( "ul.droptrue" ).sortable({
       connectWith: "ul"
-      addToGroup
     });
-
     $( "#sortable" ).disableSelection();
-  });
+  };
 
   var addToGroup = function(e){
       e.preventDefault();
