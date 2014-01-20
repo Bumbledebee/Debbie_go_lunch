@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   belongs_to :lunchgroupleader
 
 
-  def self.find_for_gmail_oauth(auth)
+  def self.find_for_google_oauth2(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
