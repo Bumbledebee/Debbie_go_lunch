@@ -35,7 +35,7 @@
   var clickYes = function(){
     $('.yes').click(function(e){
       e.preventDefault();
-      $.get('<%= @user.id %>' + '/add_me', function(response){
+      $.get('./add_me', function(response){
         $('.yes').toggle();
         $('.no').toggle();
       });
@@ -44,7 +44,7 @@
   var clickNo = function(){
   $('.no').click(function(e){
     e.preventDefault();
-    $.get('<%= @user.id %>' + '/not_me', function(response){
+    $.get('./not_me', function(response){
       $('.no').toggle();
       $('.yes').toggle();
     });

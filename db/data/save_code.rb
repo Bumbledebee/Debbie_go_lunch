@@ -70,3 +70,6 @@ FactoryGirl.define do
     factory :user_not_willing_to_be_leader, traits: [:kind_of_willing_to_be_leader]
    end
 end
+
+@import 'aninmate';
+ *= require animate
