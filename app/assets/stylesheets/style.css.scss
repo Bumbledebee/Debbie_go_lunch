@@ -55,3 +55,20 @@ body {
   font-size: 1.2em;
   width: 120px;
 }
+
+.backstretch {
+  img {
+   -webkit-filter: grayscale(100%);
+   filter: grayscale(60%);
+  }
+}
+
+.noticemessage {
+ positon: absolute;
+}
+
+#rectangle {
+  width: 200px;
+  height: 100px;
+  background: red;
+}
