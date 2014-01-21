@@ -38,7 +38,7 @@ body {
   font-weight: bold;
 }
 
-#sortable {
+.sortable {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -49,7 +49,7 @@ body {
   width: 143px;
 }
 
-#sortable li {
+.sortable li {
   margin: 5px;
   padding: 5px;
   font-size: 1.2em;

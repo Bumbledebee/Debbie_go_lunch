@@ -13,6 +13,7 @@ gem 'pg'
 gem 'devise'
 gem "omniauth-google-oauth2"
 gem "certified"
+gem 'jquery-ui-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

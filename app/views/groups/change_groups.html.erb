@@ -4,13 +4,14 @@
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
   <% groupes.each do |group| %>
-    <ul data-lunch-id='<%=@lunch.id%>' data-group-id='<%=group.id%>' id="sortable" class="droptrue"><%=group.name%>
+    <ul data-lunch-id='<%=@lunch.id%>' data-group-id='<%=group.id%>' id="sortable<%=group.id%>" class="droptrue sortable"><%=group.name%>
       <% group.users.each do |user| %>
         <li class="user" data-user-id='<%=user.id%>' ><%=user.name %></li>
       <%end%>
     </ul>
   <%end%>
 </div>
+  <% content_for :extra_footer do %>
 
   <script>
 
@@ -18,7 +19,8 @@
     $( "ul.droptrue" ).sortable({
       connectWith: "ul"
     });
-    $( "#sortable" ).on("sortreceive", function(event, ui) {
+    $(".sortable" ).on("sortreceive", function(event, ui) {
+      debugger;
       event.preventDefault();
       var target = $(event.target);
       var target2 = target.find('[data-user-id]');
@@ -28,4 +30,5 @@
   });
 
   </script>
+  <% end %>
 

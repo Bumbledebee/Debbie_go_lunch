@@ -15,6 +15,7 @@
 //= require foundation
 //= require backstretch.min
 //= require_tree .
+//= require jquery.ui.all
 
 $(document).foundation();
 
