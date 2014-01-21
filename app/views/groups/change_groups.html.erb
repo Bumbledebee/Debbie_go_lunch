@@ -20,7 +20,8 @@
     $( "#sortable" ).on("sortreceive", function(event, ui) {
       event.preventDefault();
       var target = $(event.target);
-      $.post('lunches/' + target.data('lunch-id') + '/groups/' + target.data('group-id') + '/users/' + target.data('user-id') + '/change_group', function(response){
+      var target2 = target.find('[data-user-id]');
+      $.post('./' + target.data('group-id') + '/users/' + target2.data('user-id') + '/change_group', function(response){
       });
       });
   });
