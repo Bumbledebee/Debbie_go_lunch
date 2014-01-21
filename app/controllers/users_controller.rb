@@ -46,6 +46,7 @@ class UsersController < ApplicationController
   end
 
   def change_group
+    binding.pry
     @lunch = Lunch.find(params[:id])
     @group = Group.find(params[:id])
     @user = User.find(params[:id])
