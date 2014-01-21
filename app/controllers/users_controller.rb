@@ -32,32 +32,33 @@ class UsersController < ApplicationController
   def add_me
     @lunch = Lunch.last
     @user = User.find(params[:id])
-    @lunch.users += [@user]
-    @lunch.save
+    @lunch.users += @user
+    @lunch.save!
     render success: true, json: {data: 'Hello'}
   end
 
   def not_me
     @lunch = Lunch.last
     @user = User.find(params[:id])
-    @lunch.users -= [@user]
-    @lunch.save
+    @lunch.users -= @user
+    @lunch.save!
     render success: true, json: {data: 'Hello'}
   end
 
   def change_group
-    # @lunch = Lunch.find(params["lunch_id"].to_i)
-    # @group = Group.find(params["group_id"].to_i)
-    # @user = User.find(params["user_id"].to_i)
-    # @old_group = @lunch.groups.joins('LEFT OUTER JOIN user_groups ON groups.id = user_groups.group_id').joins('LEFT OUTER JOIN users ON users.id = user_groups.user_id').where('users.id = ?',95)
-    # @old_group[0].users.delete(@user)
-    # @group.users << @user
-    # if @old_group[0].lunchgroupleader == @user.id
-    #   @old_group[0].set_group_leader
-    # end
-    # render success: true, json: {data: '<%=@user.name%> was added to <%=@group.name%>'}
+    @lunch = Lunch.find(params["lunch_id"].to_i)
+    @group = Group.find(params["group_id"].to_i)
+    @user = User.find(params["user_id"].to_i)
+    @old_group = @lunch.groups.joins('LEFT OUTER JOIN user_groups ON groups.id = user_groups.group_id').joins('LEFT OUTER JOIN users ON users.id = user_groups.user_id').where('users.id = ?', @user.id)
+    @old_group[0].users -= @user
+    @old_group[0].save
+    @group.users += @user
+    @group.save
+    if @old_group[0].lunchgroupleader == @user.id
+      @old_group[0].set_group_leader
+    end
+    render success: true, json: {data: '<%=@user.name%> was added to <%=@group.name%>'}
   end
-
 
   def destroy
     @user = User.find(params[:id])

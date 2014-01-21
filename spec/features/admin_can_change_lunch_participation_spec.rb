@@ -20,6 +20,7 @@ feature 'admin can change lunch participants' do
     within(not_going[0]) do
       find("input[type='checkbox']").click
     end
+    save_and_open_page
     click_on 'ADD TO LUNCH'
     expect(Lunch.first.users.include?(User.first)).to eql true
     going = within('.going tbody') do

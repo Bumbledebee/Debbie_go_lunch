@@ -10,7 +10,7 @@ class Group < ActiveRecord::Base
   # private
   def set_group_leader
     if users.where(lunchgroupleader_id:1).any?
-      self.lunchgroupleader = users.where(lunchgroupleader_id:1).last.id
+      self.lunchgroupleader = self.users.where(lunchgroupleader_id:1).last.id
       save
     elsif users.where(lunchgroupleader_id:2).any?
       self.lunchgroupleader = users.where(lunchgroupleader_id:2).first.id

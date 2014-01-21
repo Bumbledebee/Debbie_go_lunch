@@ -20,15 +20,14 @@
       connectWith: "ul"
     });
     $(".sortable" ).on("sortreceive", function(event, ui) {
-      debugger;
       event.preventDefault();
       var target = $(event.target);
-      var target2 = target.find('[data-user-id]');
-      $.post('./' + target.data('group-id') + '/users/' + target2.data('user-id') + '/change_group', function(response){
+      var target2 = $(event.toElement).data('user-id');
+      $.post('./' + target.data('group-id') + '/users/' + target2 + '/change_group', function(response){
       });
       });
   });
 
   </script>
   <% end %>
-
+<!-- target.find('[data-user-id]') -->
