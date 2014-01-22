@@ -7,7 +7,7 @@
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <nav class="top-bar" data-topbar>
+  <nav class="top-bar contain-to-grid" data-topbar>
   <ul class="title-area">
     <li class="name">
       <%if user_signed_in?%>
@@ -57,10 +57,14 @@
     </ul>
   </section>
 </nav>
+
 <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: "name noticemessage" %>
+  <div class="noticemessage">
+    <%= content_tag :div, msg, class: "name" %>
+  </div>
 <% end -%>
-<div class="background">
+
+<div class="background row">
 <%= yield %>
 </div>
 <%= javascript_include_tag "application"%>

@@ -64,11 +64,16 @@ body {
 }
 
 .noticemessage {
- positon: absolute;
+  position: fixed;
 }
 
 #rectangle {
   width: 200px;
   height: 100px;
   background: red;
+}
+
+table {
+  background-color: white;
+  opacity: 0.65;
 }
