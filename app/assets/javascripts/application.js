@@ -20,6 +20,6 @@
 $(document).foundation();
 
 $(function(){
-  $.backstretch('https://dl.dropboxusercontent.com/u/59656384/pizza.jpg');
+  $.backstretch('/assets/Jon-Darsky-Del-Popolo-yatzer-6.jpg');
 })
 
