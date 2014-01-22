@@ -19,9 +19,9 @@
     $(".sortable" ).on("sortreceive", function(event, ui) {
       event.preventDefault();
       var target = $(event.target);
-      var target2 = $(event.toElement).data('user-id');
+      var target2 = ui.item.data('user-id');
       $.post('./' + target.data('group-id') + '/users/' + target2 + '/change_group', function(response){
-        alert(response);
+        alert("success");
       });
       });
   });

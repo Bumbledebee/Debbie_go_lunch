@@ -46,19 +46,16 @@ class UsersController < ApplicationController
   end
 
   def change_group
-    binding.pry
     @lunch = Lunch.find(params["lunch_id"].to_i)
     @group = Group.find(params["group_id"].to_i)
     @user = User.find(params["user_id"].to_i)
-    @old_group = @lunch.groups.joins('LEFT OUTER JOIN user_groups ON groups.id = user_groups.group_id').joins('LEFT OUTER JOIN users ON users.id = user_groups.user_id').where('users.id = ?', @user.id)
-    @old_group[0].users -= [@user]
-    ### save does not work because of read only
-    @old_group[0].save
-    # the adding does not persist
-    @group.users += @user
+    @old_group = @lunch.groups.includes(:users).where(users: {id: @user.id}).take
+    @old_group.users -= [@user]
+    @old_group.save
+    @group.users += [@user]
     @group.save
-    if @old_group[0].lunchgroupleader == @user.id
-      @old_group[0].set_group_leader
+    if @old_group.lunchgroupleader == @user.id
+      @old_group.set_group_leader
     end
     render success: true, json: {data: '<%=@user.name%> was added to <%=@group.name%>'}
   end

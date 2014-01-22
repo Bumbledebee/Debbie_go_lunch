@@ -1,23 +1,16 @@
-<div class="large-9 columns large-centered">
-<table class='milky'>
-
-  <tbody>
-    <% @lunches.reverse.each do |lunch| %>
-    <tr>
-      <td><%= lunch.name %></td>
-      <% if  lunch.groups.count >1 %>
-        <td class="look"> <%= link_to "Look at the groups", lunch_groups_path(lunch), class:'button'%> </td>
-      <%else%>
-        <td class="make"><%= link_to "Arrange participants", edit_lunch_path(lunch), class:'button' %></td>
-        <td class="make"> <%= link_to "Make lunch groups", match_lunch_path(lunch), class:'button'%> </td>
-      <%end%>
-      <td class="make"> <%= link_to "Delete", lunch, method: :delete, data: {confirm: "Are you sure?"}%> </td>
-    </tr>
+<div class="large-9 columns large-centered milky"></br></br>
+  <% @lunches.reverse.each do |lunch| %>
+    <ul><h2><%= lunch.name %></h2>
+    <% if  lunch.groups.count >1 %>
+      <%= link_to "Look at the groups", lunch_groups_path(lunch), class:'button'%>
+    <%else%>
+      <%= link_to "Arrange participants", edit_lunch_path(lunch), class:'button' %>
+      <%= link_to "Make lunch groups", match_lunch_path(lunch), class:'button'%>
     <%end%>
-  </tbody>
-</table>
+    <div class="black"><%= link_to "Delete", lunch, method: :delete, data: {confirm: "Are you sure?"}%></div></ul>
+  <%end%>
+
 <p> You can only invite to lunch, arrange participants and </br>make groups for one lunch at a time.</p>
-<div class="large-6 columns large-left milky">
 <%= simple_form_for @lunch do |f| %>
 <%= f.input :name%></br>
 <%= f.button :submit %></br>

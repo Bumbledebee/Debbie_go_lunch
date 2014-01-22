@@ -6,18 +6,18 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body bgcolor="gray">
   <nav class="top-bar contain-to-grid" data-topbar>
   <ul class="title-area">
     <li class="name">
       <%if user_signed_in?%>
         <% if Lunch.last.groups.count > 1 %>
-        <h1><%= link_to "View Groups", lunch_groups_path(Lunch.last)%></a></h1>
+        <h1 class="pink"><%= link_to "View Groups", lunch_groups_path(Lunch.last)%></a></h1>
         <%else%>
-        <h1><%= link_to "Go Lunch", edit_user_path(current_user)%></a></h1>
+        <h1 class="pink"><%= link_to "Go Lunch", edit_user_path(current_user)%></a></h1>
         <%end%>
       <% else %>
-        <h1><%= link_to "Find on Github", "https://github.com/Bumbledebee/Debbie_go_lunch" %></a></h1>
+        <h1 class="pink"><%= link_to "Find on Github", "https://github.com/Bumbledebee/Debbie_go_lunch" %></a></h1>
       <%end%>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>

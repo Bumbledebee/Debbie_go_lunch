@@ -58,17 +58,21 @@ class LunchesController < ApplicationController
   end
 
   def update_status
+    if params[:lunch]
     @lunch = Lunch.find(params[:id])
     @lunch.users += params[:lunch][:users].map{|x| User.find(x.to_i)}
     @lunch.save!
-    redirect_to edit_lunch_path(@lunch)
+    end
+    redirect_to :back
   end
 
   def take_down
+    if params[:lunch]
     @lunch = Lunch.find(params[:id])
     @lunch.users -= params[:lunch][:users].map{|x| User.find(x.to_i)}
     @lunch.save!
-    redirect_to edit_lunch_path(@lunch)
+    end
+    redirect_to :back
   end
 
   def destroy
