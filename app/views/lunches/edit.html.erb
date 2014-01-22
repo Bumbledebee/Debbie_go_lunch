@@ -2,8 +2,9 @@
 <h1> Change participant status for <strong><%= "#{@lunch.name} " %></strong></h1>
 <p> You can edit the name of the lunch at the bottom</p>
 <p>Ready ? <%= link_to "Go Back to Lunches", lunches_path%> in order to make groups </p>
+
 <div class="edit">
-<table class='going' id='milkydarker'>
+<table class='going milky'>
   <thead>
     <tr>
       <th width="200">Participant</th>
@@ -13,7 +14,7 @@
     <%= simple_form_for @lunch, url: take_down_lunch_path(@lunch), method: :put do |f| %>
     <% @users.each do |user| %>
     <tr>
-      <td><%= user.name %> </td>
+      <td class="green"><%= user.name %> </td>
       <td>
       <%= check_box_tag "lunch[users][]", user.id %>
       <%= label_tag "lunch[users][]", ""%> </td>
@@ -23,7 +24,7 @@
     <% end %>
   </tbody>
 </table>
-</div>
+</div>Ï
 
 <div class="edit">
 <table class='not-going milky'>
@@ -36,7 +37,7 @@
     <%= simple_form_for @lunch, url: update_status_lunch_path(@lunch), method: :put do |f| %>
       <% @users_not_going.each do |user| %>
       <tr>
-        <td><%= user.name %> </td>
+        <td class="red"><%= user.name %> </td>
         <td>
         <%= check_box_tag "lunch[users][]", user.id %>
         <%= label_tag "lunch[users][]", ""%> </td>
@@ -48,8 +49,8 @@
 </table>
 </div>
 </div>
-
-<div class="large-9 large-offset-4 columns milky">
+</div>
+<div class="large-8 large-offset-3 columns milky">
   <%= simple_form_for @lunch do |f| %>
   <%= f.input :name %>
   <%= f.submit %>
