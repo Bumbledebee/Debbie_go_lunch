@@ -11,7 +11,7 @@ class Lunch < ActiveRecord::Base
     group_num = (users.count/5)
     groups = []
 
-    group_num.times { groups << Group.new(:lunch_id => self.id, :name => self.name+"#{groups.count}")}
+    group_num.times { groups << Group.new(:lunch_id => self.id, :name => self.name+" "+"#{(groups.count+1)}")}
     if groups.each {|c| c.save}
       users = self.users.sort { |a,b| a.department_id <=> b.department_id}
       users.each_with_index do |user, index|

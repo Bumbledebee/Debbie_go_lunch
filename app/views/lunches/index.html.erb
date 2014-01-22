@@ -1,5 +1,6 @@
 <div class="large-9 columns large-centered">
-<table>
+<table class='milky'>
+
   <tbody>
     <% @lunches.reverse.each do |lunch| %>
     <tr>
@@ -15,12 +16,12 @@
     <%end%>
   </tbody>
 </table>
-<p> You can only invite to lunch, arrange participants and make groups for one lunch at a time.</p>
-<div class="large-6 columns large-left">
+<p> You can only invite to lunch, arrange participants and </br>make groups for one lunch at a time.</p>
+<div class="large-6 columns large-left milky">
 <%= simple_form_for @lunch do |f| %>
 <%= f.input :name%></br>
 <%= f.button :submit %></br>
 <%end%>
 </div>
 </div>
-
+</div>

@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def add_me
     @lunch = Lunch.last
     @user = User.find(params[:id])
-    @lunch.users += @user
+    @lunch.users += [@user]
     @lunch.save!
     render success: true, json: {data: 'Hello'}
   end
@@ -40,18 +40,21 @@ class UsersController < ApplicationController
   def not_me
     @lunch = Lunch.last
     @user = User.find(params[:id])
-    @lunch.users -= @user
+    @lunch.users -= [@user]
     @lunch.save!
     render success: true, json: {data: 'Hello'}
   end
 
   def change_group
+    binding.pry
     @lunch = Lunch.find(params["lunch_id"].to_i)
     @group = Group.find(params["group_id"].to_i)
     @user = User.find(params["user_id"].to_i)
     @old_group = @lunch.groups.joins('LEFT OUTER JOIN user_groups ON groups.id = user_groups.group_id').joins('LEFT OUTER JOIN users ON users.id = user_groups.user_id').where('users.id = ?', @user.id)
-    @old_group[0].users -= @user
+    @old_group[0].users -= [@user]
+    ### save does not work because of read only
     @old_group[0].save
+    # the adding does not persist
     @group.users += @user
     @group.save
     if @old_group[0].lunchgroupleader == @user.id

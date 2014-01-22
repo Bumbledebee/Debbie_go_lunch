@@ -1,7 +1,15 @@
-<div class="row"></br></br></br></br></br>
+</br></br></br></br></br>
+<div class="large-6 large-offset-3 columns">
 <%= simple_form_for @message do |f| %>
-  <div class="large-6 large-offset-6 columns"><%= f.input :email, label: false, placeholder: "Email" %></div>
-  <div class="large-6 large-offset-6 columns"><%= f.input :body, label: false, placeholder: "Your Message here" %></div>
-  <div class="large-6 large-offset-6 columns "><%= f.submit %></div>
+<%= f.input :email, label: false, placeholder: "Email" %>
+<%= f.input :body, label: false, placeholder: "Your Message here" %>
+<%= f.submit %>
 <% end %>
+<div class='milky'>
+  <h3>Documentation</h3>
+  <h4> As a developer</h4>
+  <p>asdfsadfasdfasdfasdjhfkasdhfksadf</p>
+  <h4> As the organiser</h4>
+  <p>asdfsadfasdfasdfasdjhfkasdhfksadf</p>
 </div>
+

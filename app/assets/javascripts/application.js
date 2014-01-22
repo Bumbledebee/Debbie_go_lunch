@@ -20,6 +20,6 @@
 $(document).foundation();
 
 $(function(){
-  $.backstretch('https://dl.dropboxusercontent.com/u/59656384/orange.jpg');
+  $.backstretch('https://dl.dropboxusercontent.com/u/59656384/pizza.jpg');
 })
 
