@@ -1,3 +1,4 @@
+<div class="milky">
 <% if @lunch == Lunch.last %>
 <%= link_to "Edit groups", change_groups_lunch_groups_path, class:'button'%>
 <%= link_to "Email groups", email_lunch_groups_path(@lunch), class:'button'%>
@@ -7,7 +8,7 @@
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups %>
   <% groupes.each do |group| %>
-    <table class='milky'>
+    <table id='milkydarker'>
       <thead>
         <tr>
           <th>Group</th>
@@ -31,4 +32,5 @@
     </tbody>
   </table>
   <%end%>
+</div>
 

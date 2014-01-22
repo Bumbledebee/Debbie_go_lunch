@@ -1,10 +1,9 @@
-<div class="large-9 large-offset-3 columns"><h1> Change participant status for the <strong><%= "#{@lunch.name} " %></strong></h1>
+<div class="large-8 large-offset-3 columns milky">
+<h1> Change participant status for <strong><%= "#{@lunch.name} " %></strong></h1>
 <p> You can edit the name of the lunch at the bottom</p>
 <p>Ready ? <%= link_to "Go Back to Lunches", lunches_path%> in order to make groups </p>
-</div>
-<div class="large-9 large-offset-3 columns">
 <div class="edit">
-<table class='going milky'>
+<table class='going' id='milkydarker'>
   <thead>
     <tr>
       <th width="200">Participant</th>
