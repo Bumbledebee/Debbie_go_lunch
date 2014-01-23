@@ -3,6 +3,7 @@
 <%= link_to "Edit groups", change_groups_lunch_groups_path, class:'button'%>
 <%= link_to "Email groups", email_lunch_groups_path(@lunch), class:'button'%>
 <%end%>
+<%= link_to "Groups are optmised for leveraging cross-departmental communication", '#', class:'black button'%>
 
   <% group_num = (@lunch.users.count/5)+1%>
   <% @users = @lunch.users %>

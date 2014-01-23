@@ -7,16 +7,7 @@
 
 #Signing up/in
 
-Default sign-up is currently with Gmail (omniauth-google-oauth2).
-Devise sign up is built in and you can let people choose which one to take by replacing this part in the navbar
-
-<li class="has-dropdown"></li>
-  <a href="#">Join the Lunch</a>
-  <ul class="dropdown">
-    <li><%= link_to 'Sign up', "https://github.com/Bumbledebee/Debbie_go_lunch"%></li>
-    <li><%= link_to "Sign in", new_message_path %></li>
-    <li><%= link_to "Gmail signup/in", new_message_path %></li>
-  </ul>
+Sign up is possible via Devise or Gmail(omniauth-google-oauth2)
 
 
 <tt>rake doc:app</tt>.

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!
-  before_action :authorize_user, except: [:edit, :update, :destroy]
+  before_action :authorize_user, except: [:edit, :update, :destroy, :add_me, :not_me]
   before_action :is_owner, only: [:edit, :update, :destroy]
 
   def index
