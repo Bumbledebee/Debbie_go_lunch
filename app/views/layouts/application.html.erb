@@ -6,19 +6,10 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
-<body bgcolor="gray">
+<body class="backgroundpicture">
   <nav class="top-bar contain-to-grid" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <%if user_signed_in?%>
-        <% if Lunch.last.groups.count > 1 %>
-        <h1><%= link_to "View Groups", lunch_groups_path(Lunch.last)%></a></h1>
-        <%else%>
-        <h1><%= link_to "Go Lunch", edit_user_path(current_user)%></a></h1>
-        <%end%>
-      <% else %>
-        <h1><%= link_to "Find on Github", "https://github.com/Bumbledebee/Debbie_go_lunch" %></a></h1>
-      <%end%>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
@@ -27,7 +18,6 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
-      <li><%= link_to 'Contact Me', new_message_path %></li>
       <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%if current_user.admin? %>
      <li class="has-dropdown">
@@ -41,12 +31,12 @@
         <%end%>
       </li>
       <%else%>
-      <li class="active"><%= link_to 'Contact Me', new_message_path %></li>
+      <li class="active"><%= link_to 'Join the Lunch', user_omniauth_authorize_path(:google_oauth2) %></li>
       <li class="has-dropdown">
-          <a href="#">Log In</a>
+          <a href="#">About</a>
       <ul class="dropdown">
-        <li><%= link_to 'Login with Gmail', user_omniauth_authorize_path(:google_oauth2)%></li>
-        <li><%= link_to "Login with Email", new_user_session_path %></li>
+        <li><%= link_to 'Find on Github', "https://github.com/Bumbledebee/Debbie_go_lunch"%></li>
+        <li><%= link_to "Send Feedback", new_message_path %></li>
       </ul>
         <%end%>
     </ul>
