@@ -19,7 +19,7 @@
 
 $(document).foundation();
 
-$(function(){
-  $.backstretch('/assets/Jon-Darsky-Del-Popolo-yatzer-6.jpg');
-})
+// $(function(){
+//   $.backstretch('/assets/Jon-Darsky-Del-Popolo-yatzer-6.jpg');
+// })
 
