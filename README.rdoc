@@ -1,45 +1,22 @@
 
-{<img src="https://coveralls.io/repos/Bumbledebee/Debbie_go_lunch/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/Bumbledebee/Debbie_go_lunch]
+{<img src="https://coveralls.io/repos/Bumbledebee/Debbie_ghttp://localhost:3000/#o_lunch/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/Bumbledebee/Debbie_go_lunch]
 
 {<img src="https://travis-ci.org/Bumbledebee/Debbie_go_lunch.png?branch=master" alt="Build Status" />}[https://travis-ci.org/Bumbledebee/Debbie_go_lunch]
 
 == README
 
-How to use the app:
+#Signing up/in
 
-1.Create a Lunch
+Default sign-up is currently with Gmail (omniauth-google-oauth2).
+Devise sign up is built in and you can let people choose which one to take by replacing this part in the navbar
 
-2. Add participants manually or let them sign up
+<li class="has-dropdown"></li>
+  <a href="#">Join the Lunch</a>
+  <ul class="dropdown">
+    <li><%= link_to 'Sign up', "https://github.com/Bumbledebee/Debbie_go_lunch"%></li>
+    <li><%= link_to "Sign in", new_message_path %></li>
+    <li><%= link_to "Gmail signup/in", new_message_path %></li>
+  </ul>
 
-3. Click on "Make groups"
-
-4. Send people an email with their group
------------------------------
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 
 <tt>rake doc:app</tt>.

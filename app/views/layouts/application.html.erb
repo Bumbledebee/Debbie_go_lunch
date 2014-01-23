@@ -20,14 +20,26 @@
       <% if user_signed_in? %>
       <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%if current_user.admin? %>
-     <li class="has-dropdown">
+          <li class="has-dropdown">
           <a href="#">Manage</a>
           <ul class="dropdown">
-            <li><%= link_to 'Manage Lunches', lunches_path %></li>
-            <li><%= link_to "Manage Departments", new_department_path %></li>
-            <li><%= link_to "Manage Lunchgroupleaderoptions", new_lunchgroupleader_path %></li>
-            <li><%= link_to "Manage Users", users_path %></li>
+          <% if Lunch.last.groups.size < 1 %>
+            <li><%= link_to 'RSVP', edit_user_path(current_user) %></li>
+          <%else%>
+            <li><%= link_to "View groups", lunch_groups_path(Lunch.last) %></li>
+          <%end%>
+          <li><%= link_to 'Manage Lunches', lunches_path %></li>
+          <li><%= link_to "Manage Departments", new_department_path %></li>
+          <li><%= link_to "Manage Lunchgroupleaderoptions", new_lunchgroupleader_path %></li>
+          <li><%= link_to "Manage Users", users_path %></li>
+          <li><%= link_to "Contribute on Github", new_message_path %></li>
           </ul>
+          <%else%>
+          <% if Lunch.last.groups.size < 1 %>
+            <li><%= link_to 'RSVP', edit_user_path(current_user) %></li>
+          <%else%>
+            <li><%= link_to "View groups", lunch_groups_path(Lunch.last) %></li>
+          <%end%>
         <%end%>
       </li>
       <%else%>
@@ -35,15 +47,15 @@
       <li class="has-dropdown">
           <a href="#">About</a>
       <ul class="dropdown">
-        <li><%= link_to 'Find on Github', "https://github.com/Bumbledebee/Debbie_go_lunch"%></li>
+        <li><%= link_to 'Contribute on Github', "https://github.com/Bumbledebee/Debbie_go_lunch"%></li>
         <li><%= link_to "Send Feedback", new_message_path %></li>
-      </ul>
+      </ul></li>
         <%end%>
     </ul>
 
     <!-- Left Nav Section -->
     <ul class="left">
-      <li><% link_to 'View Groups', lunch_groups_path(Lunch.last) %></li>
+      <li class="pink"><%= link_to "GoLunch", root_path %></li>
     </ul>
   </section>
 </nav>
