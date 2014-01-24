@@ -14,20 +14,15 @@ feature 'admin can change lunch participants' do
 
   it "admin adds someone to a group and takes him down again" do
     visit edit_lunch_path(Lunch.last)
-    not_going = within('.not-going tbody') do
-      all('tr')
-    end
+    not_going = page.all('table.not-going')
     within(not_going[0]) do
-      find("input[type='checkbox']").click
+      check('lunch[users][]')
     end
-    save_and_open_page
     click_on 'ADD TO LUNCH'
     expect(Lunch.first.users.include?(User.first)).to eql true
-    going = within('.going tbody') do
-      all('tr')
-    end
+    going = page.all('table.going')
     within(going[0]) do
-      find("input[type='checkbox']").click
+      check('lunch[users][]')
     end
     click_on "TAKE DOWN"
     expect(Lunch.first.users.include?(User.first)).to eql false
