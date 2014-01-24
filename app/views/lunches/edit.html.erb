@@ -3,6 +3,7 @@
 <p> You can edit the name of the lunch at the bottom</p>
 <p>Ready ? <%= link_to "Go Back to Lunches", lunches_path%> in order to make groups </p>
 
+<%if Lunch.any?%>
 <div class="edit">
 <table class='going milky'>
   <thead>
@@ -57,4 +58,7 @@
   <%= f.submit%>
   <%end%>
 </div>
+<%else%>
+<p> No lunch has been created yet</p>
+<%end%>
 

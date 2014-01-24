@@ -67,11 +67,6 @@ body {
   position: fixed;
 }
 
-#rectangle {
-  width: 200px;
-  height: 100px;
-  background: red;
-}
 
 .milky {
   background-color: white;
@@ -91,5 +86,14 @@ body {
 .black {
   a {
   color: black;
+  }
+}
+
+pb {
+  a {
+  width: 200px;
+  height: 100px;
+  background-color: #DF0174;
+  opacity: 0.80;
   }
 }

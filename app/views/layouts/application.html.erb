@@ -23,10 +23,12 @@
           <li class="has-dropdown">
           <a href="#">Manage</a>
           <ul class="dropdown">
-          <% if Lunch.last.groups.size < 1 %>
-            <li><%= link_to 'RSVP', edit_user_path(current_user) %></li>
-          <%else%>
-            <li><%= link_to "View groups", lunch_groups_path(Lunch.last) %></li>
+          <%if Lunch.any?%>
+            <% if Lunch.last.groups.size < 1 %>
+              <li><%= link_to 'RSVP', edit_user_path(current_user) %></li>
+            <%else%>
+              <li><%= link_to "View groups", lunch_groups_path(Lunch.last) %></li>
+            <%end%>
           <%end%>
           <li><%= link_to 'Manage Lunches', lunches_path %></li>
           <li><%= link_to "Manage Departments", new_department_path %></li>
@@ -35,9 +37,9 @@
           <li><%= link_to "Find on Github", new_message_path %></li>
           </ul>
           <%else%>
-          <% if Lunch.last.groups.size < 1 %>
-            <li><%= link_to 'RSVP', edit_user_path(current_user) %></li>
-          <%else%>
+            <% if Lunch.last.groups.size < 1 %>
+              <li><%= link_to 'RSVP', edit_user_path(current_user) %></li>
+            <%else%>
             <li><%= link_to "View groups", lunch_groups_path(Lunch.last) %></li>
           <%end%>
         <%end%>
