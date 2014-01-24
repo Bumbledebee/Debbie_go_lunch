@@ -1,3 +1,6 @@
+<div class='subheader panel'>
+<h3> Drag the name of a user and drop it into another lunchgroup </h3>
+<%= link_to "Go Back", lunches_path, class:'black button'%></div>
   <% group_num = (@lunch.users.count/5)+1 %>
   <% @users = @lunch.users %>
   <% groupes = @lunch.groups[0...group_num] %>
@@ -28,4 +31,3 @@
 
   </script>
 <% end %>
-<!-- target.find('[data-user-id]') -->

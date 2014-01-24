@@ -1,37 +1,35 @@
-<div class="milky">
 <% if @lunch == Lunch.last %>
 <%= link_to "Edit groups", change_groups_lunch_groups_path, class:'button'%>
 <%= link_to "Email groups", email_lunch_groups_path(@lunch), class:'button'%>
+<%else%>
+<%= link_to "This lunch happened in the past. You cannot edit it anymore.", '#', class:'black button'%>
+<%= link_to "Go Back", lunches_path, class:'black button'%>
 <%end%>
-<%= link_to "Groups are optmised for leveraging cross-departmental communication", '#', class:'black button'%>
-
-  <% group_num = (@lunch.users.count/5)+1%>
-  <% @users = @lunch.users %>
-  <% groupes = @lunch.groups %>
-  <% groupes.each do |group| %>
-    <table id='milkydarker'>
-      <thead>
-        <tr>
-          <th>Group</th>
-          <th class="strongs">Lunchgroupleader</th>
-           <% group.users.each do |user|%>
-            <th><%=user.department.name %>
-          <%end%>
-          </th>
-        </tr>
-    </thead>
-    <tbody>
+<% group_num = (@lunch.users.count/5)+1%>
+<% @users = @lunch.users %>
+<% groupes = @lunch.groups %>
+<% groupes.each do |group| %>
+  <table class="milky">
+    <thead>
       <tr>
-        <td><%= group.name %></td>
-          <% user = User.where(id: group.lunchgroupleader)%>
-        <td class="strong"><%=user[0].name %></td>
-          <% group.users.each do |user|%>
-            <td><%=user.name %>
-          <%end%>
-          </td>
+        <th width=150>Group</th>
+        <th class="strongs">Lunchgroupleader</th>
+         <% group.users.each do |user|%>
+          <th><%=user.department.name %>
+        <%end%>
+        </th>
       </tr>
-    </tbody>
-  </table>
-  <%end%>
-</div>
-
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= group.name %></td>
+        <% user = User.where(id: group.lunchgroupleader)%>
+      <td class="strong"><%=user[0].name %></td>
+        <% group.users.each do |user|%>
+          <td><%=user.name %>
+        <%end%>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<%end%>
