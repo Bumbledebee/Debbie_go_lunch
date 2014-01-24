@@ -43,7 +43,7 @@
         <%end%>
       </li>
       <%else%>
-      <li class="active"><%= link_to 'Join the Lunch', user_omniauth_authorize_path(:google_oauth2) %></li>
+      <li class="active"><%= link_to 'Join the Lunch', new_user_session_path %></li>
       <li class="has-dropdown">
           <a href="#">About</a>
       <ul class="dropdown">
