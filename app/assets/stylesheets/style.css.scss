@@ -89,11 +89,18 @@ body {
   }
 }
 
-pb {
-  a {
-  width: 200px;
-  height: 100px;
-  background-color: #DF0174;
-  opacity: 0.80;
-  }
+.big {
+  width: 320px;
+  height: 150px;
+  font-size: 3em;
+}
+
+.text {
+  width: 600px;
+  height: 60px;
+  font-size: 3em;
+}
+
+.text {
+  font-size: 1em;
 }

@@ -1,5 +1,13 @@
+<%unless Lunch.any?%>
+  <div class='subheader panel'>This app is a demo. It is about an RSVP system to company lunches.</div><%= link_to "Start the demo", '#', class:'bold button big'%>
+  </li>
+<%else%>
 <ul class="small-block-grid-3"></br></br></br></br>
-  <li><h1 class="pink milky">Participate in next Lunch</h1></br><h1 class="milky bold"><%if Lunch.any?%><%= Lunch.last.name %><%end%></h1></li>
+  <li><h1 class="pink milky">Participate in next Lunch</h1></br><h1 class="milky bold">
+    <%= Lunch.last.name %></h1></br><%= link_to "Join the Lunch", new_user_session_path, class:'bold button big'%>
+  </li>
   <li></li>
   <li></li>
 </ul>
+
+<%end%>
