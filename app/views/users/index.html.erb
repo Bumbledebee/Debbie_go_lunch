@@ -14,8 +14,8 @@
     <% @users.each do |user| %>
     <tr>
       <td><%= user.name %> </td>
-      <td><%= user.department.name %></td>
-      <td><%= user.lunchgroupleader.name %></td>
+      <td><% if user.department %><%= user.department.name %><%end%></td>
+      <td><% if user.lunchgroupleader %><%= user.lunchgroupleader.name %><%end%></td>
       <td><%= user.optional %></td>
       <td><%= user.admin %></td>
       <td><%= link_to 'edit', edit_user_path(user) %>
