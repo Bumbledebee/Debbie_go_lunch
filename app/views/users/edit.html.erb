@@ -1,11 +1,13 @@
 <div class="large-6 large-offset-3 columns milky">
   </br></br>
+  <%if Lunch.any?%>
   <% if Lunch.last.groups.size == 0 %>
     <% attending = Lunch.last.users.include?(@user) %>
     <div class="no <%= 'show' if attending %>"><h1 class="green"><strong>Current status:</br>You are Participating</strong></h1></br></br><button class='button'>Change response to 'No'</button>
     </div>
     <div class="yes <%= 'show' if !attending %>"><h1 class="red"><strong>Current status:</br> Not Participating</strong></h1></br></br><button class='button'>Change response to 'Yes'</button>
     </div>
+  <%end%>
   <%end%>
 </br></br>
 
@@ -21,6 +23,7 @@
   </div></br>
 <%end%>
 
+<%if Lunch.any?%>
 <% content_for :extra_footer do %>
 <script>
   window.onload=function(){
@@ -46,4 +49,5 @@
   })
   }
 </script>
-<% end %>
+<%end%>
+<%end%>
