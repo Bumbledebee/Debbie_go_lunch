@@ -17,7 +17,7 @@ class LunchesController < ApplicationController
   def create
     @lunch = Lunch.new(lunch_params)
 
-    if Lunch.last.groups.size > 0
+    if (Lunch.last == nil) || (Lunch.last.groups.size > 0)
       if @lunch.save
         redirect_to lunches_path, notice: "Successfully created another lunch"
       else

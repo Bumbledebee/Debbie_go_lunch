@@ -1,6 +1,6 @@
 <div class="large-9 columns large-centered milky"></br></br>
-<h3>The current lunch is <strong><%if Lunch.any?%><%=Lunch.last.name%><%else%>no lunch created yet<%end%></strong></h3>
-<h4>You should have at least 10 participants in a lunch before you make the groups</h4>
+<h3>The current lunch is <strong><%if Lunch.any?%><%=Lunch.last.name%><%else%>'no lunch created yet'<%end%></strong></h3>
+<h4>You should have at least 10 participants in a lunch before you make the groups. One group holds five people.</h4>
 <%= simple_form_for @lunch do |f| %>
 <%= f.input :name, placeholder: "Type here the name for a new lunch" %>
 <%= f.submit %></br></br>
@@ -8,7 +8,7 @@
 <%if Lunch.any?%>
 <% @lunches.reverse.each do |lunch| %>
   <ul><h2><%= lunch.name %></h2>
-  <% if  lunch.groups.count >1 %>
+  <%if Lunch.last.groups.size > 0 %>
     <%= link_to "Look at the groups", lunch_groups_path(lunch), class:'button'%>
   <%else%>
     <%= link_to "1. Add participants", edit_lunch_path(lunch), class:'button' %>
