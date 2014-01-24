@@ -8,13 +8,13 @@
 <%if Lunch.any?%>
 <% @lunches.reverse.each do |lunch| %>
   <ul><h2><%= lunch.name %></h2>
-  <%if Lunch.last.groups.size > 0 %>
+  <%if lunch.groups.size > 0 %>
     <%= link_to "Look at the groups", lunch_groups_path(lunch), class:'button'%>
   <%else%>
     <%= link_to "1. Add participants", edit_lunch_path(lunch), class:'button' %>
     <%= link_to "2. Make lunch groups", match_lunch_path(lunch), class:'button'%>
   <%end%>
-  <div class="black"><%= link_to "Delete", lunch, method: :delete %></div></ul>
+  <div class="black"><%= link_to "Delete", lunch, method: :delete %></div></br></ul>
 <%end%>
 <%end%>
 </div>

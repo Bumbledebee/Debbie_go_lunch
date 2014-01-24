@@ -4,7 +4,8 @@
 <%else%>
 <ul class="small-block-grid-3"></br></br></br></br>
   <li><h1 class="pink milky">Participate in next Lunch</h1></br><h1 class="milky bold">
-    <%= Lunch.last.name %></h1></br><%= link_to "Join the Lunch", new_user_session_path, class:'bold button big'%>
+    <%= Lunch.last.name %></h1></br><%if !user_signed_in?%>
+    <%= link_to "Join the Lunch", new_user_session_path, class:'bold button big'%><%end%>
   </li>
   <li></li>
   <li></li>

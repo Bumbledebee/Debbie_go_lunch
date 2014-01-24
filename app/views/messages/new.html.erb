@@ -1,10 +1,9 @@
-<div class="large-6 large-offset-3 columns milky">
-  </br></br></br></br></br>
+<div class="columns milky">
+</br></br></br></br></br>
 <%= simple_form_for @message do |f| %>
-<%= f.input :email, label: false, placeholder: "Email" %>
-<%= f.input :body, label: false, placeholder: "Your Message here" %>
-<%= f.submit %>
+<div class="large-6 large-offset-3"><%= f.input :email, label: false, placeholder: "Email" %></div>
+<div class="large-6 large-offset-3"><%= f.input :body, label: false, placeholder: "Your Message here" %></div>
+<div class="large-6 large-offset-3"><%= f.submit %></div>
 <% end %></br></br>
-  <h4></h4>
-  <p>Find this project on <a href="https://github.com/Bumbledebee/Debbie_go_lunch">Github</a>.</p>
+<div class="large-6 large-offset-3"><p>Find this project on <a href="https://github.com/Bumbledebee/Debbie_go_lunch">Github</a>.</p></div>
 </div>

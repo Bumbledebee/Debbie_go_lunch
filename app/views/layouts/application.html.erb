@@ -34,7 +34,7 @@
           <li><%= link_to "Manage Departments", new_department_path %></li>
           <li><%= link_to "Manage Lunchgroupleaderoptions", new_lunchgroupleader_path %></li>
           <li><%= link_to "Manage Users", users_path %></li>
-          <li><%= link_to "Find on Github", new_message_path %></li>
+<!--           <li><%= link_to "Find on Github", new_message_path %></li> -->
           </ul>
           <%else%>
             <% if Lunch.last.groups.size < 1 %>
@@ -54,7 +54,7 @@
       <li ><%= link_to "GoLunch", root_path %></li>
       <% if current_user %><li class="pink"><a><%=current_user.email%></a></li><%end%>
       <%else%>
-      <li><%= link_to 'Contact Me', new_message_path %></li>
+      <!-- <li><%= link_to 'Contact Me', new_message_path %></li> -->
       <%end%>
     </ul>
   </section>
