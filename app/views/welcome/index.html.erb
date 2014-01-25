@@ -1,10 +1,10 @@
 <%unless Lunch.any?%></br></br>
-  <div class='subheader panel'>This app is a demo. GoLunch is an RSVP system for company lunches that creates lunchgroups.</div></br></br><%= link_to "Start the demo", new_user_session_path, class:'bold button big'%>
+  <div class='subheader panel'>This app is a demo. GoLunch is an RSVP system for company lunches that creates lunchgroups.</div></br></br><%= link_to "Start the demo", user_omniauth_authorize_path(:google_oauth2), class:'bold button big'%>
 <%else%>
 <ul class="small-block-grid-3"></br></br></br></br>
   <li><h1 class="pink milky">Participate in next Lunch</h1></br><h1 class="milky bold">
     <%= Lunch.last.name %></h1></br><%if !user_signed_in?%>
-    <%= link_to "Join the Lunch", new_user_session_path, class:'bold button big'%><%end%>
+    <%= link_to "Join the Lunch", user_omniauth_authorize_path(:google_oauth2), class:'bold button big'%><%end%>
   </li>
   <li></li>
   <li></li>
