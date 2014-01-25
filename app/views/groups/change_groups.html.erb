@@ -1,10 +1,9 @@
 <div class='subheader panel'>
 <h3> Drag the name of a user and drop it into another lunchgroup </h3>
-<%= link_to "Go Back", lunches_path, class:'black button'%></div>
-  <% group_num = (@lunch.users.count/5)+1 %>
+<%= link_to "Go Back", lunch_groups_path(@lunch), class:'black button'%></div>
   <% @users = @lunch.users %>
-  <% groupes = @lunch.groups[0...group_num] %>
-  <% groupes.each do |group| %>
+  <% groups = @lunch.groups %>
+  <% groups.each do |group| %>
     <ul data-lunch-id='<%=@lunch.id%>' data-group-id='<%=group.id%>' id="sortable<%=group.id%>" class="droptrue sortable milky"><%=group.name%>
       <% group.users.each do |user| %>
         <li class="user" data-user-id='<%=user.id%>' ><%=user.name %></li>

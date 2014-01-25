@@ -9,7 +9,7 @@
 <% @lunches.reverse.each do |lunch| %>
   <ul><h2><%= lunch.name %></h2>
   <%if lunch.groups.size > 0 %>
-    <%= link_to "Look at the groups", lunch_groups_path(lunch), class:'button'%>
+    <%= link_to "View groups", lunch_groups_path(lunch), class:'button'%>
   <%else%>
     <%= link_to "1. Add participants", edit_lunch_path(lunch), class:'button' %>
     <%= link_to "2. Make lunch groups", match_lunch_path(lunch), class:'button'%>

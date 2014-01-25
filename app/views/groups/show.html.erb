@@ -1,8 +1,9 @@
 <% if @lunch == Lunch.last %>
 <%= link_to "Edit groups", change_groups_lunch_groups_path, class:'button'%>
 <%= link_to "Email groups", email_lunch_groups_path(@lunch), class:'button'%>
+<%= link_to "Go Back", lunches_path, class:'black button'%>
 <%else%>
-<%= link_to "This lunch happened in the past. You cannot edit it anymore.", '#', class:'black button'%>
+<%= link_to "This lunch is not the current Lunch anymore. You cannot edit it.", '#', class:'black button'%>
 <%= link_to "Go Back", lunches_path, class:'black button'%>
 <%end%>
 <% group_num = (@lunch.users.count/5)+1%>
