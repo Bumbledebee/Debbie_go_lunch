@@ -48,7 +48,9 @@ RSpec.configure do |config|
 
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+  config.include(AuthenticationHelper, type: :controller)
   config.include(AuthenticationHelper, type: :feature)
+  config.include RSpec::Rails::RequestExampleGroup, type: :feature
 end
 
 Capybara.default_wait_time = 5

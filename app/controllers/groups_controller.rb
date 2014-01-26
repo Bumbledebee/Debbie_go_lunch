@@ -3,18 +3,17 @@ class GroupsController < ApplicationController
   before_action :authorize_user, except: [:show]
 
   def show
+    @user = current_user
     @lunch = Lunch.find(params[:lunch_id])
-    group_num = (@lunch.users.count/5)+1
     @users = @lunch.users
-    @groups = @lunch.groups[0...group_num]
+    @groups = @lunch.groups
   end
 
   def change_groups
-    # we edit and index show all groups at the same time
+    @user = current_user
     @lunch = Lunch.find(params[:lunch_id])
-    group_num = (@lunch.users.count/5)+1
     @users = @lunch.users
-    @groups = @lunch.groups[0...group_num]
+    @groups = @lunch.groups
   end
 
   def csv
@@ -28,7 +27,7 @@ class GroupsController < ApplicationController
     @lunch.users.each do |user|
       GroupInfo.send_message(user).deliver
     end
-    redirect_to lunches_path, notice:"Message sent successfully "
+    redirect_to lunch_groups_path, notice:"Message sent successfully"
   end
 
   protected

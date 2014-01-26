@@ -1,11 +1,9 @@
 require 'spec_helper'
 
 feature 'admin features' do
-  let(:user) {FactoryGirl.build(:user)}
   let(:admin) {FactoryGirl.build(:user, admin: true)}
 
   before :each do
-    user.save
     admin.save
     FactoryGirl.create(:lunch, name:"Chinese Dumplings")
     FactoryGirl.create_list(:department, 4)
@@ -42,19 +40,30 @@ feature 'admin features' do
 
 end
 
-
 feature 'user features' do
+  let(:user) {FactoryGirl.build(:user, name: "John")}
+
+  before :each do
+    user.save
+    FactoryGirl.create(:lunch, name:"Chinese Dumplings")
+    FactoryGirl.create_list(:department, 4)
+    FactoryGirl.create_list(:lunchgroupleader, 3)
+    sign_in_as(user)
+  end
 
   it "user can edit his own profile" do
-
+    visit edit_user_path(user)
+    fill_in 'Name', with: "Sam"
+    click_on('Update User')
+    visit edit_user_path(user)
+    expect(user.name).to eql "Sam"
   end
 
-  it "user cannot edit other peoples' profiles"do
-  end
-
-  it "user cannot make groups"do
+  it "user cannot edit other peoples' profiles" do
+    expect {visit 'users/105/edit'}.to raise_error
   end
 
   it "user cannot see, edit and add new lunches" do
+    expect {visit 'lunches/'}.to raise_error
   end
 end

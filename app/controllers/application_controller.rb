@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
 
     if current_user.admin?
-      edit_user_path(resource)
+      lunches_path
     else
       edit_user_path(resource)
     end

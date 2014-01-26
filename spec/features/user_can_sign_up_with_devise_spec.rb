@@ -16,9 +16,7 @@ feature 'user can signs up', %Q{
 
   scenario 'specifying valid and required information' do
     FactoryGirl.create(:department)
-    visit root_path
-    click_link 'Join'
-    click_link 'Sign up'
+    visit new_user_registration_path
     fill_in 'Email', with: 'user@example.com'
     fill_in "Password", with: "passwordtest", :match => :prefer_exact
     fill_in "Password Confirmation", with: "passwordtest", :match => :prefer_exact
@@ -29,18 +27,14 @@ feature 'user can signs up', %Q{
   end
 
   scenario "specifying invalid information" do
-    visit root_path
-    click_link 'Join'
-    click_button 'Sign up'
-
+    visit new_user_registration_path
+    click_button 'Sign Up'
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content("Sign Out")
   end
 
   scenario "passwords not matching" do
-    visit root_path
-    click_link 'Join'
-    click_link 'Sign up'
+    visit new_user_registration_path
 
     fill_in 'Password', with: "password", :match => :prefer_exact
     fill_in 'Password Confirmation', with: "somethingelse", :match => :prefer_exact

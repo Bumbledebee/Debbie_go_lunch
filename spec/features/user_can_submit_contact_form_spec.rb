@@ -15,10 +15,8 @@ feature 'submit contact form', %Q(
 
     Lunch.create!(name:"Chinese Dumplings")
     Lunch.create!(name:"Picnic Boston Common")
-    #clear out emails
     ActionMailer::Base.deliveries = []
-    visit root_path
-    click_link 'Contact Me'
+    visit new_message_path
     fill_in "Email", with:"hello@gmail.com"
     fill_in "Your Message here", with:"Nice Site!"
     click_on "Create Message"

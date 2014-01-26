@@ -17,12 +17,15 @@ feature 'user can decide to participate in a lunch' do
     expect(Lunch.first.users.include?(User.first)).to eql false
   end
 
-  it "user signs on and off again" do
+  it "user signs on and off again", type: :controller do
+    visit edit_user_path(user)
     click_on "Change response to 'Yes'"
     expect(page).to have_content "Change response to 'No'"
-    expect(Lunch.first.users.include?(User.first)).to eql true
+    post add_me_user_path(user)
+    expect(lunch.users.count).to eql 1
     click_on "Change response to 'Yes'"
-    expect(Lunch.first.users.include?(User.first)).to eql false
+    post :not_me
+    expect(lunch.users.include?(user)).to eql false
   end
 
 end

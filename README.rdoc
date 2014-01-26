@@ -1,5 +1,4 @@
-
-{<img src="https://coveralls.io/repos/Bumbledebee/Debbie_ghttp://localhost:3000/#o_lunch/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/Bumbledebee/Debbie_go_lunch]
+{<img src="https://coveralls.io/repos/Bumbledebee/Debbie_go_lunch/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/Bumbledebee/Debbie_go_lunch?branch=master]
 
 {<img src="https://travis-ci.org/Bumbledebee/Debbie_go_lunch.png?branch=master" alt="Build Status" />}[https://travis-ci.org/Bumbledebee/Debbie_go_lunch]
 
@@ -11,13 +10,13 @@ Sign up is possible via Devise or Gmail(omniauth-google-oauth2)
 
 Here are the paths, you may choose which one to use:
 
-Email sign up: new_user_registration_path
-Email sign in: new_user_session_path
-Gmail: user_omniauth_authorize_path(:google_oauth2)
++ Email sign up: <new_user_registration_path>
++ Email sign in: <new_user_session_path>
++ Gmail: <user_omniauth_authorize_path(:google_oauth2)>
 
 #Making lunchgroups
 
-Firstly, you need to make yourself in admin via Rails C or the seedfile.
+Firstly, you need to make yourself in admin via the Rails Console or the seedfile.
 Then your login will display the admin functionality.
 You should go about it in this order:
 
@@ -25,6 +24,3 @@ You should go about it in this order:
 2. Invite people to RSVP to the lunch. Last minute adjustments of participants you can also do manually.
 3. Make groups. If needed you can edit them manually afterwards.
 4. Email groups
-
-
-<tt>rake doc:app</tt>.

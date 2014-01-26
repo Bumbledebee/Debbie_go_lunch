@@ -19,7 +19,7 @@
       <td><%= user.optional %></td>
       <td><%= user.admin %></td>
       <td><%= link_to 'edit', edit_user_path(user) %>
-      <td><%= link_to 'delete', user, :method => :delete, :confirm => 'You can only delete the user if he is not part of any lunchgroup' %>
+      <td><%= link_to 'delete', user, :method => :delete, data: { confirm: 'You can only delete the user if he is not part of any lunchgroup'} %>
     </tr>
     <%end%>
   </tbody>

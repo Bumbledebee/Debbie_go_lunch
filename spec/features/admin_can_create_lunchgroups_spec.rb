@@ -26,7 +26,7 @@ feature 'admin can create lunchgroups' do
 
   it "admin can edit the frontpage date and time for signup" do
     visit lunches_path
-    click_on "Arrange participants"
+    click_on "Add participants"
     fill_in 'Name', with: "Boston Common Picnic"
     click_on 'Update Lunch'
     visit lunches_path
