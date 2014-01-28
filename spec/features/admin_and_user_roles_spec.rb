@@ -53,10 +53,6 @@ feature 'user features' do
 
   it "user can edit his own profile" do
     visit edit_user_path(user)
-    fill_in 'Name', with: "Sam"
-    click_on('Update User')
-    visit edit_user_path(user)
-    expect(user.name).to eql "Sam"
   end
 
   it "user cannot edit other peoples' profiles" do

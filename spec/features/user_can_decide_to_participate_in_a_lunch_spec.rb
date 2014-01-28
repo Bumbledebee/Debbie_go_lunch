@@ -24,6 +24,7 @@ feature 'user can decide to participate in a lunch' do
     post add_me_user_path(user)
     expect(lunch.users.count).to eql 1
     click_on "Change response to 'Yes'"
+    #need to research a javascript testing framework for ajax
     post :not_me
     expect(lunch.users.include?(user)).to eql false
   end
