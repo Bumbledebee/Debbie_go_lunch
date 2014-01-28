@@ -1,8 +1,6 @@
-{<img src="https://coveralls.io/repos/Bumbledebee/Debbie_go_lunch/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/Bumbledebee/Debbie_go_lunch?branch=master]
+<img src="https://coveralls.io/repos/Bumbledebee/Debbie_go_lunch/badge.png?branch=master" alt="Coverage Status" />
 
-{<img src="https://travis-ci.org/Bumbledebee/Debbie_go_lunch.png?branch=master" alt="Build Status" />}[https://travis-ci.org/Bumbledebee/Debbie_go_lunch]
-
-== README
+<img src="https://travis-ci.org/Bumbledebee/Debbie_go_lunch.png?branch=master" alt="Build Status" />
 
 #Signing up/in
 
@@ -10,9 +8,9 @@ Sign up is possible via Devise or Gmail(omniauth-google-oauth2)
 
 Here are the paths, you may choose which one to use:
 
-+ Email sign up: <new_user_registration_path>
-+ Email sign in: <new_user_session_path>
-+ Gmail: <user_omniauth_authorize_path(:google_oauth2)>
++ Email sign up:     <new_user_registration_path>
++ Email sign in:     <new_user_session_path>
++ Gmail:     <user_omniauth_authorize_path(:google_oauth2)>
 
 #Making lunchgroups
 
