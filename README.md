@@ -1,6 +1,3 @@
-<img src="https://coveralls.io/repos/Bumbledebee/Debbie_go_lunch/badge.png?branch=master" alt="Coverage Status" />
-
-<img src="https://travis-ci.org/Bumbledebee/Debbie_go_lunch.png?branch=master" alt="Build Status" />
 
 #Signing up/in
 
