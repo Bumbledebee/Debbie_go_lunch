@@ -20,7 +20,7 @@ Firstly, you need to make yourself in admin via the Rails Console or the seedfil
 Then your login will display the admin functionality.
 You should go about it in this order:
 
-1. Make a lunchgroup
+1. Create a lunch (e.g. Thai Food).
 2. Invite people to RSVP to the lunch. Last minute adjustments of participants you can also do manually.
 3. Make groups. If needed you can edit them manually afterwards.
-4. Email groups
+4. Email attendees their group.
