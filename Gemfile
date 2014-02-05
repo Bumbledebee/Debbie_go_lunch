@@ -50,13 +50,17 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'rspec-rails'
+  gem "guard"
+  gem "guard-rspec"
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'quiet_assets'
   gem 'launchy'
   gem 'email_spec'
   gem 'mailcatcher'
   gem 'dotenv'
   gem 'dotenv-rails'
+  gem 'database_cleaner'
 end
 
 
