@@ -101,6 +101,13 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.9)
+    jasmine (2.0.0)
+      jasmine-core (~> 2.0.0)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.0.0)
+    jasmine-jquery-rails (2.0.2)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -160,6 +167,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
+    phantomjs (1.9.2.1)
     polyglot (0.3.3)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -301,6 +309,8 @@ DEPENDENCIES
   foundation-rails
   guard
   guard-rspec
+  jasmine
+  jasmine-jquery-rails
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails

@@ -13,7 +13,7 @@ Toy::Application.routes.draw do
   resources :departments
   resources :lunchgroupleaders
 
-  root :to => "welcome#index"
+  root to: "welcome#index"
 
   resources :lunches do
     member do

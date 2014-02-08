@@ -61,6 +61,8 @@ group :development, :test do
   gem 'dotenv'
   gem 'dotenv-rails'
   gem 'database_cleaner'
+  gem 'jasmine'
+  gem 'jasmine-jquery-rails'
 end
 
 
